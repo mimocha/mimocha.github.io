@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+	cursor: pointer;
+	background-color: black;
+}
+
+.media {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+video {
+	visibility: hidden;
+}
+
+@media screen and (orientation:portrait) {
+	.media {
+		object-fit: contain;
+	}
+}
+
+@media screen and (orientation:landscape) {
+	.media {
+		object-fit: cover;
+	}
+}
