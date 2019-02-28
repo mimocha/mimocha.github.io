@@ -1,0 +1,19 @@
+body {
+	background-color: white;
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	height: 50%;
+	width: 50%;
+	background-color: grey;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	object-fit: cover;
+}
