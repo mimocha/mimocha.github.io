@@ -2,16 +2,22 @@
 <html>
 <head>
 	<title>Ishigami Bad</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="scripts.js"></script>
 </head>
 
-<body>
+<body onclick="fsm()">
 	<div>
-		<img src="img/chika-wait.jpg">
+		<img src="img/chika-0.jpg" id="img-elem">
+			<p>Image Load Failed</p>
+		</img>
 	</div>
 	<div>
-		<img src="img/chika-1.jpg">
+		<video muted playsinline id="vid-elem" src="vid/chika-0.mp4" type="video/mp4">
+			<p>Video Load Failed</p>
+		</video>
 	</div>
 </body>
 </html>
