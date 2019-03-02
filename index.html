@@ -8,17 +8,32 @@
 	<script src="scripts.js"></script>
 </head>
 
-<body onclick="fsm()">
+<body onload="orientation()" onclick="fsm(); orientation()">
 	<div>
 		<!-- TODO: Responsive Image -->
 		<!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images -->
-		<img src="img/chika-0.jpg" id="img-0" visibility="visible"></img>
+		<img src="img/chika-0.jpg" class="img" id="img-0" visibility="visible"></img>
 	</div>
 
 	<div>
-		<video muted playsinline type="video/mp4" src="vid/chika-0.mp4" id="vid-0"></video>
-		<video muted playsinline type="video/mp4" src="vid/chika-1.mp4" id="vid-1"></video>
-		<video muted playsinline type="video/mp4" src="vid/chika-2.mp4" id="vid-2"></video>
+		<video muted playsinline
+			type="video/mp4"
+			src="vid/chika-0.mp4"
+			class="video"
+			id="vid-0">
+		</video>
+		<video muted playsinline
+			type="video/mp4"
+			src="vid/chika-1.mp4"
+			class="video"
+			id="vid-1">
+		</video>
+		<video muted playsinline
+			type="video/mp4"
+			src="vid/chika-2.mp4"
+			class="video"
+			id="vid-2">
+		</video>
 	</div>
 </body>
 </html>
