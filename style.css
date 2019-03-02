@@ -1,9 +1,6 @@
 html, body {
-	/* Gets rid of empty borders */
 	margin: 0;
 	padding: 0;
-
-	/* Fit to screen */
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -12,25 +9,21 @@ html, body {
 }
 
 div {
-	/* Fit to body tag */
 	height: 100%;
 	width: 100%;
 	position: fixed;
 }
 
 img, video {
-	/* Fit to div */
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
 	object-fit: cover;
-
-	/* Clickable */
 	cursor: pointer;
+	position: absolute;
 }
 
-video {
-	/* Hidden at start */
+#vid-0, #vid-1, #vid-2{
 	visibility: hidden;
 }
