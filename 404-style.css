@@ -6,12 +6,16 @@ h1, h2 {
 	position: relative;
 	text-align: center;
 	text-shadow: 2px 2px 4px black,
-				 3px 3px 6px grey;
+				 3px 3px 6px black;
 }
 h1 { font-size: 4.5em; }
 h2 { font-size: 2em; }
-
-#var-line { top: 20%; }
+#var-line {
+	position: absolute;
+	left: 1em;
+	right: 1em;
+	bottom: 1.5em;
+}
 
 div {
 	background-repeat: no-repeat;
