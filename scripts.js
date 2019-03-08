@@ -1,101 +1,87 @@
 "use strict";
-var img = document.getElementById('img-0');
-var vid = [	document.getElementById('vid-0'),
-			document.getElementById('vid-1'),
-			document.getElementById('vid-2'),
-			document.getElementById('vid-3'),
-			document.getElementById('vid-4')];
 
-// Click Wrapper Function
-function clicked () {
-	img = document.getElementById('img-0');
-	vid[0] = document.getElementById('vid-0');
-	vid[1] = document.getElementById('vid-1');
-	vid[2] = document.getElementById('vid-2');
-	vid[3] = document.getElementById('vid-3');
-	vid[4] = document.getElementById('vid-4');
+// OnLoad Event Function
+var obj;
+var len;
+window.onload = function (e) {
+	obj = document.querySelectorAll(".media");
+	len = obj.length
+	orient ();
+}
 
-	orientation ();
+
+// Orientation Event Function
+window.ondeviceorientation = function (e) {
+	orient ();
+}
+function orient () {
+	var setval;
+	if (window.innerHeight > window.innerWidth) { setval = "contain"; }
+	else { setval = "cover"; }
+	for (var i = 0; i < len; i++) { obj[i].style.objectFit = setval; }
+}
+
+
+// Click Event Function
+window.onclick = function clicked (e) {
+	console.log("count =", counter.val, "fsm = ", fsm.val, "sound = ", sound.val);
 	fsm ();
 	sound ();
 	counter ();
 }
 
-// Orientation Check
-function orientation () {
-	if (window.innerHeight > window.innerWidth){
-		img.style.objectFit = "contain";
-		vid[0].style.objectFit = "contain";
-		vid[1].style.objectFit = "contain";
-		vid[2].style.objectFit = "contain";
-		vid[3].style.objectFit = "contain";
-		vid[4].style.objectFit = "contain";
-	} else {
-		img.style.objectFit = "cover";
-		vid[0].style.objectFit = "cover";
-		vid[1].style.objectFit = "cover";
-		vid[2].style.objectFit = "cover";
-		vid[3].style.objectFit = "cover";
-		vid[4].style.objectFit = "cover";
-	}
-}
 
 // Finite State Machine
+fsm.val = 0;
 function fsm () {
 	switch (fsm.val) {
-		case -1: // Load
-			fsm.val = 0;
-			break;
-
 		case 0: // First Right -> Left
-			img.style.visibility = "hidden";
-			vid[0].style.visibility = "visible";
-			vid[0].play();
+			obj[0].style.visibility = "hidden";
+			obj[1].style.visibility = "visible";
+			obj[1].play();
 			fsm.val = 1;
 			break;
 
 		case 1: // Left -> Right
-			vid[0].style.visibility = "hidden";
-			vid[4].style.visibility = "hidden";
-			vid[4].currentTime = 0;
-			vid[1].style.visibility = "visible";
-			vid[1].play();
+			obj[1].style.visibility = "hidden";
+			obj[5].style.visibility = "hidden";
+			obj[5].currentTime = 0;
+			obj[2].style.visibility = "visible";
+			obj[2].play();
 			fsm.val = 2;
 			break;
 
 		case 2: // Right -> Left
-			vid[2].style.visibility = "visible";
-			vid[2].play();
-			vid[1].style.visibility = "hidden";
-			vid[1].currentTime = 0;
-			// fsm.val = 1;
+			obj[2].style.visibility = "hidden";
+			obj[2].currentTime = 0;
+			obj[3].style.visibility = "visible";
+			obj[3].play();
 			fsm.val = 3;
 			break;
 
 		case 3: // Left -> Right
-			vid[3].style.visibility = "visible";
-			vid[3].play();
-			vid[2].style.visibility = "hidden";
-			vid[2].currentTime = 0;
+			obj[3].style.visibility = "hidden";
+			obj[3].currentTime = 0;
+			obj[4].style.visibility = "visible";
+			obj[4].play();
 			fsm.val = 4;
 			break;
 
 		case 4: // Right -> Left
-			vid[4].style.visibility = "visible";
-			vid[4].play();
-			vid[3].style.visibility = "hidden";
-			vid[3].currentTime = 0;
+			obj[4].style.visibility = "hidden";
+			obj[4].currentTime = 0;
+			obj[5].style.visibility = "visible";
+			obj[5].play();
 			fsm.val = 1;
 			break;
 	}
 }
-fsm.val = -1;
-var f = new fsm();
+
 
 // Play Sound
+sound.val = 0;
 function sound () {
 	switch (sound.val) {
-		case -1: break;
 		case 0:
 			document.getElementById('aud-0').play();
 			break;
@@ -106,12 +92,10 @@ function sound () {
 	sound.val++;
 	sound.val %= 2;
 }
-sound.val = -1;
-var s = new sound();
+
 
 // Click Counter
+counter.val = 0;
 function counter () {
 	counter.val++;
 }
-counter.val = 0;
-var c = new counter();
