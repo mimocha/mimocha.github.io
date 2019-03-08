@@ -6,6 +6,7 @@ html, body {
 	bottom: 0;
 	left: 0;
 	right: 0;
+	cursor: pointer;
 }
 
 div {
@@ -20,10 +21,9 @@ img, video {
 	margin: 0;
 	padding: 0;
 	object-fit: cover;
-	cursor: pointer;
 	position: absolute;
 }
 
-#vid-0, #vid-1, #vid-2{
+#vid-0, #vid-1, #vid-2, #vid-3, #vid-4{
 	visibility: hidden;
 }
