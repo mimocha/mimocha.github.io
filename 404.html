@@ -4,7 +4,7 @@
 	<title>404 | Page Not Found</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="404-style.css">
+	<link rel="stylesheet" type="text/css" href="css/404.css">
 	<script language="javascript">
 		window.onload = function(e) {
 			switch (Math.floor(Math.random()*3)) {
@@ -13,7 +13,7 @@
 					document.getElementById('container').style.backgroundImage = "url('img/dio.jpg')";
 					break;
 				case 1:
-					document.getElementById('var-line').innerHTML = "BUT NOBODY EXPECTS THE SPANISH INQUISITION!";
+					document.getElementById('var-line').innerHTML = "BUT NOBODY EXPECTS THE SPANISH INQUISITION";
 					document.getElementById('container').style.backgroundImage = "url('img/spanish.jpg')";
 					break;
 				case 2:
@@ -27,7 +27,7 @@
 <body>
 	<div id="container">
 		<h1>404</h1>
-		<h2>You were expecting something...</h2>
+		<h2>You were expecting something else...</h2>
 		<h2 id="var-line"></h2>
 	</div>
 </body>
