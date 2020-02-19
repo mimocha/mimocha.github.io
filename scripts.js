@@ -33,55 +33,48 @@ window.onclick = function clicked (e) {
 
 // Finite State Machine
 fsm.val = 0;
-var tstart;
 function fsm () {
 	switch (fsm.val) {
 		case 0: // First Right -> Left
 			obj[0].style.visibility = "hidden";
 			obj[1].style.visibility = "visible";
-
 			obj[1].play();
-			tstart = Date.now();
-			setTimeout (pausevid, 400);
 			fsm.val = 1;
 			break;
 
 		case 1: // Left -> Right
-			obj[1].play();
-			tstart = Date.now();
-			setTimeout (pausevid, 400);
+			obj[1].style.visibility = "hidden";
+			obj[5].style.visibility = "hidden";
+			obj[5].currentTime = 0;
+			obj[2].style.visibility = "visible";
+			obj[2].play();
 			fsm.val = 2;
 			break;
 
 		case 2: // Right -> Left
-			obj[1].play();
-			tstart = Date.now();
-			setTimeout (pausevid, 360);
+			obj[2].style.visibility = "hidden";
+			obj[2].currentTime = 0;
+			obj[3].style.visibility = "visible";
+			obj[3].play();
 			fsm.val = 3;
 			break;
 
 		case 3: // Left -> Right
-			obj[1].play();
-			tstart = Date.now();
-			setTimeout (pausevid, 400);
+			obj[3].style.visibility = "hidden";
+			obj[3].currentTime = 0;
+			obj[4].style.visibility = "visible";
+			obj[4].play();
 			fsm.val = 4;
 			break;
 
 		case 4: // Right -> Left
-			obj[1].currentTime = 0;
-			obj[1].play();
-			setTimeout (pausevid, 400);
+			obj[4].style.visibility = "hidden";
+			obj[4].currentTime = 0;
+			obj[5].style.visibility = "visible";
+			obj[5].play();
 			fsm.val = 1;
 			break;
-
 	}
-}
-
-
-// Pause Video Playback
-function pausevid () {
-	obj[1].pause();
-	console.log("tdiff:", Date.now() - tstart);
 }
 
 
