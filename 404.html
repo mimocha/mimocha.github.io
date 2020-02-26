@@ -7,27 +7,30 @@
 	<link rel="stylesheet" type="text/css" href="css/404.css">
 	<script language="javascript">
 		window.onload = function(e) {
+			document.getElementById('var-url').innerHTML = document.URL;
 			switch (Math.floor(Math.random()*3)) {
 				case 0:
 					document.getElementById('var-line').innerHTML = "BUT IT WAS ME, DIO!";
-					document.getElementById('container').style.backgroundImage = "url('img/dio.jpg')";
+					document.getElementById('img').style.backgroundImage = "url('img/dio.jpg')";
 					break;
 				case 1:
 					document.getElementById('var-line').innerHTML = "BUT NOBODY EXPECTS THE SPANISH INQUISITION";
-					document.getElementById('container').style.backgroundImage = "url('img/spanish.jpg')";
+					document.getElementById('img').style.backgroundImage = "url('img/spanish.jpg')";
 					break;
 				case 2:
 					document.getElementById('var-line').innerHTML = "But you get used to it.";
-					document.getElementById('container').style.backgroundImage = "url('img/priestess.jpg')";
+					document.getElementById('img').style.backgroundImage = "url('img/priestess.jpg')";
 			}
 		}
 	</script>
 </head>
 
 <body>
+	<div id="img"></div>
 	<div id="container">
 		<h1>404</h1>
-		<h2>You were expecting something else...</h2>
+		<h2>You were expecting</h2>
+		<h2 id="var-url"></h2>
 		<h2 id="var-line"></h2>
 	</div>
 </body>
