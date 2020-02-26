@@ -1,36 +1,353 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="h-100">
+
+<!-- ======================================================================= -->
+<!-- ================================= HEAD ================================ -->
+<!-- ======================================================================= -->
+
+
+
 <head>
-	<title>mimocha.github.io</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body {
-			background-color: #424242;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
-		div {
-			height: 50%;
-			width: 100%;
-		}
-		.text {
-			color: white;
-			text-align: center;
-			font-family: Arial, Helvetica, sans-serif;
-			text-shadow: 2px 2px 4px black,
-						 4px 4px 8px black;
-		}
-	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap 4.4 CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+		crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+
+	<title>Chawit Leosrisook | GitHub.io</title>
 </head>
 
-<body>
-	<div>
-		<h1 class="text">mimocha.github.io</h1>
-		<h2 class="text">Work in Progress</h2>
-	</div>
+
+
+<!-- ======================================================================= -->
+<!-- ================================= BODY ================================ -->
+<!-- ======================================================================= -->
+
+
+
+<body class="d-flex flex-column">
+
+<!-- =============================== MAIN ================================== -->
+
+<main>
+	<!-- Fixed Background -->
+	<div class="background"></div>
+
+	<!-- Sidebar -->
+	<section class="outer sticky sidebar">
+		<div class="inner sticky sidebar">
+			<!-- Profile Image -->
+			<div class="content">
+				<svg width="100%" height="100%">
+					<circle cx="50%" cy="50%" r="50%" stroke="black" stroke-width="1" fill="grey" />
+				</svg>
+			</div>
+
+			<!-- Summary -->
+			<div class="content">
+				Summary
+			</div>
+
+			<!-- Contact -->
+			<div class="content">
+				Contact
+			</div>
+
+			<!-- Scroll Spy -->
+			<div class="content">
+				Scroll Spy
+				<ul>
+					<li><a href="#about">About</a></li>
+					<li><a href="#machine-learn">Machine Learning</a></li>
+					<li><a href="#data-viz">Data Viz</a></li>
+					<li><a href="#front-end">Front End</a></li>
+					<li><a href="#matlab">MATLAB</a></li>
+					<li><a href="#python">Python</a></li>
+					<li><a href="#c-cpp">C/C++</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- Preview -->
+	<section class="outer preview">
+		<div class="inner preview">
+			<!-- About -->
+			<div class="content" style="height: 50vh;">
+				<h1 id="about">About</h1>
+				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget posuere neque. Vivamus aliquet dolor justo. Quisque mollis tincidunt justo eu ornare. Duis blandit volutpat vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Nulla vehicula scelerisque viverra. Etiam fringilla fringilla justo vitae ultricies.</p>
+				<p>Vestibulum justo arcu, aliquet in nisi sed, semper commodo eros. Morbi feugiat sem id viverra egestas. Sed eu pellentesque massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non augue in mi porttitor blandit a at neque. Duis tempus rutrum fringilla. Suspendisse tincidunt malesuada nulla a pretium. </p>
+			</div>
+
+			<!-- Showcase -->
+			<!-- ReactJS Stuff goes here -->
+			<div class="content">
+				<h2 id="machine-learn">Machine Learning</h2>
+				<div class="container-fluid row my-3 react"></div>
+
+				<h2 id="data-viz">Data Visualization</h2>
+				<div class="container-fluid row my-3">
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 1</h5>
+								<h6 class="card-subtitle">Card 1 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 2</h5>
+								<h6 class="card-subtitle">Card 2 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 3</h5>
+								<h6 class="card-subtitle">Card 3 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 4</h5>
+								<h6 class="card-subtitle">Card 4 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 id="front-end">Front End</h2>
+				<div class="container-fluid row my-3">
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 1</h5>
+								<h6 class="card-subtitle">Card 1 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 2</h5>
+								<h6 class="card-subtitle">Card 2 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 3</h5>
+								<h6 class="card-subtitle">Card 3 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 4</h5>
+								<h6 class="card-subtitle">Card 4 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 id="matlab">MATLAB</h2>
+				<div class="container-fluid row my-3">
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 1</h5>
+								<h6 class="card-subtitle">Card 1 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 2</h5>
+								<h6 class="card-subtitle">Card 2 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 3</h5>
+								<h6 class="card-subtitle">Card 3 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 4</h5>
+								<h6 class="card-subtitle">Card 4 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 id="python">Python</h2>
+				<div class="container-fluid row my-3">
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 1</h5>
+								<h6 class="card-subtitle">Card 1 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 2</h5>
+								<h6 class="card-subtitle">Card 2 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 3</h5>
+								<h6 class="card-subtitle">Card 3 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 4</h5>
+								<h6 class="card-subtitle">Card 4 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h2 id="c-cpp">C/C++</h2>
+				<div class="container-fluid row my-3">
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 1</h5>
+								<h6 class="card-subtitle">Card 1 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 2</h5>
+								<h6 class="card-subtitle">Card 2 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 3</h5>
+								<h6 class="card-subtitle">Card 3 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="card bg-light text-dark p-2">
+							<div class="card-body">
+								<h5 class="card-title">Card 4</h5>
+								<h6 class="card-subtitle">Card 4 Subtitle</h6>
+								<p class="card-txt">Hello World!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Full View -->
+	<section class="outer sticky fullview">
+		<div class="inner sticky fullview">
+			<!-- Header  -->
+			<div class="content">
+				<h1>Showcase Inspection</h1>
+			</div>
+
+			<!-- Image / Media  -->
+			<div class="content">
+				<svg width="100%" height="10em">
+					<rect x="0" y="0" width="100%" height="100%" stroke="black" stroke-width="1" fill="grey" />
+				</svg>
+			</div>
+
+			<!-- Description -->
+			<div class="content">
+				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eget posuere neque. Vivamus aliquet dolor justo. Quisque mollis tincidunt justo eu ornare. Duis blandit volutpat vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Nulla vehicula scelerisque viverra. Etiam fringilla fringilla justo vitae ultricies.</p>
+				<p>Vestibulum justo arcu, aliquet in nisi sed, semper commodo eros. Morbi feugiat sem id viverra egestas. Sed eu pellentesque massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut non augue in mi porttitor blandit a at neque. Duis tempus rutrum fringilla. Suspendisse tincidunt malesuada nulla a pretium. </p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Buttons -->
+	<section>
+		<button type="button" class="btn btn-warning sidebar" id="btn-sidebar">
+			<i class="fas fa-angle-double-right"></i>
+		</button>
+		<button type="button" class="btn btn-warning fullview" id="btn-fullview">
+			<i class="fas fa-angle-double-left"></i>
+		</button>
+	</section>
+
+</main>
+
+
+
+<!-- ================================ JS =================================== -->
+
+<!-- Bootstrap 4.4 JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Fontawesome Icons -->
+<script src="https://kit.fontawesome.com/2a1d044d56.js" crossorigin="anonymous"></script>
+
+<!-- React -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<!-- <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
+
+<!-- My JS -->
+<!-- <script src="js/react-test.js" type="text/jsx"></script> -->
+<script src="js/index.js"></script>
+
 </body>
+
 </html>

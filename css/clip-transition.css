@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/*
+Color Theme: CMYK
+C: #15ffc6
+M: #c615ff
+Y: #ffc615
+K: #1d1d1d
+*/
+
+html {
+	scroll-behavior: smooth;
+	font-family: 'Roboto', sans-serif;
+
+	--pRight: circle( 5% at 100% 50%);
+	--pFront: circle(90% at  50% 50%);
+	--pLeft:  circle( 5% at   0% 50%);
+	--pBack:  circle( 0% at  50% 50%);
+
+	--cPrimary: #15ffc6;
+	--mPrimary: #c615ff;
+	--yPrimary: #ffc615;
+	--kPrimary: #1d1d1d;
+
+	--cShade: #10bf95;
+	--mShade: #9510bf;
+	--yShade: #bf9510;
+	--kShade: #161616;
+
+	--cTint: #50ffd4;
+	--mTint: #d450ff;
+	--yTint: #ffd450;
+	--kTint: #565656;
+
+	--cText: #001F3F;
+	--mText: #F6F5F7;
+	--yText: #001F3F;
+	--kText: #F6F5F7;
+}
+body {
+	margin: 0;
+}
+main {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+
+	background-color: #eee;
+}
+
+
+
+/* ==================== Content Container Styling ==================== */
+.outer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-height: 100vh;
+	min-width: 100vw;
+
+	transition: ease 1.5s;
+}
+.cyan.outer {
+	z-index: 2;
+}
+.magenta.outer {
+	z-index: 1;
+}
+.yellow.outer {
+	z-index: 0;
+}
+.key.outer {
+	z-index: 1;
+}
+.btn.outer {
+	z-index: 3;
+}
+
+.inner {
+	display: flex;
+	flex-direction: column;
+
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	width: 60vw;
+	height: 80vh;
+	padding: 2em;
+	border: 0;
+	border-radius: 40px;
+
+	text-align: justify;
+	transition: ease 1.5s;
+}
+.cyan.inner {
+	background: var(--cPrimary);
+	box-shadow:  20px 20px 49px #11d1a2,
+	             -20px -20px 49px #19ffea;
+	color: var(--cText);
+	clip-path: var(--pFront);
+}
+.magenta.inner {
+	background: var(--mPrimary);
+	box-shadow:  -20px 20px 49px #a211d1,
+	             20px -20px 49px #ea19ff;
+
+	color: var(--mText);
+	clip-path: var(--pRight);
+}
+.yellow.inner {
+	background: var(--yPrimary);
+	box-shadow:  -20px -20px 49px #d1a211,
+	             20px 20px 49px #ffea19;
+
+	color: var(--yText);
+	clip-path: var(--pBack);
+}
+.key.inner {
+	background: var(--kPrimary);
+	box-shadow:  20px -20px 49px #181818,
+	             -20px 20px 49px #222222;
+
+	color: var(--kText);
+	clip-path: var(--pLeft);
+}
+
+button {
+	position: fixed;
+	margin: auto;
+	top: 0;
+	bottom: 0;
+
+	width: 5rem;
+	height: 5rem;
+	border: 0;
+	border-radius: 2.5rem;
+
+	cursor: pointer;
+
+	transition: ease 1s;
+}
+
+#btnLeft {
+	left: 0;
+	background-color: var(--kPrimary);
+	color: var(--mText);
+}
+#btnRight {
+	right: 0;
+	background-color: var(--mPrimary);
+	color: var(--kText);
+}
