@@ -16,54 +16,55 @@
 </head>
 
 
+<!-- Icons: -->
+<!-- https://octicons.github.com/ -->
+<!-- https://fontawesome.com/ -->
 
 <body class="d-flex flex-column h-100">
 <!-- Header Container -->
 <header class="head bg-dark">
-	<div class="container-fluid collapse" id="navbarHeader">
-		<div class="bg-dark text-light row">
+	<div class="container-fluid row collapse pt-2" id="navbarHeader">
+		<div class="p-3 col-lg-2 bg-dark">
+			<img src="img/profile.jpg"
+			alt="profile picture"
+			class="rounded img-thumbnail align-self-center"
+			height="200px"
+			width="200px">
+		</div>
 
-			<div class="col-lg-2 card bg-dark p-3">
-				<img src="img/profile.jpg"
-				alt="profile picture"
-				class="rounded img-thumbnail align-self-center"
-				height="200px"
-				width="200px">
-			</div>
+		<div class="col-lg-6 bg-dark border-left border-secondary">
+			<h1 class="text-muted">About</h1>
+			<p class="text-light">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a efficitur magna, mollis iaculis dolor. Proin et eros lacinia, rhoncus orci eget, dapibus augue. Praesent mauris tortor, finibus ac volutpat et, bibendum eget urna. Quisque risus nulla, faucibus ac tristique sed, faucibus a eros. Praesent mauris elit, gravida vel lectus.
+			</p>
+		</div>
 
-			<div class="col-lg-6 card bg-dark">
-				<h1 class="text-muted">About</h1>
-				<p class="text-light">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a efficitur magna, mollis iaculis dolor. Proin et eros lacinia, rhoncus orci eget, dapibus augue. Praesent mauris tortor, finibus ac volutpat et, bibendum eget urna. Quisque risus nulla, faucibus ac tristique sed, faucibus a eros. Praesent mauris elit, gravida vel lectus.
-				</p>
-			</div>
-
-			<div class="col-lg-4 card bg-dark">
-				<h1 class="text-muted">Contact</h1>
-				<ul class="list-group list-group-flush">
-					<li class="list-group-item bg-dark">
-						<a href="#" class="text-muted">C.Leosrisook@Sussex.ac.uk</a>
-					</li>
-					<li class="list-group-item bg-dark">
+		<div class="col-lg-4 bg-dark border-left border-secondary">
+			<h1 class="text-muted">Contact</h1>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item bg-dark">
+					<a href="#" class="text-muted">C.Leosrisook@Sussex.ac.uk</a>
+				</li>
+				<li class="list-group-item bg-dark">
 					<p class="text-muted">
 						School of Engineering and Informatics<br>
 						University of Sussex<br>
 						Brighton, BN1 9RH<br>
 						United Kingdom<br>
 					</p>
-					</li>
-				</ul>
-			</div>
-
+				</li>
+			</ul>
 		</div>
 	</div>
 
 	<div class="navbar bg-dark text-light">
 		<h2>Navbar | Chawit Leosrisook</h2>
 		<button type="button" class="btn btn-light float-right"
-			data-toggle="collapse"
-			data-target="#navbarHeader">
-			Navbar Header
+				data-toggle="collapse" data-target="#navbarHeader">
+			<svg height="32" class="octicon octicon-three-bars"
+				viewBox="0 0 12 16" version="1.1" width="24" aria-hidden="true">
+				<path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path>
+			</svg>
 		</button>
 	</div>
 </header>
@@ -71,95 +72,174 @@
 
 
 <!-- Main Container -->
-<main class="my-2 py-2 px-3">
+<main class="m-2 p-2">
+	<!-- Jumbotron Banner -->
 	<section>
 		<div class="jumbotron text-center bg-primary text-light">
 			<h1>Main Container | Jumbotron</h1>
 		</div>
 	</section>
 
-	<div class="container-fluid row m-auto">
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<!-- <div class="embed-responsive embed-responsive-1by1">
-				<iframe src='https://gfycat.com/ifr/ActiveCourteousAmericanindianhorse'
-					scrolling='no' width='100%' height='100' allowfullscreen
-					class="embed-responsive-item">
-				</iframe>
-			</div> -->
-			<div class="card-body">
-				<h5 class="card-title">Card 1</h5>
-				<h6 class="card-subtitle">Gfycat Embed Test</h5>
-				<p class="card-txt">Hello World!</p>
+	<!-- Cards Container -->
+	<section class="container-fluid">
+		<!-- 2 Column Card -->
+		<div class="container-xl row m-auto">
+			<div class="col-md-6 mx-auto my-2">
+				<div class="embed-responsive embed-responsive-1by1">
+					<iframe src='https://gfycat.com/ifr/ActiveCourteousAmericanindianhorse'
+						scrolling='no' width='100%' height='100' allowfullscreen
+						class="embed-responsive-item">
+					</iframe>
+				</div>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card 1</h5>
+						<h6 class="card-subtitle">Gfycat Embed Test</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 mx-auto my-2">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe width="100%" height="100%"
+						src="https://www.youtube.com/embed/TbWQ4lMnLNw"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen
+						class="embed-responsive-item">
+					</iframe>
+				</div>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card 2</h5>
+						<h6 class="card-subtitle">Youtube Embed Test</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<!-- <div class="embed-responsive embed-responsive-16by9">
-				<iframe width="100%" height="100%"
-					src="https://www.youtube.com/embed/TbWQ4lMnLNw"
-					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
-					class="embed-responsive-item">
-				</iframe>
-			</div> -->
-			<div class="card-body">
-				<h5 class="card-title">Card 2</h5>
-				<h6 class="card-subtitle">Youtube Embed Test</h5>
-				<p class="card-txt">Hello World!</p>
+		<!-- 3 Column Card -->
+		<div class="container-xl row m-auto">
+			<div class="col-md-4 mx-auto my-2">
+				<a href="https://imgur.com/t/data_is_beautiful/KIOIfXZ">
+					<img src="https://i.imgur.com/57eqR91.jpg" class="img-fluid rounded"></img>
+				</a>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Imgur</h5>
+						<h6 class="card-subtitle">Imgur Embed Test</h5>
+						<p class="card-txt">
+							Original Imgur post <a href="https://imgur.com/t/data_is_beautiful/KIOIfXZ">here</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mx-auto my-2">
+				<svg class="bd-placeholder-img card-img-top" width="100%" height="180"
+					xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+					focusable="false" role="img" aria-label="Placeholder: Image cap">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="#868e96"></rect>
+					<text fill="#dee2e6" x="50%" y="50%">Placeholder</text>
+				</svg>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card</h5>
+						<h6 class="card-subtitle">Place Holder Card</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mx-auto my-2">
+				<svg class="bd-placeholder-img card-img-top" width="100%" height="180"
+					xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+					focusable="false" role="img" aria-label="Placeholder: Image cap">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="#868e96"></rect>
+					<text fill="#dee2e6" x="50%" y="50%">Placeholder</text>
+				</svg>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card</h5>
+						<h6 class="card-subtitle">Place Holder Card</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<!-- <img src="https://i.imgur.com/57eqR91.jpg"
-				class="img-fluid rounded"></img> -->
-			<div class="card-body">
-				<h5 class="card-title">Card 3</h5>
-				<h6 class="card-subtitle">Imgur Embed Test</h5>
-				<p class="card-txt">
-					Original Imgur post <a href="https://imgur.com/t/data_is_beautiful/KIOIfXZ">here</a>.
-				</p>
+		<!-- 4 Column Card -->
+		<div class="container-lg row m-auto py-2">
+			<div class="col-md-3 mx-auto my-2">
+				<svg class="bd-placeholder-img card-img-top" width="100%" height="180"
+					xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+					focusable="false" role="img" aria-label="Placeholder: Image cap">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="#868e96"></rect>
+					<text fill="#dee2e6" x="50%" y="50%">Placeholder</text>
+				</svg>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card</h5>
+						<h6 class="card-subtitle">Place Holder Card</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 mx-auto my-2">
+				<svg class="bd-placeholder-img card-img-top" width="100%" height="180"
+					xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+					focusable="false" role="img" aria-label="Placeholder: Image cap">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="#868e96"></rect>
+					<text fill="#dee2e6" x="50%" y="50%">Placeholder</text>
+				</svg>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card</h5>
+						<h6 class="card-subtitle">Place Holder Card</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 mx-auto my-2">
+				<svg class="bd-placeholder-img card-img-top" width="100%" height="180"
+					xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+					focusable="false" role="img" aria-label="Placeholder: Image cap">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="#868e96"></rect>
+					<text fill="#dee2e6" x="50%" y="50%">Placeholder</text>
+				</svg>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card</h5>
+						<h6 class="card-subtitle">Place Holder Card</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 mx-auto my-2">
+				<svg class="bd-placeholder-img card-img-top" width="100%" height="180"
+					xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+					focusable="false" role="img" aria-label="Placeholder: Image cap">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="#868e96"></rect>
+					<text fill="#dee2e6" x="50%" y="50%">Placeholder</text>
+				</svg>
+				<div class="card bg-light text-dark p-2">
+					<div class="card-body">
+						<h5 class="card-title">Card</h5>
+						<h6 class="card-subtitle">Place Holder Card</h5>
+						<p class="card-txt">Hello World!</p>
+					</div>
+				</div>
 			</div>
 		</div>
+	</section>
 
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<div class="card-body">
-				<h5 class="card-title">Card 4</h5>
-				<h6 class="card-subtitle">Place Holder Card 4</h5>
-				<p class="card-txt">Hello World!</p>
-			</div>
-		</div>
-
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<div class="card-body">
-				<h5 class="card-title">Card 5</h5>
-				<h6 class="card-subtitle">Place Holder Card 5</h5>
-				<p class="card-txt">Hello World!</p>
-			</div>
-		</div>
-
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<div class="card-body">
-				<h5 class="card-title">Card 6</h5>
-				<h6 class="card-subtitle">Place Holder Card 6</h5>
-				<p class="card-txt">Hello World!</p>
-			</div>
-		</div>
-
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<div class="card-body">
-				<h5 class="card-title">Card 7</h5>
-				<h6 class="card-subtitle">Place Holder Card 7</h5>
-				<p class="card-txt">Hello World!</p>
-			</div>
-		</div>
-
-		<div class="col-md-4 bg-light text-dark card p-2">
-			<div class="card-body">
-				<h5 class="card-title">Card 8</h5>
-				<h6 class="card-subtitle">Place Holder Card 8</h5>
-				<p class="card-txt">Hello World!</p>
-			</div>
-		</div>
+	<!-- Scroll Indicator -->
+	<div class="progress fixed-bottom">
+		<div class="progress-bar" id="progress-bar" style="width: 0%;"></div>
 	</div>
 </main>
 
@@ -182,15 +262,20 @@
 
 
 <!-- Bootstrap 4.4 JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!-- Scroll Bar -->
+<script>
+	window.onscroll = function() {scrollBar()};
+	function scrollBar() {
+		var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+		var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+		var scrolled = (winScroll / height) * 100;
+		document.getElementById("progress-bar").style.width = scrolled + "%";
+	}
+</script>
 </body>
 
 </html>
