@@ -1,1 +1,14 @@
 
+#navbarHeader {
+	border-bottom-style: solid;
+	border-width: thin;
+	border-color: #1f2326;
+}
+
+#profileImg {
+	object-fit: contain;
+}
+
+#contactBtn {
+	font-size: 1.25em;
+}
