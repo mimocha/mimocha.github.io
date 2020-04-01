@@ -45,13 +45,12 @@ main {
 #navbar, #preview, #fullview {
 	display: flex;
 	border-radius: 1rem;
-	height: 90vh;
+	min-height: 92vh;
 }
 #navbar {
 	top: 2rem;
 }
 #preview {
-	height: 150vh;
 }
 #fullview {
 	top: 2rem;
@@ -61,16 +60,30 @@ main {
 .sticky {
 	position: sticky;
 }
-.outer-contain {
+.contain-outer {
 	flex-grow: 1;
 }
-
-/* Temporary Markup */
-.box {
+.contain-inner {
+	/* Temporary Markup */
 	box-shadow: 2px 2px 4px black;
 	border: 2px dashed black;
-}
 
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0.5em 1em 0.5em;
+}
+.contain-content {
+	/* Temporary Markup */
+	box-shadow: 1px 1px 2px black;
+	border: 1px dashed black;
+
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+
+	flex-grow: 1;
+}
 
 
 /* ==================== Screen Size Media Query ==================== */
@@ -86,6 +99,7 @@ main {
 	}
 	#container-preview {
 		/*  Make flex display */
+		min-width: 0;
 	}
 	/* Enable Swipe for FullView, Navbar */
 }
