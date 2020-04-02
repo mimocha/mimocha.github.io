@@ -1,5 +1,15 @@
 :root {
 	overflow-x: hidden;
+
+	--color-bg-light: #efeeee;
+	--color-bg-dark: #232736;
+	--color-shadow-light: #ffffff80;
+	--color-shadow-dark: #d1cdc780;
+
+	--color-accent-light-1: #f4d030;
+	--color-accent-light-2: #d6b62a;
+	--color-accent-dark-1: #d030f4;
+	--color-accent-dark-2: #b62ad6;
 }
 main {
 	display: flex;
@@ -15,7 +25,7 @@ main {
 	width: 100vw;
 	height: 100vh;
 	z-index: -1;
-	background-color: #dedede;
+	background-color: var(--color-bg-light);
 }
 
 
@@ -58,19 +68,26 @@ main {
 }
 .inner {
 	/* Temporary Markup */
-	box-shadow: 2px 2px 4px black;
-	border: 2px dashed black;
+	border: 1px dashed var(--color-shadow-dark);
 	border-radius: 1rem;
 	min-height: 92vh;
+
+	background-color: var(--color-bg-light);
+	box-shadow: -6px -6px 16px var(--color-shadow-light),
+				 6px  6px 16px var(--color-shadow-dark);
 
 	display: flex;
 	flex-direction: column;
 	padding: 1em 0.5em 1em 0.5em;
+
 }
 .content {
 	/* Temporary Markup */
-	box-shadow: 1px 1px 2px black;
-	border: 1px dashed black;
+	border: 1px dashed var(--color-shadow-dark);
+
+	background-color: var(--color-bg-light);
+	box-shadow: -6px -6px 16px var(--color-shadow-light),
+				 6px  6px 16px var(--color-shadow-dark);
 
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
@@ -82,10 +99,23 @@ main {
 
 #btn-navbar, #btn-fullview {
 	transition: 0.5s;
+	background-color: var(--color-accent-light-1);
+	border-color: var(--color-accent-light-2);
+
+	padding: 0.5em 0.8em 0.5em 0.8em;
 	/* Need to keep on top of div */
 	/* Need to keep inside viewport */
 }
 
+#btn-navbar:focus, #btn-fullview:focus {
+	/* Temporary Hex Color + Alpha Value */
+	/* Format: #RRGGBBAA */
+	box-shadow: 0 0 0 0.2rem #f4d03080;
+}
+
+.fas {
+	transition: 0.5s;
+}
 
 
 /* ==================== Screen Size Media Query ==================== */
@@ -104,6 +134,7 @@ main {
 		left: -20rem;
 	}
 	#btn-navbar {
+		display: inline-block;
 		position: fixed;
 		top: 50%;
 		left: 0;
@@ -122,6 +153,7 @@ main {
 		right: -45rem;
 	}
 	#btn-fullview {
+		display: inline-block;
 		position: fixed;
 		top: 50%;
 		right: 0;
