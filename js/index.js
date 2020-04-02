@@ -3,7 +3,7 @@ const btnNavbar = document.getElementById("btn-navbar");
 const btnFullview = document.getElementById("btn-fullview");
 
 btnNavbar.onclick = function () {
-	let panel = document.getElementById("container-navbar");
+	let panel = document.getElementsByClassName("outer")[0];
 	let btn = document.getElementById("btn-navbar");
 
 	if (panel.style.left === "0rem") {
@@ -18,7 +18,7 @@ btnNavbar.onclick = function () {
 }
 
 btnFullview.onclick = function () {
-	let panel = document.getElementById("container-fullview");
+	let panel = document.getElementsByClassName("outer")[2];
 	let btn = document.getElementById("btn-fullview");
 
 	if (panel.style.right === "0rem") {

@@ -21,28 +21,28 @@ main {
 
 
 /* ==================== Content Container Styling ==================== */
-#container-navbar {
+.outer.navbar {
 	order: 1;
 	min-width: 15rem;
 	max-width: 20rem;
 }
-#container-preview {
+.outer.preview {
 	order: 2;
 	min-width: 40rem;
 	max-width: 50rem;
 }
-#container-fullview {
+.outer.fullview {
 	order: 3;
 	min-width: 30rem;
 	max-width: 45rem;
 }
 
-#navbar {
+.inner.navbar {
 	top: 2rem;
 }
-#preview {
+.inner.preview {
 }
-#fullview {
+.inner.fullview {
 	top: 2rem;
 }
 
@@ -50,13 +50,13 @@ main {
 .sticky {
 	position: sticky;
 }
-.contain-outer {
+.outer {
 	padding: 2rem 0.5rem 2rem 0.5rem;
 	min-height: 100vh;
 	transition: 0.5s;
 	flex-grow: 1;
 }
-.contain-inner {
+.inner {
 	/* Temporary Markup */
 	box-shadow: 2px 2px 4px black;
 	border: 2px dashed black;
@@ -67,7 +67,7 @@ main {
 	flex-direction: column;
 	padding: 1em 0.5em 1em 0.5em;
 }
-.contain-content {
+.content {
 	/* Temporary Markup */
 	box-shadow: 1px 1px 2px black;
 	border: 1px dashed black;
@@ -79,7 +79,6 @@ main {
 
 	flex-grow: 1;
 }
-
 
 #btn-navbar, #btn-fullview {
 	transition: 0.5s;
@@ -93,14 +92,14 @@ main {
 
 /* Phone Screen Size */
 @media (max-width: 40rem) {
-	#container-navbar, #container-preview, #container-fullview {
+	.outer.navbar, .outer.preview, .outer.fullview {
 		min-width: 0;
 	}
 }
 
 /* Collapsable Navbar */
 @media (max-width: 55rem) {
-	#container-navbar {
+	.outer.navbar {
 		position: fixed;
 		left: -20rem;
 	}
@@ -118,7 +117,7 @@ main {
 
 /* Collapsable FullView */
 @media (max-width: 85rem) {
-	#container-fullview {
+	.outer.fullview {
 		position: fixed;
 		right: -45rem;
 	}
