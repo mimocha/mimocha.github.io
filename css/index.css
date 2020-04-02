@@ -21,10 +21,6 @@ main {
 
 
 /* ==================== Content Container Styling ==================== */
-#container-navbar, #container-preview, #container-fullview {
-	padding: 2rem 0.5rem 2rem 0.5rem;
-	min-height: 100vh;
-}
 #container-navbar {
 	order: 1;
 	min-width: 15rem;
@@ -41,12 +37,6 @@ main {
 	max-width: 45rem;
 }
 
-
-#navbar, #preview, #fullview {
-	display: flex;
-	border-radius: 1rem;
-	min-height: 92vh;
-}
 #navbar {
 	top: 2rem;
 }
@@ -61,12 +51,17 @@ main {
 	position: sticky;
 }
 .contain-outer {
+	padding: 2rem 0.5rem 2rem 0.5rem;
+	min-height: 100vh;
+	transition: 0.5s;
 	flex-grow: 1;
 }
 .contain-inner {
 	/* Temporary Markup */
 	box-shadow: 2px 2px 4px black;
 	border: 2px dashed black;
+	border-radius: 1rem;
+	min-height: 92vh;
 
 	display: flex;
 	flex-direction: column;
@@ -86,56 +81,60 @@ main {
 }
 
 
+#btn-navbar, #btn-fullview {
+	transition: 0.5s;
+	/* Need to keep on top of div */
+	/* Need to keep inside viewport */
+}
+
+
+
 /* ==================== Screen Size Media Query ==================== */
-/* Smallest */
-/* max-width: container-preview.min-width */
+
+/* Phone Screen Size */
 @media (max-width: 40rem) {
-	#container-navbar, #container-fullview {
-		visibility: hidden;
-		min-width: 0px;
-		width: 0px;
-		flex-grow: 0;
-		padding: 0 0 0 0;
-	}
-	#container-preview {
-		/*  Make flex display */
+	#container-navbar, #container-preview, #container-fullview {
 		min-width: 0;
 	}
-	/* Enable Swipe for FullView, Navbar */
 }
 
-/* Small  */
-/* min-width: container-preview.min-width */
-/* max-width: container-navbar.min-width + container-preview.min-width */
-@media (min-width: 40rem) and (max-width: 55rem) {
-	#container-navbar, #container-fullview {
-		visibility: hidden;
-		min-width: 0px;
-		width: 0px;
-		flex-grow: 0;
-		padding: 0 0 0 0;
+/* Collapsable Navbar */
+@media (max-width: 55rem) {
+	#container-navbar {
+		position: fixed;
+		left: -20rem;
 	}
-
-	/* Enable Swipe for FullView, Navbar */
+	#btn-navbar {
+		position: fixed;
+		top: 50%;
+		left: 0;
+	}
+}
+@media (min-width: 55rem) {
+	#btn-navbar {
+		display: none;
+	}
 }
 
-/* Medium */
-/* min-width: container-navbar.min-width + container-preview.min-width */
-/* max-width: container-navbar.min-width + container-preview.min-width + container-fullview.min-width */
-@media (min-width: 55rem) and (max-width: 85rem) {
+/* Collapsable FullView */
+@media (max-width: 85rem) {
 	#container-fullview {
-		visibility: hidden;
-		min-width: 0px;
-		width: 0px;
-		flex-grow: 0;
-		padding: 0 0 0 0;
+		position: fixed;
+		right: -45rem;
 	}
-
-	/* Enable Swipe for FullView */
+	#btn-fullview {
+		position: fixed;
+		top: 50%;
+		right: 0;
+	}
+}
+@media (min-width: 85rem) {
+	#btn-fullview {
+		display: none;
+	}
 }
 
-/* Large */
-/* min-width: container-navbar.min-width + container-preview.min-width + container-fullview.min-width */
+/* V.Large Settings */
 @media (min-width: 85rem) {
-	/* Disable Swipe */
+
 }
