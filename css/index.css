@@ -1,5 +1,6 @@
 :root {
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 
 	--color-bg-light: #efeeee;
 	--color-bg-dark: #232736;
@@ -10,6 +11,12 @@
 	--color-accent-light-2: #d6b62a;
 	--color-accent-dark-1: #d030f4;
 	--color-accent-dark-2: #b62ad6;
+
+	--width-sidebar: 20rem;
+	--width-min-preview: 40rem;
+	--width-max-preview: 50rem;
+	--width-min-fullview: 30rem;
+	--width-max-fullview: 45rem;
 }
 main {
 	display: flex;
@@ -31,46 +38,47 @@ main {
 
 
 /* ==================== Content Container Styling ==================== */
-.outer.navbar {
+.outer.sidebar {
 	order: 1;
-	min-width: 15rem;
-	max-width: 20rem;
+	/* No Flexing */
+	min-width: var(--width-sidebar);
+	max-width: var(--width-sidebar);
 }
 .outer.preview {
 	order: 2;
-	min-width: 40rem;
-	max-width: 50rem;
+	min-width: var(--width-min-preview);
+	max-width: var(--width-max-preview);
 }
 .outer.fullview {
 	order: 3;
-	min-width: 30rem;
-	max-width: 45rem;
+	min-width: var(--width-min-fullview);
+	max-width: var(--width-max-fullview);
 }
 
-.inner.navbar {
-	top: 2rem;
+.inner.sidebar {
 }
 .inner.preview {
 }
 .inner.fullview {
-	top: 2rem;
 }
 
 
 .sticky {
 	position: sticky;
+	top: 2rem;
 }
 .outer {
-	padding: 2rem 0.5rem 2rem 0.5rem;
-	min-height: 100vh;
-	transition: 0.5s;
+	display: block;
 	flex-grow: 1;
+	min-height: 100vh;
+	padding: 2rem 0.5rem 2rem 0.5rem;
+	transition: 0.5s;
 }
 .inner {
 	/* Temporary Markup */
 	border: 1px dashed var(--color-shadow-dark);
 	border-radius: 1rem;
-	min-height: 92vh;
+	min-height: 95vh;
 
 	background-color: var(--color-bg-light);
 	box-shadow: -6px -6px 16px var(--color-shadow-light),
@@ -78,8 +86,6 @@ main {
 
 	display: flex;
 	flex-direction: column;
-	padding: 1em 0.5em 1em 0.5em;
-
 }
 .content {
 	/* Temporary Markup */
@@ -88,30 +94,33 @@ main {
 	background-color: var(--color-bg-light);
 	box-shadow: -6px -6px 16px var(--color-shadow-light),
 				 6px  6px 16px var(--color-shadow-dark);
-
+	flex-grow: 1;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
-
-	flex-grow: 1;
 }
 
-#btn-navbar, #btn-fullview {
-	transition: 0.5s;
-	background-color: var(--color-accent-light-1);
-	border-color: var(--color-accent-light-2);
 
-	padding: 0.5em 0.8em 0.5em 0.8em;
-	/* Need to keep on top of div */
+#btn-sidebar, #btn-fullview {
+	transition: 0.5s;
+
+	/* background-color: #f4d030;
+	border-color: #d6b62a;
+	padding: 0.5em 0.8em 0.5em 0.8em; */
 	/* Need to keep inside viewport */
 }
-
-#btn-navbar:focus, #btn-fullview:focus {
+#btn-sidebar:focus, #btn-fullview:focus {
 	/* Temporary Hex Color + Alpha Value */
 	/* Format: #RRGGBBAA */
-	box-shadow: 0 0 0 0.2rem #f4d03080;
+	/* box-shadow: 0 0 0 0.2rem #f4d03080; */
 }
+#btn-sidebar:hover, #btn-fullview:hover {
+	/* Temporary Hex Color */
+	/* background-color: #d6b62a;
+	border-color: #b79c24; */
+}
+
 
 .fas {
 	transition: 0.5s;
@@ -120,52 +129,49 @@ main {
 
 /* ==================== Screen Size Media Query ==================== */
 
-/* Phone Screen Size */
+/* Collapsable sidebar & FullView */
 @media (max-width: 40rem) {
-	.outer.navbar, .outer.preview, .outer.fullview {
+	.outer.preview, .outer.fullview {
 		min-width: 0;
 	}
 }
 
-/* Collapsable Navbar */
-@media (max-width: 55rem) {
-	.outer.navbar {
+/* Collapsable sidebar */
+@media (max-width: 60rem) {
+	.outer.sidebar {
 		position: fixed;
+		top: 0;
 		left: -20rem;
 	}
-	#btn-navbar {
+	#btn-sidebar {
 		display: inline-block;
 		position: fixed;
 		top: 50%;
 		left: 0;
 	}
 }
-@media (min-width: 55rem) {
-	#btn-navbar {
+@media (min-width: 60rem) {
+	#btn-sidebar {
 		display: none;
 	}
 }
 
 /* Collapsable FullView */
-@media (max-width: 85rem) {
+@media (max-width: 90rem) {
 	.outer.fullview {
 		position: fixed;
+		top: 0;
 		right: -45rem;
 	}
 	#btn-fullview {
-		display: inline-block;
 		position: fixed;
+		display: inline-block;
 		top: 50%;
 		right: 0;
 	}
 }
-@media (min-width: 85rem) {
+@media (min-width: 90rem) {
 	#btn-fullview {
 		display: none;
 	}
-}
-
-/* V.Large Settings */
-@media (min-width: 85rem) {
-
 }
