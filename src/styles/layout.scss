@@ -1,0 +1,112 @@
+$color-bg-light: #efeeee;
+$color-bg-dark: #232736;
+$color-shadow-light: #ffffff80;
+$color-shadow-dark: #d1cdc780;
+
+$color-accent-light-1: #f4d030;
+$color-accent-light-2: #d6b62a;
+$color-accent-dark-1: #d030f4;
+$color-accent-dark-2: #b62ad6;
+
+$width-min-navbar: 20rem;
+$width-max-navbar: 25rem;
+$width-min-content: 40rem;
+$width-max-content: 55rem;
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto-Regular.ttf");
+}
+
+body {
+	margin: 0px;
+
+	font-family: Roboto; // temporary
+}
+main {
+	// fill vertical viewport
+	min-height: 100vh;
+
+	// main is a flex container
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+.background {
+	// static background
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+	background-color: $color-bg-light;
+}
+
+/* ==================== Content Container Styling ==================== */
+
+// outer is a flex item
+.outer {
+	// padding for inner
+	padding: 2rem 1rem 2rem 1rem;
+
+	border: 1px dashed #000000; // temporary
+}
+.outer.navbar {
+	order: 1; // flex item ordering
+	flex-grow: 1; 
+}
+.outer.content {
+	order: 2; // flex item ordering
+	flex-grow: 3;
+}
+
+.inner {
+	// inner is a flex container
+	display: flex;
+	flex-direction: column;
+
+	border: 2px solid #000000; // temporary, border of visible container
+	border-radius: 15px;
+}
+.inner.navbar {
+	// responsive css
+	min-width: $width-min-navbar;
+	max-width: $width-max-navbar;
+	
+	// fixed to center line
+	margin-left: auto;
+	margin-right: 0rem;
+
+	// sticky navbar
+	position: sticky;
+	top: 2rem;
+}
+.inner.content {
+	// responsive css
+	min-width: $width-min-content;
+	max-width: $width-max-content;
+
+	// fixed to center line
+	margin-left: 0rem;
+	margin-right: auto;
+
+	height: 120vh; // temporary, scroll test
+}
+
+/* ==================== Screen Size Media Query ==================== */
+
+/* Content stretch to viewport width */
+@media (max-width: $width-min-content + 1) {
+	.inner.content {
+		min-width: 0;
+	}
+}
+
+/* Hidden navbar */
+@media (max-width: ($width-min-navbar + $width-min-content + 2) ) {
+	.outer.navbar {
+		position: fixed;
+		top: 0;
+		left: -20rem;
+	}
+}

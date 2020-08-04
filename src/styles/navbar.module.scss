@@ -1,0 +1,22 @@
+
+.profile {
+	border-radius: 50%;
+	width: 240px;
+	height: 240px;
+}
+
+.container {
+	width: 100%;
+	margin: 0px;
+	padding: 2rem 0rem;
+
+	display: flex;
+	flex-direction: column;
+
+	border: 1px dashed #000000; // temporary
+}
+
+.item {
+	align-items: center;
+	text-align: center;
+}
