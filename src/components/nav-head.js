@@ -3,11 +3,19 @@ import { Link } from "gatsby"
 
 import styles from "../styles/nav-tool.module.scss"
 
-const NavHead = () => (
+const header = (
 	<div className={styles.container}>
-		<a className="top" />
 		<Link to="/">Back Home</Link>
 	</div>
 )
+
+function NavHead (props) {
+	// Draws footer when not on index
+	if (props.isHome) {
+		return null
+	} else {
+		return header
+	}
+}
 
 export default NavHead

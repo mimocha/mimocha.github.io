@@ -1,6 +1,8 @@
 import React from "react"
 
-import Navbar from "../components/navbar"
+import Header from "../components/header"
+import Footer from "../components/footer"
+
 import NavHead from "../components/nav-head"
 import NavFoot from "../components/nav-foot"
 import "../styles/layout.scss"
@@ -15,19 +17,16 @@ const Container = (props) => (
 
 const Layout = (props) => (
 	<main>
-		{/* Background */}
-		<div className="background"></div>
+		<Header />
 
-		{/* Containers */}
-		<Container className="navbar">
-			<Navbar />
-		</Container>
-		
+		{/* Content */}
 		<Container className="content">
-			<NavHead />
+			<NavHead isHome={props.isHome} />
 			{props.children}
-			<NavFoot />
+			<NavFoot isHome={props.isHome} />
 		</Container>
+
+		<Footer />
 	</main>
 )
 

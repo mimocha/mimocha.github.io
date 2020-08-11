@@ -1,24 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import navbarStyles from "../styles/navbar.module.scss"
-import profile from "../images/profile.jpg"
-
-const About = () => (
-	<div className={navbarStyles.container}>
-		<div className={navbarStyles.item}>
-			<img src={profile} alt="My Face" className={navbarStyles.profile} />
-		</div>
-		
-		<div className={navbarStyles.item}>
-			<h1>Chawit Leosrisook</h1>
-		</div>
-		
-		<div className={navbarStyles.item}>
-			<p>About me goes here?</p>
-		</div>
-	</div>
-)
 
 const Navigations = () => (
 	<>
@@ -39,7 +21,6 @@ const Navigations = () => (
 
 const Navbar = () => (
 	<>
-		<About />
 		<Navigations />
 	</>
 )
