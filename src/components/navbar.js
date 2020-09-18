@@ -7,8 +7,8 @@ const Navigations = () => (
 		<h1>Navigations</h1>
 		<ul>
 			<li><Link to="/">Home</Link></li>
+			<li><Link to="/showcase">Showcase</Link></li>
 			<li><Link to="/about">About</Link></li>
-			<li><Link to="/blog">Blog</Link></li>
 			<li><Link to="/contact">Contact</Link></li>
 			<li><Link to="/404">404</Link></li>
 		</ul>

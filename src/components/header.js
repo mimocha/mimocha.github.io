@@ -1,14 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
-import "../styles/header.module.scss"
+import styles from "../styles/header.module.scss"
 
 function NavItems (props) {
+	// Sets style to active if linking to the current page
 	let s = "nav-item";
-	if (props.active === true) {
+	if (props.link === window.location.pathname) {
 		s += " active";
 	}
 
@@ -21,31 +22,54 @@ function NavItems (props) {
 	)
 }
 
-const Header = (props) => (
-	<nav className="navbar navbar-expand-lg	navbar-dark bg-dark">
+// Brand div
+// Uses CSS to do hover text change effect
+// URL split into three parts for fancy timed delay effect -- Might get bored and removed later.
+const Brand = () => (
+	<div className={styles.container}>
 		<Link to="/" className="navbar-brand">
-			Chawit Leosrisook
+			<span className={styles.name + " text-monospace"}>
+				Chawit Leosrisook
+			</span>
+			<span className={styles.a + " text-monospace text-warning"}>
+				mimocha.
+			</span>
+			<span className={styles.b + " text-monospace text-warning"}>
+				github.
+			</span>
+			<span className={styles.c + " text-monospace text-warning"}>
+				io
+			</span>
 		</Link>
+	</div>
+)
 
+// Header Navbar
+const Header = () => (
+	<nav className="navbar navbar-expand-md	navbar-dark bg-dark">
+		<Brand />
+
+		{/* Navbar navigation items */}
 		<div className="collapse navbar-collapse">
-			<ul className="navbar-nav mr-auto">
-				<NavItems link="/" active={true}>
+			<ul className="navbar-nav ml-auto">
+				<NavItems link="/">
 					Home
 				</NavItems>
 
-				<NavItems link="/about" active={false}>
+				<NavItems link="/showcase">
+					Showcase
+				</NavItems>
+
+				<NavItems link="/about">
 					About
 				</NavItems>
 
-				<NavItems link="/blog" active={false}>
-					Blog
-				</NavItems>
-
-				<NavItems link="/contact" active={false}>
+				<NavItems link="/contact">
 					Contact
 				</NavItems>
 
-				<NavItems link="/404" active={false}>
+				{/* TODO: Temporary Link */}
+				<NavItems link="/404">
 					404
 				</NavItems>
 			</ul>

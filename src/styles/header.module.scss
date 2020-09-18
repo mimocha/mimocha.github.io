@@ -1,0 +1,39 @@
+// Shows name and hides URL by default
+// Use transition for opacity change effect only
+// Moves hidden thing away with position: absolute; and top: -10rem;
+// Then hides name and shows URL, on mouse hover over brand
+
+// Name
+.name {
+	position: static;
+	opacity: 1;
+	transition: opacity 200ms ease-in;
+}
+.container:hover .name {
+	position: absolute;
+	top: -10rem;
+	opacity: 0;
+}
+
+// URL
+.a, .b, .c{
+	position: absolute;
+	top: -10rem;
+	opacity: 0;
+	transition: opacity 200ms ease-in;
+}
+.a {
+	transition-delay: 100ms;
+}
+.b {
+	transition-delay: 200ms;
+}
+.c {
+	transition-delay: 300ms;
+}
+.container:hover {
+	.a, .b, .c {
+		position: static;
+		opacity: 1;
+	}
+}

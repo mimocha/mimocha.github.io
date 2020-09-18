@@ -4,16 +4,15 @@ import { Link } from "gatsby"
 import styles from "../styles/nav-tool.module.scss"
 
 const footer = (
-	<div className={styles.container}>
+	<div className={styles.content_footer}>
 		<p><Link to="/">Back Home</Link></p>
 		<p><a href="#top">Go to Top</a></p>
-		<p>Chawit Leosrisook 2020</p>
 	</div>
 )
 
-function NavFoot (props) {
-	// Draws footer when not on index
-	if (props.isHome) {
+function NavFoot () {
+	// Draws footer when not at landing page
+	if (window.location.pathname === "/") {
 		return null
 	} else {
 		return footer

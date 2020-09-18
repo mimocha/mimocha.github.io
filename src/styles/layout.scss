@@ -16,47 +16,41 @@ body {
 main {
 	// fill vertical viewport
 	min-height: 100vh;
-}
-
-/* ==================== Content Container Styling ==================== */
-
-// outer is a flex item
-.outer {
-	// padding for inner
-	padding: 2rem 1rem 2rem 1rem;
-
-	border: 1px dashed #000000; // temporary
-}
-.outer.navbar {
-	order: 1; // flex item ordering
-	flex-grow: 1; 
-}
-.outer.content {
-	order: 2; // flex item ordering
-	flex-grow: 3;
-}
-
-// inner is a flex container
-.inner {
+	// is a vertical flexbox container
 	display: flex;
 	flex-direction: column;
 
-	border: 2px solid #000000; // temporary, border of visible container
-	border-radius: 15px;
+	header {
+		// flex item ordering
+		order: 1;
+	}
+	.content {
+		// flex item ordering
+		order: 2;
+		// stretch to fill vertical space
+		flex-grow: 1;
+	}
+	footer {
+		// flex item ordering
+		order : 3;
+	}
 }
-.inner.navbar {
-	// fixed to center line
-	margin-left: auto;
-	margin-right: 0rem;
 
-	// // sticky navbar
-	// position: sticky;
-	// top: 2rem;
+
+/* ==================== Content Container Styling ==================== */
+
+// div.content is a flex item and a flex container
+.content {
+	// flex container
+	display: flex;
+	flex-direction: column;
+	// space-between stretches content footer to bottom of available space
+	justify-content: space-between;
+
+	// make sure content is snug
+	padding: 0;
 }
-.inner.content {
-	// fixed to center line
-	margin-left: 0rem;
-	margin-right: auto;
 
-	// height: 120vh; // temporary, scroll test
+footer {
+	padding: 0.5rem;
 }

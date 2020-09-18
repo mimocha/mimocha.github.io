@@ -3,7 +3,7 @@
   "private": true,
   "description": "Personal profile website for Chawit Leosrisook, based on the gatsby starter template.",
   "version": "0.1.0",
-  "author": "Chawit Leosrisook <leosrisook.c@gmail.com>",
+  "author": "Chawit Leosrisook <l.chawit@outlook.com>",
   "dependencies": {
     "@popperjs/core": "^2.4.4",
     "bootstrap": "^4.5.2",
