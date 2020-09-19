@@ -2,23 +2,50 @@ import React from "react"
 
 import Layout from "../components/layout"
 
-import navbarStyles from "../styles/navbar.module.scss"
+import styles from "../styles/about.module.scss"
 import profileImg from "../images/profile.jpg"
+import sussex from "../images/sussex-mark.png"
+import nit from "../images/nit-mark.png"
+
+const University = (props) => (
+<a href={props.link} className="text-decoration-none">
+	<div className={"container " + styles.container}>
+		<img src={props.logo} className={styles.logo}/>
+		<span className={styles.uniText}>
+		<p className="lead text-dark">{props.degree}</p>
+		<p className="text-muted">{props.school}</p>
+		</span>
+	</div>
+</a>
+)
 
 const About = () => (
-	<div className={navbarStyles.container}>
-		<div className={navbarStyles.item}>
-			<img src={profileImg} alt="My Face" className={navbarStyles.profile} />
-		</div>
-		
-		<div className={navbarStyles.item}>
-			<h1>Chawit Leosrisook</h1>
-		</div>
-		
-		<div className={navbarStyles.item}>
-			<p>About me goes here?</p>
-		</div>
+<div className={styles.jumbotron + " jumbotron mb-5"}>
+	<div className={styles.profileBox}>
+		<img src={profileImg} className={styles.profileImg}/>
 	</div>
+
+	<div className={styles.summaryBox}>
+		<div className={styles.name}>
+			<h1>Chawit Leosrisook</h1>
+			<hr></hr>
+		</div>
+
+		<University 
+			link="https://www.sussex.ac.uk"
+			logo={sussex}
+			degree="MSc Artificial Intelligence and Adaptive Systems"
+			school="University of Sussex"
+		/>
+		&nbsp;
+		<University 
+			link="https://www.nit.ac.jp"
+			logo={nit}
+			degree="BEng Robotics Engineering"
+			school="Nippon Institute of Technology"
+		/>
+	</div>
+</div>
 )
 
 const Summary = () => (
@@ -86,9 +113,7 @@ const Skills = () => (
 const AboutPage = () => (
 	<Layout>
 		<About />
-
 		<Summary />
-		
 		<Skills />
 	</Layout>
 )

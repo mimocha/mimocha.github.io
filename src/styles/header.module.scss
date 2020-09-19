@@ -1,3 +1,9 @@
+/* ==================== Nav Menu Styling ==================== */
+ul a {
+	transition: all 100ms ease-in;
+}
+
+/* ==================== Brand Styling ==================== */
 // Shows name and hides URL by default
 // Use transition for opacity change effect only
 // Moves hidden thing away with position: absolute; and top: -10rem;
