@@ -1,0 +1,11 @@
+$shadow-color: #30303066;
+$primary-color: #fde98e;
+
+.jumbotron {
+	background-color: $primary-color;
+	background-image: url("../images/about/particles.png");
+}
+
+.text {
+	text-shadow: -0.5px 0.5px 3px $shadow-color;
+}

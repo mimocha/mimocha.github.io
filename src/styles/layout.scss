@@ -6,7 +6,14 @@
 :root {
 	// smooth scroll
 	scroll-behavior: smooth;
+	// no scroll bar
+	scrollbar-width: none;
 }
+// no scroll bar
+:root::-webkit-scrollbar {
+	display: none;
+}
+
 
 body {
 	margin: 0px;

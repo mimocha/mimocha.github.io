@@ -1,8 +1,9 @@
+// React
 import React from "react"
 
+// HTML / CSS
 import Header from "../components/header"
 import Footer from "../components/footer"
-
 import NavFoot from "../components/nav-foot"
 import "../styles/layout.scss"
 

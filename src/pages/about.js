@@ -1,16 +1,25 @@
+// React
 import React from "react"
+import { Link } from "gatsby"
 
+// HTML / CSS
 import Layout from "../components/layout"
-
 import styles from "../styles/about.module.scss"
+import '@fortawesome/fontawesome-free/css/all.css';
+
+// Resource
 import profileImg from "../images/profile.jpg"
-import sussex from "../images/sussex-mark.png"
-import nit from "../images/nit-mark.png"
+import sussexLogo from "../images/sussex-mark.png"
+import nitLogo from "../images/nit-mark.png"
+
+
+
+/* ========================= Hero Section ========================= */
 
 const University = (props) => (
-<a href={props.link} className="text-decoration-none">
+<a href={props.link} className="text-decoration-none" target="_blank" rel="noreferrer">
 	<div className={"container " + styles.container}>
-		<img src={props.logo} className={styles.logo}/>
+		<img src={props.logo} className={styles.logo} alt="University logo"/>
 		<span className={styles.uniText}>
 		<p className="lead text-dark">{props.degree}</p>
 		<p className="text-muted">{props.school}</p>
@@ -19,10 +28,10 @@ const University = (props) => (
 </a>
 )
 
-const About = () => (
+const Hero = () => (
 <div className={styles.jumbotron + " jumbotron mb-5"}>
 	<div className={styles.profileBox}>
-		<img src={profileImg} className={styles.profileImg}/>
+		<img src={profileImg} className={styles.profileImg} alt="Chawit Leosrisook"/>
 	</div>
 
 	<div className={styles.summaryBox}>
@@ -33,14 +42,14 @@ const About = () => (
 
 		<University 
 			link="https://www.sussex.ac.uk"
-			logo={sussex}
+			logo={sussexLogo}
 			degree="MSc Artificial Intelligence and Adaptive Systems"
 			school="University of Sussex"
 		/>
 		&nbsp;
 		<University 
 			link="https://www.nit.ac.jp"
-			logo={nit}
+			logo={nitLogo}
 			degree="BEng Robotics Engineering"
 			school="Nippon Institute of Technology"
 		/>
@@ -48,16 +57,55 @@ const About = () => (
 </div>
 )
 
+
+
+/* ========================= Content Section ========================= */
+
+const ContentBox = (props) => (
+	<div className="p-3 mx-2 text-justify">
+		<h4>{props.header}</h4>
+		<hr></hr>
+		{props.children}
+	</div>
+)
+
 const Summary = () => (
+<ContentBox header="About Me">
 	<p>
-		Expected first class Master's degree student in artificial intelligence with background in robotics engineering; experienced in a broad range of engineering topics including embedded systems, machine learning, and industrial automation. Proficient coder and fast learner, with skills in data visualization and self-trained in a variety of software engineering practices. Bilingual-native speaker of Thai and English, and fluent in Japanese; with brief part-time work experience as a technical Japanese-Thai interpreter for business delegations in Japan.
+	I am a Thai graduate student at the University of Sussex, studying artificial intelligence! My background is in robotics engineering from Nippon Institute of Technology in Japan.
+	Because of that, I am a bilingual-native speaker of Thai and English, while also being fluent in Japanese. Utilizing that, I had brief work experience as a freelance technical Thai-Japanese interpreter in Japan.
 	</p>
+	<p>
+	I am taught on various AI topics including machine learning and natural language processing, as well as engineering topics, such as embedded systems, image processing and industrial automations.
+	I enjoy everything coding related, and am a big fan of data visualization! You can find examples of my work on this website, as well as on my Github page.
+	My aspiration is to become an active member in the AI research community.
+	</p>
+
+	<div className={styles.buttonContainer}>
+		<a href="https://www.github.com/mimocha" target="_blank" rel="canonical">
+			<button className="btn btn-warning shadow-sm ">
+				<i className="fab fa-github"></i>
+				Github
+			</button>
+		</a>
+		<a href="#">
+			<button className="btn btn-warning shadow-sm">
+				<i class="fas fa-file-pdf"></i>
+				Resume
+			</button>
+		</a>
+		<Link to="/contact">
+			<button className="btn btn-warning shadow-sm">
+				<i class="fas fa-envelope"></i>
+				Contact
+			</button>
+		</Link>
+	</div>
+</ContentBox>
 )
 
 const Skills = () => (
-	<>
-	<h2>My Skills</h2>
-
+<ContentBox header="My Skills">
 	<h3>Artificial Intelligence - Machine Learning Topics</h3>
 	<ul>
 		<li>Natural Language Processing</li>
@@ -107,12 +155,16 @@ const Skills = () => (
 		<li>English - Bilingual-native</li>
 		<li>Japanese - Fluent</li>
 	</ul>
-	</>
+</ContentBox>
 )
+
+
+
+/* ========================= Output  ========================= */
 
 const AboutPage = () => (
 	<Layout>
-		<About />
+		<Hero />
 		<Summary />
 		<Skills />
 	</Layout>

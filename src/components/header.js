@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
-
 import styles from "../styles/header.module.scss"
 
 function NavItems (props) {
@@ -15,7 +14,7 @@ function NavItems (props) {
 
 	return (
 		<li className={s}>
-			<Link to={props.link} className="nav-link">
+			<Link to={props.link} className={styles.navLink + " nav-link"}>
 				{props.children}
 			</Link>
 		</li>
@@ -26,18 +25,18 @@ function NavItems (props) {
 // Uses CSS to do hover text change effect
 // URL split into three parts for fancy timed delay effect -- Might get bored and removed later.
 const Brand = () => (
-	<div className={styles.container}>
+	<div className={styles.brandContainer + " collapse navbar-collapse"}>
 		<Link to="/" className="navbar-brand">
 			<span className={styles.name + " text-monospace"}>
 				Chawit Leosrisook
 			</span>
-			<span className={styles.a + " text-monospace text-warning"}>
+			<span className={styles.a + " text-monospace"}>
 				mimocha.
 			</span>
-			<span className={styles.b + " text-monospace text-warning"}>
+			<span className={styles.b + " text-monospace"}>
 				github.
 			</span>
-			<span className={styles.c + " text-monospace text-warning"}>
+			<span className={styles.c + " text-monospace"}>
 				io
 			</span>
 		</Link>
@@ -50,8 +49,8 @@ const Header = () => (
 		<Brand />
 
 		{/* Navbar navigation items */}
-		<div className="collapse navbar-collapse">
-			<ul className="navbar-nav ml-auto">
+		<div className={styles.navbarContainer}>
+			<ul className={styles.navbarNav + " navbar-nav"}>
 				<NavItems link="/">
 					Home
 				</NavItems>

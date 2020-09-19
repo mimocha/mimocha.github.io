@@ -1,21 +1,36 @@
+$shadow-color: #303030;
+$primary-color: #ffdc41;
+
 /* ==================== Nav Menu Styling ==================== */
-ul a {
-	transition: all 100ms ease-in;
+.brand-container {
+	flex-grow: 10;
+	text-shadow: -1px 1px 3px $shadow-color;
+}
+.navbar-container {
+	flex-grow: 1;
+}
+.navbar-nav {
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+.nav-link {
+	transition: all 200ms ease-in-out;
 }
 
-/* ==================== Brand Styling ==================== */
+
+
+/* ==================== Brand Hover Effect Styling ==================== */
 // Shows name and hides URL by default
 // Use transition for opacity change effect only
 // Moves hidden thing away with position: absolute; and top: -10rem;
 // Then hides name and shows URL, on mouse hover over brand
 
-// Name
 .name {
 	position: static;
 	opacity: 1;
 	transition: opacity 200ms ease-in;
 }
-.container:hover .name {
+.brand-container:hover .name {
 	position: absolute;
 	top: -10rem;
 	opacity: 0;
@@ -27,6 +42,7 @@ ul a {
 	top: -10rem;
 	opacity: 0;
 	transition: opacity 200ms ease-in;
+	color: $primary-color;
 }
 .a {
 	transition-delay: 100ms;
@@ -37,7 +53,7 @@ ul a {
 .c {
 	transition-delay: 300ms;
 }
-.container:hover {
+.brand-container:hover {
 	.a, .b, .c {
 		position: static;
 		opacity: 1;
