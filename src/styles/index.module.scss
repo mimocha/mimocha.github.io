@@ -1,11 +1,28 @@
-$shadow-color: #30303066;
-$primary-color: #fde98e;
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
 
 .jumbotron {
-	background-color: $primary-color;
+	background-color: $secondary-1-0;
 	background-image: url("../images/about/particles.png");
 }
 
 .text {
-	text-shadow: -0.5px 0.5px 3px $shadow-color;
+	text-shadow: -0.5px 0.5px 3px $shadow-primary-2;
+}
+
+/* ==================== Button Styling ==================== */
+.button {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	background-color: $primary-1;
+	box-shadow: -1px 1px 5px $shadow-primary-3;
+	transition: all 100ms ease-in;
+}
+.button:hover {
+	background-color: $primary-3;
+}
+.button:active {
+	background-color: $primary-4;
 }

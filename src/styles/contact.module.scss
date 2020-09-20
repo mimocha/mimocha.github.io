@@ -1,0 +1,66 @@
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+
+/* ============== Outer Container Styling ============== */
+.container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+
+	padding: 3em 2em;
+}
+
+/* ============== Contact Box Styling ============== */
+.contact-container {
+	flex-grow: 1;
+	padding-left: 1em;
+	padding-right: 1em;
+	max-width: 30em;
+}
+.list-item {
+	// Flex container styling
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+
+	box-shadow: -1px 1px 3px $shadow-primary-3;
+
+	p {
+		// No text spacing
+		margin: 0;
+		word-wrap: normal;
+		// Limit text horizontal span
+		max-width: 80%;
+		text-align: right;
+	}
+	i {
+		font-size: 1.5em;
+		transition: all 100ms ease-in-out;
+	}
+}
+.list-item:hover i {
+	text-shadow: -1px 1px 1px $shadow-primary-3;
+	color: $primary-0;
+}
+
+/* ============== Illustration Styling ============== */
+.illust-container {
+	flex-grow: 1;
+	// Flex box for positioning
+	display: flex;
+	flex-direction: column;
+	// align to bottom-right of box
+	align-items: flex-end;
+
+	img {
+		min-width: 20em;
+		max-width: 30em;
+	}
+	a {
+		color: $shadow-primary-4;
+	}
+}

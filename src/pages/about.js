@@ -69,6 +69,15 @@ const ContentBox = (props) => (
 	</div>
 )
 
+const Button = (props) => (
+<Link to={props.link} target={props.target} rel={props.rel}>
+	<button className={styles.button + " btn"}>
+		<i className={props.icon}></i>
+		{props.children}
+	</button>
+</Link>
+)
+
 const Summary = () => (
 <ContentBox header="About Me">
 	<p>
@@ -82,24 +91,19 @@ const Summary = () => (
 	</p>
 
 	<div className={styles.buttonContainer}>
-		<a href="https://www.github.com/mimocha" target="_blank" rel="canonical">
-			<button className="btn btn-warning shadow-sm ">
-				<i className="fab fa-github"></i>
-				Github
-			</button>
-		</a>
-		<a href="#">
-			<button className="btn btn-warning shadow-sm">
-				<i class="fas fa-file-pdf"></i>
-				Resume
-			</button>
-		</a>
-		<Link to="/contact">
-			<button className="btn btn-warning shadow-sm">
-				<i class="fas fa-envelope"></i>
-				Contact
-			</button>
-		</Link>
+		<Button link="https://www.github.com/mimocha" 
+			target="_blank" rel="canonical"
+			icon="fab fa-github">
+			Github
+		</Button>
+		<Button 
+			link="https://drive.google.com/uc?export=download&id=15iVuo3b5zq37SHGRLBdYwaasMrzzcPHH" icon="fas fa-file-pdf">
+			Resume
+		</Button>
+		<Button link="/contact" icon="fas fa-envelope">
+			Contact
+		</Button>
+		<span className={styles.filler}></span>
 	</div>
 </ContentBox>
 )
@@ -163,11 +167,11 @@ const Skills = () => (
 /* ========================= Output  ========================= */
 
 const AboutPage = () => (
-	<Layout>
-		<Hero />
-		<Summary />
-		<Skills />
-	</Layout>
+<Layout>
+	<Hero />
+	<Summary />
+	<Skills />
+</Layout>
 )
 
 export default AboutPage

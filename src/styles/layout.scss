@@ -28,17 +28,14 @@ main {
 	flex-direction: column;
 
 	header {
-		// flex item ordering
 		order: 1;
 	}
 	.content {
-		// flex item ordering
 		order: 2;
 		// stretch to fill vertical space
 		flex-grow: 1;
 	}
 	footer {
-		// flex item ordering
 		order : 3;
 	}
 }

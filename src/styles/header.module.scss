@@ -1,5 +1,7 @@
-$shadow-color: #30303088;
-$primary-color: #ffdc41;
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
 
 @font-face {
 	font-family: 'SourceCodePro-Regular';
@@ -8,15 +10,16 @@ $primary-color: #ffdc41;
 
 /* ==================== Nav Menu Styling ==================== */
 .brand-container {
-	flex-grow: 10;
-	text-shadow: -1px 1px 3px $shadow-color;
-
+	// Prevent navitem overflows
+	// Set to width of brand text
+	min-width: 14.5em;
 	span {
 		font-family: 'SourceCodePro-Regular';
-		text-shadow: -1px 1px 3px $shadow-color;
+		text-shadow: -1px 1px 3px $shadow-primary-1;
 	}
 }
 .navbar-container {
+	// Stretches navigation items to fill navbar when collapsed
 	flex-grow: 1;
 }
 .navbar-nav {
@@ -26,7 +29,10 @@ $primary-color: #ffdc41;
 .nav-link {
 	transition: all 200ms ease-in-out;
 }
-
+a {
+	// Hide dotted border from links
+	outline: none;
+}
 
 
 /* ==================== Brand Hover Effect Styling ==================== */
@@ -36,24 +42,27 @@ $primary-color: #ffdc41;
 // Then hides name and shows URL, on mouse hover over brand
 
 // mixins for per-character fade effects
+// Iterate through each item (span) and sets different delay time
 $char-n: 18;
-$fade-time: 100ms;
-$fade-delay: 25;
+$fade-time: 50ms;
+$fade-delay: 150;
+$fade-offset: 15;
 @mixin fade-name {
 	@for $i from 1 through $char-n {
 		&:nth-child(#{$i}) {
-			transition: opacity $fade-time #{$i * $fade-delay}ms ease-in-out;
+			transition: opacity $fade-time #{($i*$fade-offset)+$fade-delay}ms ease-in-out;
 		}
 	}
 }
 @mixin fade-url {
 	@for $i from 1 through $char-n {
 		&:nth-child(#{$i}) {
-			transition: opacity $fade-time #{$i * $fade-delay}ms ease-in-out;
+			transition: opacity $fade-time #{($i*$fade-offset)+$fade-delay}ms ease-in-out;
 		}
 	}
 }
 
+// Name
 .name * {
 	position: static;
 	opacity: 1;
@@ -64,12 +73,16 @@ $fade-delay: 25;
 }
 
 // URL
-// Fine-tune hidden text with left property
-.url * {
+// Move container to overlap with name text with relative positioning
+// Fine-tune position with 'left' property
+.url {
 	position: relative;
 	left: -14.5rem;
+}
+// Effects apply to inner spans (letters), not the outer span (container)
+.url * {
 	opacity: 0;
-	color: $primary-color;
+	color: $secondary-1-1;
 	@include fade-url;
 }
 .brand-container:hover .url * {

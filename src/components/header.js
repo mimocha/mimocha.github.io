@@ -8,34 +8,26 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import styles from "../styles/header.module.scss"
 import '@fortawesome/fontawesome-free/css/all.css';
 
-function NavItems (props) {
-	// Sets style to active if linking to the current page
-	let s = "nav-item";
-	if (props.link === window.location.pathname) {
-		s += " active";
-	}
-
-	return (
-		<li className={s}>
-			<Link to={props.link} className={styles.navLink + " nav-link"}>
-				{props.children}
-			</Link>
-		</li>
-	)
-}
-
 // Functions to split text into spans with individual characters
 // Used for fading effects
-const Letter = (props) => (
-	<span>{props.children}</span>
+const Letter = (props, key) => (
+	<span key={key}>
+		{props.children}
+	</span>
 )
+
 function TextSplit (props) {
 	let i;
-	let rows = [];
+	let array = [];
+	// 17 characters, excluding fontawesome icon
 	for (i=0; i<17; i++) {
-		rows.push(<Letter>{props.text[i]}</Letter>);
+		array.push(
+			<Letter key={i.toString()}>
+				{props.text[i]}
+			</Letter>
+		);
 	}
-	return rows;
+	return array;
 }
 
 // Brand div
@@ -54,6 +46,22 @@ const Brand = () => (
 		</Link>
 	</div>
 )
+
+function NavItems (props) {
+	// Sets style to active if linking to the current page
+	let s = "nav-item";
+	if (props.link === window.location.pathname) {
+		s += " active";
+	}
+
+	return (
+		<li className={s}>
+			<Link to={props.link} className={styles.navLink + " nav-link"}>
+				{props.children}
+			</Link>
+		</li>
+	)
+}
 
 // Header Navbar
 const Header = () => (
