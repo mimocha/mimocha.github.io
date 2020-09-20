@@ -1,10 +1,20 @@
-$shadow-color: #303030;
+$shadow-color: #30303088;
 $primary-color: #ffdc41;
+
+@font-face {
+	font-family: 'SourceCodePro-Regular';
+	src: url("../fonts/SourceCodePro-Regular.ttf");
+}
 
 /* ==================== Nav Menu Styling ==================== */
 .brand-container {
 	flex-grow: 10;
 	text-shadow: -1px 1px 3px $shadow-color;
+
+	span {
+		font-family: 'SourceCodePro-Regular';
+		text-shadow: -1px 1px 3px $shadow-color;
+	}
 }
 .navbar-container {
 	flex-grow: 1;
@@ -22,40 +32,46 @@ $primary-color: #ffdc41;
 /* ==================== Brand Hover Effect Styling ==================== */
 // Shows name and hides URL by default
 // Use transition for opacity change effect only
-// Moves hidden thing away with position: absolute; and top: -10rem;
+// URL overlapped by using relative positioning -- finetuning required
 // Then hides name and shows URL, on mouse hover over brand
 
-.name {
+// mixins for per-character fade effects
+$char-n: 18;
+$fade-time: 100ms;
+$fade-delay: 25;
+@mixin fade-name {
+	@for $i from 1 through $char-n {
+		&:nth-child(#{$i}) {
+			transition: opacity $fade-time #{$i * $fade-delay}ms ease-in-out;
+		}
+	}
+}
+@mixin fade-url {
+	@for $i from 1 through $char-n {
+		&:nth-child(#{$i}) {
+			transition: opacity $fade-time #{$i * $fade-delay}ms ease-in-out;
+		}
+	}
+}
+
+.name * {
 	position: static;
 	opacity: 1;
-	transition: opacity 200ms ease-in;
+	@include fade-name;
 }
-.brand-container:hover .name {
-	position: absolute;
-	top: -10rem;
+.brand-container:hover .name * {
 	opacity: 0;
 }
 
 // URL
-.a, .b, .c{
-	position: absolute;
-	top: -10rem;
+// Fine-tune hidden text with left property
+.url * {
+	position: relative;
+	left: -14.5rem;
 	opacity: 0;
-	transition: opacity 200ms ease-in;
 	color: $primary-color;
+	@include fade-url;
 }
-.a {
-	transition-delay: 100ms;
-}
-.b {
-	transition-delay: 200ms;
-}
-.c {
-	transition-delay: 300ms;
-}
-.brand-container:hover {
-	.a, .b, .c {
-		position: static;
-		opacity: 1;
-	}
+.brand-container:hover .url * {
+	opacity: 1;
 }

@@ -1,9 +1,12 @@
+// React
 import React from "react"
 import { Link } from "gatsby"
 
+// HTML / CSS
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import styles from "../styles/header.module.scss"
+import '@fortawesome/fontawesome-free/css/all.css';
 
 function NavItems (props) {
 	// Sets style to active if linking to the current page
@@ -21,23 +24,32 @@ function NavItems (props) {
 	)
 }
 
+// Functions to split text into spans with individual characters
+// Used for fading effects
+const Letter = (props) => (
+	<span>{props.children}</span>
+)
+function TextSplit (props) {
+	let i;
+	let rows = [];
+	for (i=0; i<17; i++) {
+		rows.push(<Letter>{props.text[i]}</Letter>);
+	}
+	return rows;
+}
+
 // Brand div
 // Uses CSS to do hover text change effect
-// URL split into three parts for fancy timed delay effect -- Might get bored and removed later.
 const Brand = () => (
 	<div className={styles.brandContainer + " collapse navbar-collapse"}>
 		<Link to="/" className="navbar-brand">
-			<span className={styles.name + " text-monospace"}>
-				Chawit Leosrisook
+			<span className={styles.name} title="Chawit Leosrisook">
+				<i className="fas fa-user-circle pr-2"></i>
+				<TextSplit text="Chawit Leosrisook" />
 			</span>
-			<span className={styles.a + " text-monospace"}>
-				mimocha.
-			</span>
-			<span className={styles.b + " text-monospace"}>
-				github.
-			</span>
-			<span className={styles.c + " text-monospace"}>
-				io
+			<span className={styles.url} title="mimocha.github.io">
+				<i className="fab fa-github pr-2"></i>
+				<TextSplit text="mimocha.github.io" />
 			</span>
 		</Link>
 	</div>
