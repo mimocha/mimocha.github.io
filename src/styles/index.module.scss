@@ -4,7 +4,7 @@
 @import "./colors.scss";
 
 .jumbotron {
-	background-color: $secondary-1-0;
+	background-color: lighten($primary-0, 10%);
 	background-image: url("../images/about/particles.png");
 }
 
@@ -12,17 +12,36 @@
 	text-shadow: -0.5px 0.5px 3px $shadow-primary-2;
 }
 
+
+
 /* ==================== Button Styling ==================== */
 .button {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	background-color: $primary-1;
+	background-color: $secondary-1-1;
 	box-shadow: -1px 1px 5px $shadow-primary-3;
 	transition: all 100ms ease-in;
 }
 .button:hover {
-	background-color: $primary-3;
+	color: #ffffff;
+	background-color: darken($secondary-1-1, 10%);
 }
 .button:active {
-	background-color: $primary-4;
+	color: #e6e6e6;
+	background-color: darken($secondary-1-1, 25%);
+}
+
+
+/* ==================== Carousel Styling ==================== */
+.one {
+	height: 500px;
+	background-color: $primary-1;
+}
+.two {
+	height: 500px;
+	background-color: $primary-2;
+}
+.three {
+	height: 500px;
+	background-color: $primary-3;
 }

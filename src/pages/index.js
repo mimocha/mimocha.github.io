@@ -25,8 +25,27 @@ const Hero = () => (
 )
 
 const Showcase = () => (
-<div>
-	<h1>Showcase Selections</h1>
+<div className="carousel slide" data-ride="carousle" 
+	id="carouselExampleControls">
+	<div className="carousel-inner">
+		<div className={styles.one + " carousel-item active"}>
+			One
+		</div>
+		<div className={styles.two + "carousel-item"}>
+			Two
+		</div>
+		<div className={styles.three + "carousel-item"}>
+			Three
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
 </div>
 )
 

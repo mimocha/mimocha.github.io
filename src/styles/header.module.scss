@@ -35,6 +35,7 @@ a {
 }
 
 
+
 /* ==================== Brand Hover Effect Styling ==================== */
 // Shows name and hides URL by default
 // Use transition for opacity change effect only
@@ -62,7 +63,7 @@ $fade-offset: 15;
 	}
 }
 
-// Name
+// ----------------- Name ----------------- //
 .name * {
 	position: static;
 	opacity: 1;
@@ -72,7 +73,7 @@ $fade-offset: 15;
 	opacity: 0;
 }
 
-// URL
+// ----------------- URL ----------------- //
 // Move container to overlap with name text with relative positioning
 // Fine-tune position with 'left' property
 .url {
@@ -82,7 +83,7 @@ $fade-offset: 15;
 // Effects apply to inner spans (letters), not the outer span (container)
 .url * {
 	opacity: 0;
-	color: $secondary-1-1;
+	color: $primary-1;
 	@include fade-url;
 }
 .brand-container:hover .url * {

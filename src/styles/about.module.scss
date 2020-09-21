@@ -16,7 +16,7 @@ $break-2: 880px;
 	align-content: center;
 	flex-wrap: wrap;
 
-	background-color: $secondary-1-0;
+	background-color: lighten($primary-0, 10%);
 	background-image: url("../images/about/particles.png");
 }
 // flex items
@@ -121,15 +121,17 @@ $break-2: 880px;
 	text-align: center;
 	margin: 0.5rem;
 
-	background-color: $primary-1;
+	background-color: lighten($secondary-1-1, 15%);
 	box-shadow: -1px 1px 5px $shadow-primary-3;
 	transition: all 100ms ease-in;
 }
 .button:hover {
-	background-color: $primary-3;
+	color: #ffffff;
+	background-color: darken($secondary-1-1, 10%);
 }
 .button:active {
-	background-color: $primary-4;
+	color: #e6e6e6;
+	background-color: darken($secondary-1-1, 25%);
 }
 
 // Use empty span element to force buttons to left side of screen, 

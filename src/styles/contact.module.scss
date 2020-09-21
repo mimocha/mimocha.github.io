@@ -13,6 +13,8 @@
 	padding: 3em 2em;
 }
 
+
+
 /* ============== Contact Box Styling ============== */
 .contact-container {
 	flex-grow: 1;
@@ -44,8 +46,10 @@
 }
 .list-item:hover i {
 	text-shadow: -1px 1px 1px $shadow-primary-3;
-	color: $primary-0;
+	color: $secondary-1-1;
 }
+
+
 
 /* ============== Illustration Styling ============== */
 .illust-container {

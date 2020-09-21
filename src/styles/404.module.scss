@@ -1,0 +1,49 @@
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+
+@font-face {
+	font-family: 'Comfortaa-Bold';
+	src: url("../fonts/Comfortaa-Bold.ttf");
+}
+
+/* ============== Outer Container Styling ============== */
+.container {
+	// Stretch outer container to fill
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 1.5em 1em;
+}
+
+
+
+/* ============== Alert Styling ============== */
+.alert-container {
+	flex-grow: 1;
+	padding-left: 1em;
+	padding-right: 1em;
+	text-align: center;
+	font-family: 'Comfortaa-Bold';
+}
+
+
+/* ============== Illustration Styling ============== */
+.illust-container {
+	// Stretch container
+	flex-grow: 1;
+	// Flex box for positioning
+	display: flex;
+	flex-direction: column;
+	// align to center
+	align-items: center;
+
+	img {
+		max-width: 65vh;
+	}
+	a {
+		color: $shadow-primary-4;
+	}
+}
