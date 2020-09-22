@@ -1,9 +1,14 @@
+// React
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+// HTML / CSS
 import styles from "../styles/index.module.scss"
+import Header from "../components/header"
+import Button from "../components/buttons"
 
+
+/* ========================= Header ========================= */
 const Hero = () => (
 <div className={styles.jumbotron + " jumbotron"}>
 	<h1 className={styles.text}>
@@ -12,48 +17,31 @@ const Hero = () => (
 	<p className={styles.text + " lead"}>
 		I'm Chawit. I study artificial intelligence, and I code for fun!
 	</p>
+
 	<hr className="my-4"></hr>
+
 	<div className={styles.buttonContainer}>
-		<Link to="/about" className={styles.button + " btn btn-lg"}>
+		<Button link="/showcase" type="internal" size="btn-lg">
+			My work
+		</Button>
+		<Button link="/about" type="internal" size="btn-lg">
 			About me
-		</Link>
-		<Link to="/contact" className={styles.button + " btn btn-lg"}>
+		</Button>
+		<Button link="/contact" type="internal" size="btn-lg">
 			Contact me
-		</Link>
+		</Button>
 	</div>
 </div>
 )
 
-const Showcase = () => (
-<div className="carousel slide" data-ride="carousle" 
-	id="carouselExampleControls">
-	<div className="carousel-inner">
-		<div className={styles.one + " carousel-item active"}>
-			One
-		</div>
-		<div className={styles.two + "carousel-item"}>
-			Two
-		</div>
-		<div className={styles.three + "carousel-item"}>
-			Three
-		</div>
-		<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
-</div>
-)
 
+
+/* ========================= Output ========================= */
 const IndexPage = () => (
-<Layout>
+<main className="cover-container d-flex w-100 h-100">
+	<Header />
 	<Hero />
-	<Showcase />
-</Layout>
+</main>
 )
 
 export default IndexPage

@@ -1,0 +1,32 @@
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+
+/* ==================== Button Styling ==================== */
+.button-container {
+	display: flex;
+	flex-grow: 1;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.button {
+	margin: 0.5em 1em 0.5em 0;
+	background-color: lighten($secondary-1-1, 5%);
+	box-shadow: -1px 1px 5px $shadow-primary-3;
+	transition: all 100ms ease-in;
+}
+.button:hover {
+	background-color: darken($secondary-1-1, 10%);
+}
+.button:active {
+	color: #e6e6e6;
+	background-color: darken($secondary-1-1, 25%);
+}
+
+.button i {
+	// Spacing between button icon and text
+	margin-right: 0.5rem;
+}

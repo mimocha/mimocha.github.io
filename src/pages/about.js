@@ -6,6 +6,7 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import styles from "../styles/about.module.scss"
 import '@fortawesome/fontawesome-free/css/all.css';
+import Button from "../components/buttons"
 
 // Resource
 import profileImg from "../images/profile.jpg"
@@ -69,32 +70,6 @@ const ContentBox = (props) => (
 	</div>
 )
 
-// Check if internal / external ref
-// Gatsby does not like using <Link> for external sites
-// Use normal <a> tags instead
-function Button (props) {
-	let button = 
-		<button className={styles.button + " btn"}>
-			<i className={props.icon}></i>
-			{props.children}
-		</button>;
-
-	let element;
-	if (props.type === "internal") {
-		element = 
-			<Link to={props.link}>
-				{button}
-			</Link>;
-	} else {
-		element = 
-			<a href={props.link} target={props.target} rel={props.rel}>
-				{button}
-			</a>;
-	}
-
-	return (element);
-} 
-
 const Summary = () => (
 <ContentBox header="About Me">
 	<p>
@@ -114,10 +89,12 @@ const Summary = () => (
 			Github
 		</Button>
 		<Button 
-			link="https://drive.google.com/uc?export=download&id=15iVuo3b5zq37SHGRLBdYwaasMrzzcPHH" icon="fas fa-file-pdf">
+			link="https://drive.google.com/uc?export=download&id=15iVuo3b5zq37SHGRLBdYwaasMrzzcPHH"
+			icon="fas fa-file-pdf">
 			Resume
 		</Button>
-		<Button link="/contact" icon="fas fa-envelope" type="internal">
+		<Button link="/contact" type="internal"
+			icon="fas fa-envelope">
 			Contact
 		</Button>
 		<span className={styles.filler}></span>
@@ -132,7 +109,7 @@ const Summary = () => (
 const SkillCard = (props) => (
 <div className={styles.card + " card"}>
 	<div className="card-header">
-	<h4>{props.header}</h4>
+	<h4 className={styles.cardHeader}>{props.header}</h4>
 	</div>
 	<div className="card-body">
 		{props.children}

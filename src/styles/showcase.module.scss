@@ -1,0 +1,18 @@
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+@import "./fonts.scss";
+
+.one, .two, .three {
+	height: 500px;
+}
+.one {
+	background-color: $primary-1;
+}
+.two {
+	background-color: $primary-2;
+}
+.three {
+	background-color: $primary-3;
+}

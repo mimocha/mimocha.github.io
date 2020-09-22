@@ -8,6 +8,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import styles from "../styles/header.module.scss"
 import '@fortawesome/fontawesome-free/css/all.css';
 
+
+
+/* ========================= Brand Text ========================= */
 // Functions to split text into spans with individual characters
 // Used for fading effects
 const Letter = (props, key) => (
@@ -47,6 +50,9 @@ const Brand = () => (
 	</div>
 )
 
+
+
+/* ========================= Nav-items ========================= */
 function NavItems (props) {
 	// Sets style to active if linking to the current page
 	let s = "nav-item";
@@ -63,12 +69,13 @@ function NavItems (props) {
 	)
 }
 
-// Header Navbar
+
+
+/* ========================= Header ========================= */
 const Header = () => (
 	<nav className="navbar navbar-expand-md	navbar-dark bg-dark">
 		<Brand />
 
-		{/* Navbar navigation items */}
 		<div className={styles.navbarContainer}>
 			<ul className={styles.navbarNav + " navbar-nav"}>
 				<NavItems link="/">
