@@ -1,0 +1,132 @@
+/* ======================= Font variable definition ======================= */
+$font-header: 'Comfortaa';
+$font-text: 'OpenSans';
+$font-alternate: 'Roboto';
+$font-mono: 'SourceCodePro';
+
+
+
+/* ======================= Element definition ======================= */
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-header, sans-serif;
+}
+p, a {
+	font-family: $font-text, $font-alternate, sans-serif;
+}
+
+
+
+/* ======================= Mixin definition ======================= */
+@mixin fonts($family, $url, $weight, $style) {
+	font-family: $family;
+	src: url($url) format('woff2');
+	src: url($url) format('woff');
+	src: url($url) format('truetype');
+	font-weight: $weight;
+	font-style: $style;
+}
+
+
+
+/* ======================= Comfortaa (Header) ======================= */
+@font-face {
+	@include fonts ('Comfortaa', "../fonts/Comfortaa-Light.ttf", 
+	light, normal);
+}
+@font-face {
+	@include fonts ('Comfortaa', "../fonts/Comfortaa-Regular.ttf", 
+	normal, normal);
+}
+@font-face {
+	@include fonts ('Comfortaa', "../fonts/Comfortaa-Medium.ttf", 
+	medium, normal);
+}
+@font-face {
+	@include fonts ('Comfortaa', "../fonts/Comfortaa-Bold.ttf", 
+	bold, normal);
+}
+
+
+
+/* ======================= OpenSans (Primary Text) ======================= */
+@font-face {
+	@include fonts ('OpenSans', "../fonts/OpenSans-Light.ttf",
+	light, normal);
+}
+@font-face {
+	@include fonts ('OpenSans', "../fonts/OpenSans-LightItalic.ttf",
+	light, italic);
+}
+@font-face {
+	@include fonts ('OpenSans', "../fonts/OpenSans-Regular.ttf",
+	normal, normal);
+}
+@font-face {
+	@include fonts ('OpenSans', "../fonts/OpenSans-Italic.ttf",
+	normal, italic);
+}
+@font-face {
+	@include fonts ('OpenSans', "../fonts/OpenSans-Bold.ttf",
+	bold, normal);
+}
+@font-face {
+	@include fonts ('OpenSans', "../fonts/OpenSans-BoldItalic.ttf",
+	bold, italic);
+}
+
+
+
+/* ======================= Roboto (Alternate Text) ======================= */
+@font-face {
+	@include fonts ('Roboto', "../fonts/Roboto-Light.ttf",
+	light, normal);
+}
+@font-face {
+	@include fonts ('Roboto', "../fonts/Roboto-LightItalic.ttf",
+	light, italic);
+}
+@font-face {
+	@include fonts ('Roboto', "../fonts/Roboto-Regular.ttf",
+	normal, normal);
+}
+@font-face {
+	@include fonts ('Roboto', "../fonts/Roboto-Italic.ttf",
+	normal, italic);
+}
+@font-face {
+	@include fonts ('Roboto', "../fonts/Roboto-Bold.ttf",
+	bold, normal);
+}
+@font-face {
+	@include fonts ('Roboto', "../fonts/Roboto-BoldItalic.ttf",
+	bold, italic);
+}
+
+
+
+/* ==================== Source Code Pro (monospace) ==================== */
+@font-face {
+	@include fonts ('SourceCodePro', "../fonts/SourceCodePro-Light.ttf",
+	light, normal);
+}
+@font-face {
+	@include fonts ('SourceCodePro', "../fonts/SourceCodePro-LightItalic.ttf",
+	light, italic);
+}
+@font-face {
+	@include fonts ('SourceCodePro', "../fonts/SourceCodePro-Regular.ttf",
+	normal, normal);
+}
+@font-face {
+	@include fonts ('SourceCodePro', "../fonts/SourceCodePro-Italic.ttf",
+	normal, italic);
+}
+@font-face {
+	@include fonts ('SourceCodePro', "../fonts/SourceCodePro-Bold.ttf",
+	bold, normal);
+}
+@font-face {
+	@include fonts ('SourceCodePro', "../fonts/SourceCodePro-BoldItalic.ttf",
+	bold, italic);
+}
+

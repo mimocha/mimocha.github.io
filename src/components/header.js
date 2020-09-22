@@ -86,11 +86,6 @@ const Header = () => (
 				<NavItems link="/contact">
 					Contact
 				</NavItems>
-
-				{/* TODO: Temporary Link */}
-				<NavItems link="/404">
-					404
-				</NavItems>
 			</ul>
 		</div>
 	</nav>

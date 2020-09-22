@@ -2,7 +2,9 @@
 // React doesn't recognize variable usage: colors.$variable
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
+@import "./fonts.scss";
 
+/* ==================== Hero Styling ==================== */
 .jumbotron {
 	background-color: lighten($primary-0, 10%);
 	background-image: url("../images/about/particles.png");
@@ -11,19 +13,31 @@
 .text {
 	text-shadow: -0.5px 0.5px 3px $shadow-primary-2;
 }
+h1.text {
+	font-size: 3em;
+}
+p.text {
+	font-size: 1.5em;
+}
 
 
 
 /* ==================== Button Styling ==================== */
+.button-container {
+	display: flex;
+	flex-grow: 1;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
 .button {
-	margin-left: 0.5em;
-	margin-right: 0.5em;
-	background-color: $secondary-1-1;
+	margin: 0.5em 1em 0.5em 0;
+	background-color: lighten($secondary-1-1, 5%);
 	box-shadow: -1px 1px 5px $shadow-primary-3;
 	transition: all 100ms ease-in;
 }
 .button:hover {
-	color: #ffffff;
 	background-color: darken($secondary-1-1, 10%);
 }
 .button:active {
@@ -32,16 +46,10 @@
 }
 
 
-/* ==================== Carousel Styling ==================== */
-.one {
-	height: 500px;
-	background-color: $primary-1;
-}
-.two {
-	height: 500px;
-	background-color: $primary-2;
-}
-.three {
-	height: 500px;
-	background-color: $primary-3;
+
+/* ==================== Showcase Styling ==================== */
+.showcase-container {
+	flex-grow: 1;
+	margin: 0.5em;
+	padding: 1em;
 }

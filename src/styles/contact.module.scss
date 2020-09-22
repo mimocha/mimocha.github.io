@@ -2,6 +2,7 @@
 // React doesn't recognize variable usage: colors.$variable
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
+@import "./fonts.scss";
 
 /* ============== Outer Container Styling ============== */
 .container {

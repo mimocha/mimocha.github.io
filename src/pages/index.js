@@ -6,14 +6,14 @@ import styles from "../styles/index.module.scss"
 
 const Hero = () => (
 <div className={styles.jumbotron + " jumbotron"}>
-	<h1 className={styles.text + " display-4 text-monospace"}>
+	<h1 className={styles.text}>
 		Hello World!
 	</h1>
-	<p className={styles.text + " lead text-monospace"}>
+	<p className={styles.text + " lead"}>
 		I'm Chawit. I study artificial intelligence, and I code for fun!
 	</p>
 	<hr className="my-4"></hr>
-	<div className="container">
+	<div className={styles.buttonContainer}>
 		<Link to="/about" className={styles.button + " btn btn-lg"}>
 			About me
 		</Link>

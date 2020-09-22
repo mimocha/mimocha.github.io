@@ -1,5 +1,5 @@
 // React
-import React from "react"
+import React, { Children } from "react"
 import { Link } from "gatsby"
 
 // HTML / CSS
@@ -59,24 +59,41 @@ const Hero = () => (
 
 
 
-/* ========================= Content Section ========================= */
+/* ========================= About Section ========================= */
 
 const ContentBox = (props) => (
-	<div className="p-3 mx-2 text-justify">
-		<h4>{props.header}</h4>
+	<div className={styles.contentContainer + " text-justify"}>
+		<h3>{props.header}</h3>
 		<hr></hr>
 		{props.children}
 	</div>
 )
 
-const Button = (props) => (
-<Link to={props.link} target={props.target} rel={props.rel}>
-	<button className={styles.button + " btn"}>
-		<i className={props.icon}></i>
-		{props.children}
-	</button>
-</Link>
-)
+// Check if internal / external ref
+// Gatsby does not like using <Link> for external sites
+// Use normal <a> tags instead
+function Button (props) {
+	let button = 
+		<button className={styles.button + " btn"}>
+			<i className={props.icon}></i>
+			{props.children}
+		</button>;
+
+	let element;
+	if (props.type === "internal") {
+		element = 
+			<Link to={props.link}>
+				{button}
+			</Link>;
+	} else {
+		element = 
+			<a href={props.link} target={props.target} rel={props.rel}>
+				{button}
+			</a>;
+	}
+
+	return (element);
+} 
 
 const Summary = () => (
 <ContentBox header="About Me">
@@ -100,7 +117,7 @@ const Summary = () => (
 			link="https://drive.google.com/uc?export=download&id=15iVuo3b5zq37SHGRLBdYwaasMrzzcPHH" icon="fas fa-file-pdf">
 			Resume
 		</Button>
-		<Button link="/contact" icon="fas fa-envelope">
+		<Button link="/contact" icon="fas fa-envelope" type="internal">
 			Contact
 		</Button>
 		<span className={styles.filler}></span>
@@ -108,57 +125,185 @@ const Summary = () => (
 </ContentBox>
 )
 
+
+
+/* ========================= Skills Section ========================= */
+
+const SkillCard = (props) => (
+<div className={styles.card + " card"}>
+	<div className="card-header">
+	<h4>{props.header}</h4>
+	</div>
+	<div className="card-body">
+		{props.children}
+	</div>
+</div>
+)
+
+function SkillList (props) {
+	// Render header if given one
+	let headerObj;
+	if (props.header != null) {
+		headerObj = <h5>
+						{props.header}
+					</h5>;
+	} else {
+		headerObj = null;
+	}
+
+	// Render list entries
+	const count = Children.count(props.children);
+	const items = [];
+	let i;
+	for (i=0; i<count; i++) {
+		items.push(
+			<li className="list-group-item" key={i}>
+				{props.children[i]}
+			</li>
+		);
+	}
+
+	return (
+		<span>
+			{headerObj}
+			<ul className={styles.skillList + " list-group list-group-flush"}>
+				{items}
+			</ul>
+		</span>
+	);
+}
+
 const Skills = () => (
-<ContentBox header="My Skills">
-	<h3>Artificial Intelligence - Machine Learning Topics</h3>
-	<ul>
-		<li>Natural Language Processing</li>
-		<li>Image Processing & Computer Vision</li>
-		<li>Deep Learning & Neural Networks</li>
-		<li>Reinforcement Learning</li>
-		<li>Global Optimization & Stochastic Optimization Algorithms</li>
-	</ul>
+<ContentBox header="I've had experience with...">
+	<div className={styles.cardContainer + " card-columns"}>
+		<SkillCard header="Programming Languages">
+			<SkillList>
+				{["C / C++",
+				"Java",
+				"MATLAB",
+				"Python",
+				"System Verilog HDL"]}
+			</SkillList>
+		</SkillCard>
 
-	<h3>Programming</h3>
-	<ul>
-		<li>MATLAB</li>
-		<li>Python</li>
-		<li>C / C++</li>
-		<li>Java</li>
-		<li>System Verilog HDL</li>
-	</ul>
+		<SkillCard header="Frameworks / Toolkits">
+			<SkillList>
+				{["Matplotlib",
+				"Numpy",
+				"NLTK",
+				"OpenCV",
+				"Pandas",
+				"Scipy"]}
+			</SkillList>
+		</SkillCard>
 
-	<h3>Front-End</h3>
-	<ul>
-		<li>HTML, CSS, JavaScript</li>
-		<li>Sass / Scss</li>
-		<li>JSX</li>
-		<li>Typescript</li>
-		<li>Webassembly</li>
-	</ul>
+		<SkillCard header="Miscellaneous">
+			<SkillList>
+				{["git",
+				"LaTeX",
+				"markdown",
+				"makefile",
+				"PLC Ladder Logic"]}
+			</SkillList>
+		</SkillCard>
 
-	<h3>Frameworks-Toolkits</h3>
-	<ul>
-		<li>Matplotlib, Numpy, Scipy, Pandas</li>
-		<li>Pytorch, Tensoflow, Keras</li>
-		<li>OpenCV</li>
-		<li>GatsbyJS, React, GraphQL</li>
-	</ul>
+		<SkillCard header="Front-end Programming">
+			<SkillList>
+				{["HTML",
+				"CSS / SCSS",
+				"JavaScript",
+				"ReactJS / JSX",
+				"GatsbyJS",
+				"GraphQL"]}
+			</SkillList>
+		</SkillCard>
 
-	<h3>Miscellany</h3>
-	<ul>
-		<li>git</li>
-		<li>Makefile</li>
-		<li>markdown, LaTeX</li>
-		<li>PLC Ladder Logic programming</li>
-	</ul>
+		<SkillCard header="Languages">
+			<SkillList>
+				<span>
+					Thai <span className={styles.subtext}>
+						(native)</span>
+				</span>
+				<span>
+					English <span className={styles.subtext}>
+						(bilingual-native)
+					</span>
+				</span>
+				<span>
+					Japanese <span className={styles.subtext}>
+						(fluent)
+					</span>
+				</span>
+			</SkillList>
+		</SkillCard>
+	</div>
+</ContentBox>
+)
 
-	<h3>Human Language</h3>
-	<ul>
-		<li>Thai - Bilingual-native</li>
-		<li>English - Bilingual-native</li>
-		<li>Japanese - Fluent</li>
-	</ul>
+const Taught = () => (
+<ContentBox header="I've studied...">
+	<div className={styles.cardContainer + " card-columns"}>
+		<SkillCard header="Artificial Intelligence">
+			<SkillList>
+				{["Convolutional Neural Networks",
+				"Deep Learning",
+				"Evolutionary Algorithms",
+				"Free Energy Principle",
+				"Global Optimization",
+				"Natural Language Processing",
+				"Reinforcement Learning",
+				"Swarm Intelligence"]}
+			</SkillList>
+		</SkillCard>
+
+		<SkillCard header="Data Sciences">
+			<SkillList>
+				{["Classification",
+				"Cluster Analysis",
+				"Independent Components Analysis",
+				"Linear Regression",
+				"Principle Components Analysis",
+				"Radial Basis Function",
+				"Support Vector Machine"
+				]}
+			</SkillList>
+		</SkillCard>
+
+		<SkillCard header="Engineering">
+			<SkillList>
+				{["Embedded Systems",
+				"FPGA",
+				"Image Processing",
+				"Industrial Automation",
+				"Robotics"]}
+			</SkillList>
+		</SkillCard>
+
+		<SkillCard header="Qualifications">
+			<SkillList>
+				<span>
+					JLPT <span className={styles.subtext}>
+						Japanese Language Proficiency Test (N1)
+					</span>
+				</span>
+				<span>
+					Kogyo-Eiken <span className={styles.subtext}>
+						Technical Japanese-English Translation (Pre-2)
+					</span>
+				</span>
+				<span>
+					IELTS <span className={styles.subtext}>
+						International English Language Testing System (Band 8.5)
+					</span>
+				</span>
+				<span>
+					TOEIC <span className={styles.subtext}>
+						Test of English for International Candidate (990)
+					</span>
+				</span>
+			</SkillList>
+		</SkillCard>
+	</div>
 </ContentBox>
 )
 
@@ -170,6 +315,7 @@ const AboutPage = () => (
 <Layout>
 	<Hero />
 	<Summary />
+	<Taught />
 	<Skills />
 </Layout>
 )

@@ -2,11 +2,7 @@
 // React doesn't recognize variable usage: colors.$variable
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
-
-@font-face {
-	font-family: 'SourceCodePro-Regular';
-	src: url("../fonts/SourceCodePro-Regular.ttf");
-}
+@import "./fonts.scss";
 
 /* ==================== Nav Menu Styling ==================== */
 .brand-container {
@@ -14,7 +10,7 @@
 	// Set to width of brand text
 	min-width: 14.5em;
 	span {
-		font-family: 'SourceCodePro-Regular';
+		font-family: $font-mono, monospace;
 		text-shadow: -1px 1px 3px $shadow-primary-1;
 	}
 }
@@ -24,9 +20,16 @@
 }
 .navbar-nav {
 	flex-direction: row;
-	justify-content: space-evenly;
+
+	@media only screen and (max-width: 767px) {
+		justify-content: space-evenly;
+	}
+	@media only screen and (min-width: 768px) {
+		justify-content: flex-end;
+	}
 }
 .nav-link {
+	margin: 0 0.5em;
 	transition: all 200ms ease-in-out;
 }
 a {

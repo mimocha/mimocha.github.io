@@ -1,3 +1,30 @@
-footer {
-	text-shadow: 1px 1px #303030;
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+
+.text {
+	padding: 0.25em 5vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	text-shadow: -1px 1px 3px $shadow-primary-0;
+
+	a, p {
+		margin: 0;
+	}
+}
+
+// Back to top link coloring
+.text a {
+	transition: color 100ms ease-in-out;
+	color: #efefef;
+}
+.text a:hover {
+	color: $primary-0;
+	text-decoration: none;
+}
+.text a:active {
+	color: $secondary-2-0;
 }
