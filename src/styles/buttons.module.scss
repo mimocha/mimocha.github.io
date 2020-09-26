@@ -2,6 +2,7 @@
 // React doesn't recognize variable usage: colors.$variable
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
+@import "./fonts.scss";
 
 /* ==================== Button Styling ==================== */
 .button-container {
@@ -10,6 +11,7 @@
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: flex-start;
+	font-family: $font-text, sans-serif;
 }
 
 .button {

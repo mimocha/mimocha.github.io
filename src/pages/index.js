@@ -1,24 +1,21 @@
 // React
 import React from "react"
-import { Link } from "gatsby"
 
 // HTML / CSS
-import styles from "../styles/index.module.scss"
 import Header from "../components/header"
 import Button from "../components/buttons"
+import styles from "../styles/index.module.scss"
 
 
 /* ========================= Header ========================= */
 const Hero = () => (
-<div className={styles.jumbotron + " jumbotron"}>
+<div className={styles.hero}>
 	<h1 className={styles.text}>
 		Hello World!
 	</h1>
 	<p className={styles.text + " lead"}>
 		I'm Chawit. I study artificial intelligence, and I code for fun!
 	</p>
-
-	<hr className="my-4"></hr>
 
 	<div className={styles.buttonContainer}>
 		<Button link="/showcase" type="internal" size="btn-lg">
@@ -38,9 +35,11 @@ const Hero = () => (
 
 /* ========================= Output ========================= */
 const IndexPage = () => (
-<main className="cover-container d-flex w-100 h-100">
+<main>
 	<Header />
-	<Hero />
+	<div className={styles.cover}>
+		<Hero />
+	</div>
 </main>
 )
 

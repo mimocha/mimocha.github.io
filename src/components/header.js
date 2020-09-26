@@ -2,11 +2,15 @@
 import React from "react"
 import { Link } from "gatsby"
 
-// HTML / CSS
+// External
+// Import here, at top of document, for least important styling
+// Later styling will overwrite default bootstrap css
+import '@fortawesome/fontawesome-free/css/all.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
+
+// HTML / CSS
 import styles from "../styles/header.module.scss"
-import '@fortawesome/fontawesome-free/css/all.css';
 
 
 

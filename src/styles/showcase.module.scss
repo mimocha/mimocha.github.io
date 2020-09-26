@@ -4,15 +4,34 @@
 @import "./colors.scss";
 @import "./fonts.scss";
 
+/* ============== Carousel Styling ============== */
 .one, .two, .three {
 	height: 500px;
 }
 .one {
-	background-color: $primary-1;
+	background-color: lighten(red, 25%);
 }
 .two {
-	background-color: $primary-2;
+	background-color: desaturate(green, 25%);
 }
 .three {
-	background-color: $primary-3;
+	background-color: lighten(blue, 25%);
+}
+
+
+/* ============== Contents Styling ============== */
+.card-deck {
+	margin-top: 1em;
+	// Stretch to fill space if empty
+	flex-grow: 1;
+}
+
+.card {
+	min-width: 15em;
+	margin-top: 0.5em;
+}
+
+.placeholder {
+	height: 250px;
+	background-color: darkgray;
 }

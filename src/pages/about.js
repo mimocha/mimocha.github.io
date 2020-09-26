@@ -1,11 +1,9 @@
 // React
 import React, { Children } from "react"
-import { Link } from "gatsby"
 
 // HTML / CSS
 import Layout from "../components/layout"
 import styles from "../styles/about.module.scss"
-import '@fortawesome/fontawesome-free/css/all.css';
 import Button from "../components/buttons"
 
 // Resource
@@ -83,11 +81,6 @@ const Summary = () => (
 	</p>
 
 	<div className={styles.buttonContainer}>
-		<Button link="https://www.github.com/mimocha" 
-			target="_blank" rel="canonical"
-			icon="fab fa-github">
-			Github
-		</Button>
 		<Button 
 			link="https://drive.google.com/uc?export=download&id=15iVuo3b5zq37SHGRLBdYwaasMrzzcPHH"
 			icon="fas fa-file-pdf">
