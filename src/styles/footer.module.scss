@@ -3,28 +3,37 @@
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
 
+.footer {
+	background-color: $neutral-6;
+	padding: 0.5em;
+}
+
 .text {
 	padding: 0.25em 5vw;
 	display: flex;
-	flex-direction: row;
+	flex-flow: row wrap;
 	justify-content: space-between;
 
-	text-shadow: -1px 1px 3px $shadow-primary-0;
-
-	a, p {
+	// Child element styling (texts)
+	* {
 		margin: 0;
+		text-decoration: none;
+		text-shadow: -1px 1px 3px $shadow-primary-0;
 	}
 }
 
 // Back to top link coloring
 .text a {
 	transition: color 100ms ease-in-out;
-	color: #efefef;
+	color: $neutral-0;
 }
 .text a:hover {
 	color: $primary-0;
-	text-decoration: none;
 }
 .text a:active {
-	color: $secondary-2-0;
+	color: $primary-1;
+}
+
+.name {
+	color: $neutral-3;
 }

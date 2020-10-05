@@ -12,17 +12,17 @@ function Button (props) {
 	// Check if icon is provided
 	let icon;
 	if (props.icon != null) {
-		icon = <i className={props.icon}></i>;
+		icon = <i className={props.icon}></i>
 	} else {
 		icon = null;
 	}
 
 	// Render base button
 	let button = 
-	<button className={styles.button + " btn " + props.size}>
-		{icon}
-		{props.children}
-	</button>;
+		<button className={styles.button}>
+			{icon}
+			{props.children}
+		</button>;
 
 	// Check if link is internal
 	let element;

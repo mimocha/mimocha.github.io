@@ -5,6 +5,42 @@
 @import "./fonts.scss";
 
 /* ==================== Button Styling ==================== */
+.button {
+	// Hide ugly border
+	border: 1px solid transparent;
+	// Base button size & shape
+	padding: 0.5em 0.75em;
+	border-radius: 0.25em;
+	// Space between button
+	margin: 0.5em;
+	// Set cursor to pointing finger
+	cursor: pointer;
+
+	// Text Styling
+	color: $neutral-7;
+	font-family: 'OpenSans', sans-serif;
+	font-style: normal;
+	font-size: 1em;
+
+	// Coloring
+	background-color: lighten($secondary-1-1, 5%);
+	box-shadow: -1px 1px 5px $shadow-primary-3;
+	transition: all 100ms ease-in;
+}
+.button:hover {
+	background-color: darken($secondary-1-1, 5%);
+}
+.button:active {
+	color: $neutral-0;
+	background-color: darken($secondary-1-1, 15%);
+}
+
+.button i {
+	// Spacing between button icon and text
+	margin-right: 0.5rem;
+}
+
+
 .button-container {
 	display: flex;
 	flex-grow: 1;
@@ -12,23 +48,4 @@
 	flex-direction: row;
 	justify-content: flex-start;
 	font-family: $font-text, sans-serif;
-}
-
-.button {
-	margin: 0.5em 1em 0.5em 0;
-	background-color: lighten($secondary-1-1, 5%);
-	box-shadow: -1px 1px 5px $shadow-primary-3;
-	transition: all 100ms ease-in;
-}
-.button:hover {
-	background-color: darken($secondary-1-1, 10%);
-}
-.button:active {
-	color: #e6e6e6;
-	background-color: darken($secondary-1-1, 25%);
-}
-
-.button i {
-	// Spacing between button icon and text
-	margin-right: 0.5rem;
 }

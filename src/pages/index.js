@@ -13,7 +13,8 @@ const Hero = () => (
 	<h1 className={styles.text}>
 		Hello World!
 	</h1>
-	<p className={styles.text + " lead"}>
+	<hr></hr>
+	<p className={styles.text}>
 		I'm Chawit. I study artificial intelligence, and I code for fun!
 	</p>
 

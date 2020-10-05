@@ -47,7 +47,7 @@ function CarouselIndicator (props) {
 	let array = [];
 	let i;
 	for (i=0; i<props.n; i++) {
-		if (i==0) {
+		if (i===0) {
 			array.push(
 				<li data-target={props.target} data-slide-to={i.toString()} className="active" />
 			)

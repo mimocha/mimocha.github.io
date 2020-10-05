@@ -1,0 +1,21 @@
+// Based on Bootstrap media query default breakpoints
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+// Shorthand for min-max media queries
+// Use subpixel accuracy following Bootstrap
+$break-sm-1: $break-sm - 0.02px;
+$break-md-1: $break-md - 0.02px;
+$break-lg-1: $break-lg - 0.02px;
+$break-xl-1: $break-xl - 0.02px;
+
+// Special breakpoint for main content box container
+$pad: 10px;
+$layout-sm: $break-sm - $pad;
+$layout-md: $break-md - $pad;
+$layout-lg: $break-lg - $pad;
+$layout-xl: $break-xl - $pad;
+
+// TODO: mixins for media queries?

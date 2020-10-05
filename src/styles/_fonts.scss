@@ -6,16 +6,6 @@ $font-mono: 'SourceCodePro';
 
 
 
-/* ======================= Element definition ======================= */
-h1, h2, h3, h4, h5, h6 {
-	font-family: $font-header, sans-serif;
-}
-p, a {
-	font-family: $font-text, $font-alternate, sans-serif;
-}
-
-
-
 /* ======================= Mixin definition ======================= */
 @mixin fonts($family, $url, $weight, $style) {
 	font-family: $family;

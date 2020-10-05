@@ -3,18 +3,16 @@ import React from "react"
 import { Link } from "gatsby"
 
 // External
-// Import here, at top of document, for least important styling
-// Later styling will overwrite default bootstrap css
-import '@fortawesome/fontawesome-free/css/all.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.bundle.js';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 // HTML / CSS
-import styles from "../styles/header.module.scss"
+import headerStyles from "../styles/header.module.scss"
 
 
 
 /* ========================= Brand Text ========================= */
+// Uses CSS to do hover text change effect
+
 // Functions to split text into spans with individual characters
 // Used for fading effects
 const Letter = (props, key) => (
@@ -23,6 +21,7 @@ const Letter = (props, key) => (
 	</span>
 )
 
+// Returns array of span tags, each with a single char inside
 function TextSplit (props) {
 	let i;
 	let array = [];
@@ -37,68 +36,67 @@ function TextSplit (props) {
 	return array;
 }
 
-// Brand div
-// Uses CSS to do hover text change effect
+// Link is parent of div, to provide cursor pointer on hover
 const Brand = () => (
-	<div className={styles.brandContainer + " collapse navbar-collapse"}>
-		<Link to="/" className="navbar-brand">
-			<span className={styles.name} title="Chawit Leosrisook">
-				<i className="fas fa-user-circle pr-2"></i>
+	<Link to="/">
+		<div className={headerStyles.brandContainer}>
+			<span className={headerStyles.name} title="Chawit Leosrisook">
+				<i className="fas fa-user-circle"></i>
 				<TextSplit text="Chawit Leosrisook" />
 			</span>
-			<span className={styles.url} title="mimocha.github.io">
-				<i className="fab fa-github pr-2"></i>
+			<span className={headerStyles.url} title="mimocha.github.io">
+				<i className="fab fa-github"></i>
 				<TextSplit text="mimocha.github.io" />
 			</span>
-		</Link>
-	</div>
+		</div>
+	</Link>
 )
 
 
 
 /* ========================= Nav-items ========================= */
-function NavItems (props) {
-	// Sets style to active if linking to the current page
-	let s = "nav-item";
-	if (props.link === window.location.pathname) {
-		s += " active";
-	}
+const NavLinks = (props) => (
+	<li>
+		<Link to={props.link} className={headerStyles.navbarLink} activeClassName={headerStyles.activeLink}>
+			{props.children}
+		</Link>
+	</li>
+)
 
-	return (
-		<li className={s}>
-			<Link to={props.link} className={styles.navLink + " nav-link"}>
-				{props.children}
-			</Link>
-		</li>
-	)
-}
+const NavMenu = () => (
+	<div className={headerStyles.navbarMenu}>
+		<ul className={headerStyles.navbarItem}>
+			<NavLinks link="/">
+				Home
+			</NavLinks>
+
+			<NavLinks link="/showcase">
+				Showcase
+			</NavLinks>
+
+			<NavLinks link="/about">
+				About
+			</NavLinks>
+
+			<NavLinks link="/contact">
+				Contact
+			</NavLinks>
+
+			{/* Temp */}
+			{/* <NavLinks link="/404">
+				404
+			</NavLinks> */}
+		</ul>
+	</div>
+)
 
 
 
-/* ========================= Header ========================= */
+/* ========================= Output ========================= */
 const Header = () => (
-	<nav className="navbar navbar-expand-md	navbar-dark bg-dark">
+	<nav className={headerStyles.navbar}>
 		<Brand />
-
-		<div className={styles.navbarContainer}>
-			<ul className={styles.navbarNav + " navbar-nav"}>
-				<NavItems link="/">
-					Home
-				</NavItems>
-
-				<NavItems link="/showcase">
-					Showcase
-				</NavItems>
-
-				<NavItems link="/about">
-					About
-				</NavItems>
-
-				<NavItems link="/contact">
-					Contact
-				</NavItems>
-			</ul>
-		</div>
+		<NavMenu />
 	</nav>
 )
 

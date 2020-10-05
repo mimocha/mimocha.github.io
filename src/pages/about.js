@@ -2,9 +2,10 @@
 import React, { Children } from "react"
 
 // HTML / CSS
-import Layout from "../components/layout"
+import Layout from "../components/layout.js"
 import styles from "../styles/about.module.scss"
-import Button from "../components/buttons"
+import Button from "../components/buttons.js"
+import Card from "../components/cards.js"
 
 // Resource
 import profileImg from "../images/profile.jpg"
@@ -16,21 +17,25 @@ import nitLogo from "../images/nit-mark.png"
 /* ========================= Hero Section ========================= */
 
 const University = (props) => (
-<a href={props.link} className="text-decoration-none" target="_blank" rel="noreferrer">
-	<div className={"container " + styles.container}>
+<a href={props.link} target="_blank" rel="noreferrer">
+	<div className={styles.container}>
 		<img src={props.logo} className={styles.logo} alt="University logo"/>
 		<span className={styles.uniText}>
-		<p className="lead text-dark">{props.degree}</p>
-		<p className="text-muted">{props.school}</p>
+		<p className={styles.textLead}>{props.degree}</p>
+		<p className={styles.textSub}>
+			{props.school}
+			<i className="fas fa-external-link-alt"></i>
+		</p>
 		</span>
 	</div>
 </a>
 )
 
 const Hero = () => (
-<div className={styles.jumbotron + " jumbotron mb-5"}>
+<div className={styles.jumbotron}>
 	<div className={styles.profileBox}>
-		<img src={profileImg} className={styles.profileImg} alt="Chawit Leosrisook"/>
+		<img src={profileImg} className={styles.profileImg} 
+		alt="Chawit Leosrisook"/>
 	</div>
 
 	<div className={styles.summaryBox}>
@@ -61,8 +66,8 @@ const Hero = () => (
 /* ========================= About Section ========================= */
 
 const ContentBox = (props) => (
-	<div className={styles.contentContainer + " text-justify"}>
-		<h3>{props.header}</h3>
+	<div className={styles.contentContainer}>
+		<h2>{props.header}</h2>
 		<hr></hr>
 		{props.children}
 	</div>
@@ -99,8 +104,11 @@ const Summary = () => (
 
 /* ========================= Skills Section ========================= */
 
+// TODO:
+// CSS Grid Box for responsive cards
+
 const SkillCard = (props) => (
-<div className={styles.card + " card"}>
+<div className={styles.card}>
 	<div className="card-header">
 	<h4 className={styles.cardHeader}>{props.header}</h4>
 	</div>
@@ -127,7 +135,7 @@ function SkillList (props) {
 	let i;
 	for (i=0; i<count; i++) {
 		items.push(
-			<li className="list-group-item" key={i}>
+			<li className={styles.skillListEntry} key={i}>
 				{props.children[i]}
 			</li>
 		);
@@ -136,7 +144,7 @@ function SkillList (props) {
 	return (
 		<span>
 			{headerObj}
-			<ul className={styles.skillList + " list-group list-group-flush"}>
+			<ul className={styles.skillList}>
 				{items}
 			</ul>
 		</span>
@@ -146,7 +154,7 @@ function SkillList (props) {
 const Skills = () => (
 <ContentBox header="I've had experience with...">
 	<div className={styles.cardContainer + " card-columns"}>
-		<SkillCard header="Programming Languages">
+		<Card header="Programming Languages">
 			<SkillList>
 				{["C / C++",
 				"Java",
@@ -154,9 +162,9 @@ const Skills = () => (
 				"Python",
 				"System Verilog HDL"]}
 			</SkillList>
-		</SkillCard>
+		</Card>
 
-		<SkillCard header="Frameworks / Toolkits">
+		<Card header="Frameworks / Toolkits">
 			<SkillList>
 				{["Matplotlib",
 				"Numpy",
@@ -165,9 +173,9 @@ const Skills = () => (
 				"Pandas",
 				"Scipy"]}
 			</SkillList>
-		</SkillCard>
+		</Card>
 
-		<SkillCard header="Miscellaneous">
+		<Card header="Miscellaneous">
 			<SkillList>
 				{["git",
 				"LaTeX",
@@ -175,9 +183,9 @@ const Skills = () => (
 				"makefile",
 				"PLC Ladder Logic"]}
 			</SkillList>
-		</SkillCard>
+		</Card>
 
-		<SkillCard header="Front-end Programming">
+		<Card header="Front-end Programming">
 			<SkillList>
 				{["HTML",
 				"CSS / SCSS",
@@ -186,9 +194,9 @@ const Skills = () => (
 				"GatsbyJS",
 				"GraphQL"]}
 			</SkillList>
-		</SkillCard>
+		</Card>
 
-		<SkillCard header="Languages">
+		<Card header="Languages">
 			<SkillList>
 				<span>
 					Thai <span className={styles.subtext}>
@@ -205,7 +213,7 @@ const Skills = () => (
 					</span>
 				</span>
 			</SkillList>
-		</SkillCard>
+		</Card>
 	</div>
 </ContentBox>
 )

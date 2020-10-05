@@ -3,43 +3,116 @@
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
 @import "./fonts.scss";
+@import "./breakpoints.scss";
 
-/* ==================== Nav Menu Styling ==================== */
-.brand-container {
-	// Prevent navitem overflows
-	// Set to width of brand text
-	min-width: 14.5em;
-	span {
-		font-family: $font-mono, monospace;
-		text-shadow: -1px 1px 3px $shadow-primary-1;
+/* ==================== Navigation Bar Container ==================== */
+.navbar {
+	background-color: $neutral-6;
+
+	// Navbar is a flexbox
+	display: flex;
+	flex-flow: row nowrap;
+
+	// Collapsed
+	@media only screen and (max-width: $break-md-1) {
+		justify-content: center;
+	}
+	// Uncollapsed
+	@media only screen and (min-width: $break-md) {
+		justify-content: space-between;
+	}
+
+	// Base link styling
+	a {
+		// Hide dotted border from links
+		outline: none;
+		// Hide underline
+		text-decoration: none;
 	}
 }
-.navbar-container {
+
+.brand-container {
+	// Fixed container size, as the child elements positioned absolutely
+	width: 350px;
+	// % Height only possible when .brand-container is child of another element
+	height: 100%;
+	padding: 0;
+
+	// Text Styling
+	span {
+		font-family: $font-mono, monospace, sans-serif;
+		font-size: 1.15em;
+		text-shadow: -1px 1px 3px $shadow-primary-1;
+	}
+
+	// Collapsed (Hide)
+	@media only screen and (max-width: $break-md-1) {
+		display: none;
+	}
+	// Uncollapsed (Show)
+	@media only screen and (min-width: $break-md) {
+		display: block;
+	}
+}
+
+.navbar-menu {
 	// Stretches navigation items to fill navbar when collapsed
 	flex-grow: 1;
 }
-.navbar-nav {
-	flex-direction: row;
 
-	@media only screen and (max-width: 767px) {
+
+
+/* ==================== Navigation Items ==================== */
+.navbar-item {
+	// Hide list bullet points
+	list-style: none;
+	// Vertical center (compensate for branding space)
+	margin: 18.5px 0;
+	// No padding
+	padding: 0;
+
+	// navbar-item is a flexbox
+	display: flex;
+	// wrap to prevent overflow on very small screens
+	flex-flow: row wrap;
+
+	// Collapsed
+	@media only screen and (max-width: $break-md-1) {
 		justify-content: space-evenly;
 	}
-	@media only screen and (min-width: 768px) {
+	// Uncollapsed
+	@media only screen and (min-width: $break-md) {
 		justify-content: flex-end;
 	}
 }
-.nav-link {
-	margin: 0 0.5em;
+.navbar-link {
+	// Shorten / Expand padding space for different screen sizes
+	// Use padding instead of margin for larger click area
+	@media only screen and (max-width: $break-lg-1) {
+		padding: 1em 0.65em;
+	}
+	@media only screen and (min-width: $break-lg) {
+		padding: 1em 1em;
+	}
+
+	// Coloring effects
+	color: $neutral-2;
 	transition: all 200ms ease-in-out;
 }
-a {
-	// Hide dotted border from links
-	outline: none;
+.navbar-link:hover {
+	color: $neutral-0;
+}
+.navbar-link.active-link {
+	color: $neutral-0;
+	font-weight: bold;
 }
 
 
 
-/* ==================== Brand Hover Effect Styling ==================== */
+
+/* ==================== Brand Character Styling ==================== */
+// TODO: Use gridbox instead of absolute positioning?
+
 // Shows name and hides URL by default
 // Use transition for opacity change effect only
 // URL overlapped by using relative positioning -- finetuning required
@@ -48,47 +121,69 @@ a {
 // mixins for per-character fade effects
 // Iterate through each item (span) and sets different delay time
 $char-n: 18;
-$fade-time: 50ms;
-$fade-delay: 150;
-$fade-offset: 15;
+$fade-time: 0ms;
+$fade-delay: 125ms;
+$fade-offset: 25ms;
 @mixin fade-name {
 	@for $i from 1 through $char-n {
 		&:nth-child(#{$i}) {
-			transition: opacity $fade-time #{($i*$fade-offset)+$fade-delay}ms ease-in-out;
+			transition: opacity $fade-time #{($i*$fade-offset)+$fade-delay};
 		}
 	}
 }
 @mixin fade-url {
 	@for $i from 1 through $char-n {
 		&:nth-child(#{$i}) {
-			transition: opacity $fade-time #{($i*$fade-offset)+$fade-delay}ms ease-in-out;
+			transition: opacity $fade-time #{($i*$fade-offset)+$fade-delay};
 		}
 	}
 }
 
-// ----------------- Name ----------------- //
+// Per-character absolute positioning with mixin
+$char-margin-l: 10px;
+$char-space: 12.7px;
+@mixin char-positioning {
+	@for $i from 1 through $char-n {
+		&:nth-child(#{$i}) {
+			left: #{$char-margin-l + ($i * $char-space)};
+		}
+	}
+}
+
 .name * {
-	position: static;
+	color: $neutral-0;
+
+	// Use absolute positioning to fix text
+	position: absolute;
+
+	// Fade effect
 	opacity: 1;
 	@include fade-name;
 }
 .brand-container:hover .name * {
 	opacity: 0;
 }
-
-// ----------------- URL ----------------- //
-// Move container to overlap with name text with relative positioning
-// Fine-tune position with 'left' property
-.url {
-	position: relative;
-	left: -14.5rem;
-}
-// Effects apply to inner spans (letters), not the outer span (container)
 .url * {
-	opacity: 0;
 	color: $primary-1;
+
+	// Use absolute positioning to fix text
+	position: absolute;
+
+	// Fade effect
+	opacity: 0;
 	@include fade-url;
 }
 .brand-container:hover .url * {
 	opacity: 1;
+}
+
+// icon positioning
+.name i, .url i {
+	top: 22px;
+	left: 10px;
+}
+// character positioning
+.name span, .url span {
+	@include char-positioning;
+	top: 17.5px;
 }

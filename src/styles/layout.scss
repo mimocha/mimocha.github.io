@@ -1,8 +1,11 @@
-@font-face {
-	font-family: "Roboto";
-	src: url("../fonts/Roboto-Regular.ttf");
-}
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./breakpoints.scss";
 
+/* ==================== Base HTML Styling ==================== */
 :root {
 	// smooth scroll
 	scroll-behavior: smooth;
@@ -14,19 +17,18 @@
 	display: none;
 }
 
-
 body {
-	margin: 0px;
-
-	font-family: Roboto; // temporary
+	margin: 0;
+	font-family: 'OpenSans', 'Roboto', sans-serif;
 }
 main {
 	// fill vertical viewport
 	min-height: 100vh;
 	// is a vertical flexbox container
 	display: flex;
-	flex-direction: column;
+	flex-flow: column nowrap;
 
+	// Flex item ordering
 	header {
 		order: 1;
 	}
@@ -41,6 +43,7 @@ main {
 }
 
 
+
 /* ==================== Content Container Styling ==================== */
 
 // div.content is a flex item and a flex container
@@ -50,11 +53,44 @@ main {
 	flex-direction: column;
 	// space-between stretches content footer to bottom of available space
 	justify-content: space-between;
-
 	// make sure content is snug
 	padding: 0;
+	// Left-right margin auto to center div
+	margin: 0 auto;
+
+	box-shadow: 0px 0px 5px $shadow-primary-4;
+
+	// mimic Bootstrap container behaviors
+	// When screen is small, fill entire width
+	@media only screen and (max-width: $break-md-1) {
+		width: 100%
+	}
+	// When medium size, responsive margin behaviors?
+	@media only screen and (min-width: $break-md) and (max-width: $break-lg-1) {
+		width: $break-md;
+	}
+	// When using large screen, set width to max
+	@media only screen and (min-width: $break-lg) {
+		width: $break-lg;
+	}
+
 }
 
-footer {
-	padding: 0.5rem;
+
+
+/* ==================== Base Text Styling ==================== */
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-header, sans-serif;
+	margin: 0;
+}
+p, a {
+	font-family: $font-text, $font-alternate, sans-serif;
+	text-decoration: none;
+	color: $neutral-7;
+}
+hr {
+	border-color: $shadow-primary-1;
+	border-width: 1px;
+	// Use 99% instead of 100% to prevent container overflow on index page
+	width: 99%;
 }

@@ -2,92 +2,115 @@
 // React doesn't recognize variable usage: colors.$variable
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
-
-// Media query breakpoints
-$break-0: 600px;
-$break-1: 763px;
-$break-2: 880px;
+@import "./breakpoints.scss";
 
 /* ============== Jumbotron Styling ============== */
-// flex box
 .jumbotron {
+	// base flexbox styling
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-content: center;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+	border-radius: 0.5em;
+	padding: 3em;
 
+	// image is transparent-white png, with color overlay
 	background-color: $primary-0;
 	background-image: url("../images/about/particles.png");
 }
-.summary-box {
-	text-shadow: -0.5px 0.5px 3px $shadow-secondary-1-2;
-}
 
-// Content styling
+// Jumbotron content
 .profile-img {
 	border-radius: 50%;
 	width: 15em;
 	height: 15em;
+	margin: 0 1.5em;
 	box-shadow: -2px 2px 3px $shadow-primary-2;
 }
 .summary-box {
+	// text stylings
+	text-shadow: -0.5px 0.5px 3px $shadow-secondary-1-2;
 	p {
 		margin: 0;
 	}
-}
+	.text-lead {
+		color: $neutral-7;
+		font-weight: bold;
+	}
+	.text-sub {
+		color: $neutral-7;
+		font-style: italic;
+	}
+	// FontAwesome External links mark
+	i {
+		margin: 0 0.5em;
+		font-size: 14px;
+	}
 
-
-
-/* ============== Jumbotron Responsive ============== */
-// Collapsed: No logo effect
-@media only screen and (max-width: $break-2 - 1px) {
-	.logo {
-		display: none;
-	}
-	.container {
-		display: block;
-	}
-	.summary-box {
-		flex-grow: 0;
-	}
-	.name {
-		margin: 1em auto 0 auto;
-		text-align: center;
-	}
-}
-// Uncollapsed: Logo effects on
-@media only screen and (min-width: $break-2){
+	// University styling
 	.container {
 		display: flex;
 		justify-content: flex-start;
 	}
-	.summary-box {
-		margin-left: 5%;
+	.logo {
+		width: 3em;
+		height: 3em;
+		border-radius: 50%;
+		box-shadow: -1px 1px 3px $shadow-primary-2;
 	}
+	.uni-text {
+		margin-left: 1em;
+	}
+}
 
-	a {
-		.logo {
-			opacity: 0;
-			width: 3em;
-			height: 3em;
-			box-shadow: -1px 1px 3px $shadow-primary-2;
-			transition: all 100ms 200ms ease-in-out;
-			z-index: 1;
-		}
-		.uni-text {
-			margin-left: -3em;
-			transition: margin 200ms 200ms ease-in-out;
-			z-index: 2;
-		}
+// University link hover effect
+.text-lead, .text-sub, .logo {
+	transition: all 100ms ease-in-out;
+}
+a:hover .text-lead, a:hover .text-sub {
+	color: white;
+	text-shadow: 0px 0px 5px $shadow-primary-0;
+}
+.logo {
+	transition: all 100ms ease-in-out;
+}
+a:hover .logo {
+	border-radius: 0%;
+}
+
+
+
+/* ============== Jumbotron Responsive Media Query ============== */
+// Very small screen styling
+@media only screen and (max-width: $break-sm-1) {
+	.profile-img {
+		width: 12em;
+		height: 12em;
 	}
-	a:hover {
-		.logo {
-			opacity: 1;
-		}
-		.uni-text {
-			margin-left: 1em;
-		}	
+	.logo {
+		display: none;
+	}
+	.summary-box {
+		min-width: 0;
+	}
+}
+@media only screen and (min-width: $break-sm) {
+	.summary-box {
+		// fixed width for stretching effect
+		min-width: 450px;
+	}
+}
+
+// Collapsed (Column):
+@media only screen and (max-width: $break-lg-1) {
+	.name {
+		text-align: center;
+		margin-top: 1.5em;
+	}
+}
+// Full (Row):
+@media only screen and (min-width: $break-lg) {
+	.name {
+		text-align: left;
 	}
 }
 
@@ -98,34 +121,34 @@ $break-2: 880px;
 .content-container {
 	padding: 0.5em;
 	margin: 1em;
+	text-align: justify;
 }
 
 // Responsive card column count
 .card-container {
+	// display: grid;
 	justify-content: stretch;
-	@media only screen and (max-width: $break-0 - 1px) {
+	@media only screen and (max-width: $break-md-1) {
 		column-count: 1;
 	}
 	@media only screen and 
-		(min-width: $break-0) and (max-width: $break-2 - 1px) {
+		(min-width: $break-md) and (max-width: $break-lg-1) {
 		column-count: 2;
 	}
-	@media only screen and (min-width: $break-2) {
+	@media only screen and (min-width: $break-lg) {
 		column-count: 3;
 	}
 }
 
-.card {
-	display: block;
-	text-align: left;
-}
-.card-header {
-	margin: 0;
-}
+// TODO: Card Deck styling
+// CSS Grid box
 
 .skill-list {
 	// left indent list items
 	padding-left: 0.5em;
+}
+.skill-list-entry {
+	color: red;
 }
 .subtext {
 	font-style: italic;
@@ -137,8 +160,7 @@ $break-2: 880px;
 /* ==================== Button Container Styling ==================== */
 .button-container {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
 	justify-content: space-evenly;
 	align-content: center;
 }
@@ -146,11 +168,11 @@ $break-2: 880px;
 // Use empty span element to force buttons to left side of screen, 
 // when screen is too large. Hide the element when unused,
 // to not mess up flex alignment.
-.button-container .filler {
-	@media only screen and (max-width: $break-1 - 1px) {
+.filler {
+	@media only screen and (max-width: $break-lg-1) {
 		display: none;
 	}
-	@media only screen and (min-width: $break-1) {
+	@media only screen and (min-width: $break-lg) {
 		flex-grow: 1;
 	}
 }
