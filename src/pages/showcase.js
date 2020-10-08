@@ -4,9 +4,12 @@ import React from "react"
 // HTML / CSS
 import Layout from "../components/layout"
 import styles from "../styles/showcase.module.scss"
+import Cards from "../components/cards.js"
+import Cardbox from "../components/cardbox.js"
 
 
 /* ==================== Hero Carousel ==================== */
+// TODO: Carousel
 const Carousel = () => (
 <div className="carousel slide" data-ride="carousle" 
 	id="carouselControl">
@@ -67,62 +70,110 @@ function CarouselIndicator (props) {
 
 
 
-/* ==================== Card Deck ==================== */
-const CardDeck = () => (
-	<div className={styles.cardDeck + " card-deck"}>
-		<Cards title="Card 1"/>
-		<Cards title="Card 2"/>
-		<Cards title="Card 3"/>
-		<Cards title="Card 4"/>
-		<Cards />
-		<Cards />
-		<Cards />
-	</div>
+/* ==================== Card Showcase ==================== */
+const Showcase = () => (
+<div className={styles.showcase}>
+<h1>Work Showcase</h1>
+<hr></hr>
+<Cardbox>
+	<Cards 
+		image="https://picsum.photos/350/500"
+		header="Card 1"
+		subheader="Subheader 1"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		regular={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/350/500"
+		header="Card 2"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		regular={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/350/500"
+		subheader="Card 3"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		regular={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/500"
+		header="Card 4"
+		subheader="Wide Card (1x2)"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		wide={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/350/500"
+		header="Card 5"
+		subheader="Subheader 5"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		regular={true}
+	/>
+	<Cards 
+		header="Card 6"
+		subheader="Subheader 6"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		regular={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/500/350"
+		header="Card 7"
+		subheader="Tall Card (2x1)"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		tall={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/500"
+		header="Card 8"
+		subheader="Large Card (2x2)"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		large={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/350/500"
+		header="Card 9"
+		subheader="Subheader 9"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		regular={true}
+	/>
+	<Cards 
+		image="https://picsum.photos/350/500"
+		header="Card 10"
+		subheader="Subheader 10"
+		text="This is the main card body text. A little bit long, a little bit unnecessary"
+		subtext="This is the subtext"
+		interactive={true}
+		regular={true}
+	/>
+</Cardbox>
+</div>
 )
-
-function Cards (props) {
-	let image = <svg className={styles.placeholder}>
-		<rect width="100%" height="100%" fill="transparent"></rect>
-		<text x="50%" y="50%" fill="#eceeef" dy=".3em">Placeholder</text>
-	</svg>
-	if (props.img != null) {
-		image = props.img;
-	}
-
-	let title = <h5 className="card-title">Card Title</h5>
-	if (props.title != null) {
-		title = <h5 className="card-title">{props.title}</h5>
-	}
-
-	let mainText = <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-	if (props.maintext != null) {
-		mainText = <p className="card-text">{props.maintext}</p>;
-	}
-
-	let smallText = <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-	if (props.smalltext != null) {
-		smallText = <p className="card-text"><small className="text-muted">{props.smalltext}</small></p>
-	}
-
-	return (
-		<div className={styles.card + " card"}>
-		{image}
-		<div className="card-body">
-			{title}
-			{mainText}
-			{smallText}
-		</div>
-	</div>
-	)
-}
 
 
 
 /* ==================== Output ==================== */
 const ShowcasePage = () => (
 	<Layout>
-		<Carousel />
-		<CardDeck />
+		{/* <Carousel /> */}
+		<Showcase />
 	</Layout>
 )
 

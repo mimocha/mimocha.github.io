@@ -5,7 +5,8 @@ import React, { Children } from "react"
 import Layout from "../components/layout.js"
 import styles from "../styles/about.module.scss"
 import Button from "../components/buttons.js"
-import Card from "../components/cards.js"
+import Cards from "../components/cards.js"
+import Cardbox from "../components/cardbox.js"
 
 // Resource
 import profileImg from "../images/profile.jpg"
@@ -67,7 +68,7 @@ const Hero = () => (
 
 const ContentBox = (props) => (
 	<div className={styles.contentContainer}>
-		<h2>{props.header}</h2>
+		<h1>{props.header}</h1>
 		<hr></hr>
 		{props.children}
 	</div>
@@ -104,31 +105,7 @@ const Summary = () => (
 
 /* ========================= Skills Section ========================= */
 
-// TODO:
-// CSS Grid Box for responsive cards
-
-const SkillCard = (props) => (
-<div className={styles.card}>
-	<div className="card-header">
-	<h4 className={styles.cardHeader}>{props.header}</h4>
-	</div>
-	<div className="card-body">
-		{props.children}
-	</div>
-</div>
-)
-
 function SkillList (props) {
-	// Render header if given one
-	let headerObj;
-	if (props.header != null) {
-		headerObj = <h5>
-						{props.header}
-					</h5>;
-	} else {
-		headerObj = null;
-	}
-
 	// Render list entries
 	const count = Children.count(props.children);
 	const items = [];
@@ -143,7 +120,6 @@ function SkillList (props) {
 
 	return (
 		<span>
-			{headerObj}
 			<ul className={styles.skillList}>
 				{items}
 			</ul>
@@ -153,8 +129,8 @@ function SkillList (props) {
 
 const Skills = () => (
 <ContentBox header="I've had experience with...">
-	<div className={styles.cardContainer + " card-columns"}>
-		<Card header="Programming Languages">
+	<Cardbox>
+		<Cards header="Programming Languages">
 			<SkillList>
 				{["C / C++",
 				"Java",
@@ -162,9 +138,9 @@ const Skills = () => (
 				"Python",
 				"System Verilog HDL"]}
 			</SkillList>
-		</Card>
+		</Cards>
 
-		<Card header="Frameworks / Toolkits">
+		<Cards header="Frameworks & Toolkits">
 			<SkillList>
 				{["Matplotlib",
 				"Numpy",
@@ -173,9 +149,9 @@ const Skills = () => (
 				"Pandas",
 				"Scipy"]}
 			</SkillList>
-		</Card>
+		</Cards>
 
-		<Card header="Miscellaneous">
+		<Cards header="Miscellaneous">
 			<SkillList>
 				{["git",
 				"LaTeX",
@@ -183,9 +159,9 @@ const Skills = () => (
 				"makefile",
 				"PLC Ladder Logic"]}
 			</SkillList>
-		</Card>
+		</Cards>
 
-		<Card header="Front-end Programming">
+		<Cards header="Front-end Programming">
 			<SkillList>
 				{["HTML",
 				"CSS / SCSS",
@@ -194,34 +170,34 @@ const Skills = () => (
 				"GatsbyJS",
 				"GraphQL"]}
 			</SkillList>
-		</Card>
+		</Cards>
 
-		<Card header="Languages">
+		<Cards header="Languages">
 			<SkillList>
 				<span>
-					Thai <span className={styles.subtext}>
+					Thai <span className={styles.skillSubtext}>
 						(native)</span>
 				</span>
 				<span>
-					English <span className={styles.subtext}>
+					English <span className={styles.skillSubtext}>
 						(bilingual-native)
 					</span>
 				</span>
 				<span>
-					Japanese <span className={styles.subtext}>
+					Japanese <span className={styles.skillSubtext}>
 						(fluent)
 					</span>
 				</span>
 			</SkillList>
-		</Card>
-	</div>
+		</Cards>
+	</Cardbox>
 </ContentBox>
 )
 
 const Taught = () => (
 <ContentBox header="I've studied...">
-	<div className={styles.cardContainer + " card-columns"}>
-		<SkillCard header="Artificial Intelligence">
+	<Cardbox>
+		<Cards header="Artificial Intelligence">
 			<SkillList>
 				{["Convolutional Neural Networks",
 				"Deep Learning",
@@ -232,9 +208,9 @@ const Taught = () => (
 				"Reinforcement Learning",
 				"Swarm Intelligence"]}
 			</SkillList>
-		</SkillCard>
+		</Cards>
 
-		<SkillCard header="Data Sciences">
+		<Cards header="Data Sciences">
 			<SkillList>
 				{["Classification",
 				"Cluster Analysis",
@@ -245,9 +221,9 @@ const Taught = () => (
 				"Support Vector Machine"
 				]}
 			</SkillList>
-		</SkillCard>
+		</Cards>
 
-		<SkillCard header="Engineering">
+		<Cards header="Engineering">
 			<SkillList>
 				{["Embedded Systems",
 				"FPGA",
@@ -255,33 +231,33 @@ const Taught = () => (
 				"Industrial Automation",
 				"Robotics"]}
 			</SkillList>
-		</SkillCard>
+		</Cards>
 
-		<SkillCard header="Qualifications">
+		<Cards header="Qualifications">
 			<SkillList>
 				<span>
-					JLPT <span className={styles.subtext}>
+					JLPT <span className={styles.skillSubtext}>
 						Japanese Language Proficiency Test (N1)
 					</span>
 				</span>
 				<span>
-					Kogyo-Eiken <span className={styles.subtext}>
+					Kogyo-Eiken <span className={styles.skillSubtext}>
 						Technical Japanese-English Translation (Pre-2)
 					</span>
 				</span>
 				<span>
-					IELTS <span className={styles.subtext}>
+					IELTS <span className={styles.skillSubtext}>
 						International English Language Testing System (Band 8.5)
 					</span>
 				</span>
 				<span>
-					TOEIC <span className={styles.subtext}>
+					TOEIC <span className={styles.skillSubtext}>
 						Test of English for International Candidate (990)
 					</span>
 				</span>
 			</SkillList>
-		</SkillCard>
-	</div>
+		</Cards>
+	</Cardbox>
 </ContentBox>
 )
 

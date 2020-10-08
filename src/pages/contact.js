@@ -8,9 +8,10 @@ import styles from "../styles/contact.module.scss"
 // Resource
 import illust from "../images/contact/Online-rafiki.svg"
 
+// Disabled link no longer works
 const ContactLink = (props) => (
 <a href={props.link}
-	className={styles.listItem + " list-group-item list-group-item-action " + props.class}
+	className={`${styles.listItem} ${props.class}`}
 	target="_blank" rel="external">
 		<i className={props.icon}></i>
 		<p>{props.children}</p>
@@ -20,9 +21,9 @@ const ContactLink = (props) => (
 // TODO: Copy text to clipboard on click
 const ContactList = () => (
 <div className={styles.contactContainer}>
-	<h2>Contact Me</h2>
+	<h1>Contact Me</h1>
 	<hr></hr>
-	<ul className="list-group">
+	<ul className={styles.listGroup}>
 		<ContactLink
 			link="mailto:leosrisook.c@gmail.com"
 			icon="fas fa-envelope">

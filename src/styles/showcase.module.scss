@@ -19,19 +19,9 @@
 }
 
 
+
 /* ============== Contents Styling ============== */
-.card-deck {
-	margin-top: 1em;
-	// Stretch to fill space if empty
-	flex-grow: 1;
-}
-
-.card {
-	min-width: 15em;
-	margin-top: 0.5em;
-}
-
-.placeholder {
-	height: 250px;
-	background-color: darkgray;
+.showcase {
+	margin: 1em;
+	padding: 0.5em;
 }

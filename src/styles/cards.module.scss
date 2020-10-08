@@ -1,14 +1,158 @@
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+@import "./breakpoints.scss";
 
+/* =================== Base Card Styling =================== */
 .card {
-	display: inline-block;
-	border: 1px #000000 dashed;
-	min-width: 5em;
+	display: flex;
+	flex-flow: column nowrap;
+	overflow: hidden;
+
+	min-height: 350px;
+
+	border-radius: 16px;
+	box-shadow: -2px 2px 8px $shadow-secondary-1-4,
+				2px -2px 4px #ffffff;
+}
+
+.card-image {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 .card-header {
-	font-size: 1.25em;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: $neutral-7;
+}
+
+.card-subheader {
+	font-size: 1.05em;
+	font-style: italic;
+	font-weight: light;
+	color: $neutral-5;
 }
 
 .card-body {
+	display: flex;
+	flex-flow: column nowrap;
+	span {
+		// Filler spacing
+		// Stretches subtext to bottom of card
+		flex-grow: 1;
+	}
+	padding: 1em 1.5em;
+	text-align: left;
+}
+
+.card-text {
 	font-size: 1em;
+	color: $neutral-7;
+}
+
+.card-subtext {
+	font-size: 0.85em;
+	font-style: italic;
+	font-weight: light;
+	color: $neutral-4;
+	margin: 0;
+}
+
+
+
+/* =================== Card Image Layout =================== */
+// Regular card styling
+.regular .card-image {
+	width: 100%;
+	height: 150px;
+}
+
+// Wide and Large layouts break on small screens
+// Sets all cards to regular size styling then
+@media only screen and (max-width: $break-sm-1) {
+	.wide .card-image,
+	.tall .card-image,
+	.large .card-image {
+		width: 100%;
+		height: 150px;
+	}
+}
+@media only screen and (min-width: $break-sm) {
+	.wide {
+		grid-column-start: span 2;
+		flex-direction: row;
+
+		.card-image {
+			height: 100%;
+			width: 300px;
+		}
+	}
+	.tall {
+		grid-row-start: span 2;
+
+		.card-image {
+			height: 300px;
+			width: 100%;
+		}
+	}
+	.large {
+		grid-column-start: span 2;
+		grid-row-start: span 2;
+
+		.card-image {
+			height: 300px;
+			width: 100%;
+		}
+	}
+}
+
+
+
+/* =================== Interactivity =================== */
+.interactive {
+	cursor: pointer;
+
+	transition: all 250ms ease-in-out;
+	* {
+		transition: all 250ms ease-in-out;
+	}
+}
+.interactive:hover {
+	box-shadow: -2px 2px 12px $shadow-secondary-1-3;
+
+	.card-header {
+		color: $secondary-1-3;
+	}
+	.card-subheader {
+		color: $secondary-1-4;
+	}
+}
+
+.interactive:hover.regular .card-image {
+	height: 300px;
+}
+
+// Wide and Large layouts break on small screens
+// Sets all cards to regular size styling then
+@media only screen and (max-width: $break-sm-1) {
+	.interactive:hover.wide .card-image,
+	.interactive:hover.tall .card-image,
+	.interactive:hover.large .card-image {
+		height: 300px;
+	}
+}
+@media only screen and (min-width: $break-sm) {
+	.interactive:hover.wide .card-image {
+		height: 100%;
+		width: 750px;
+	}
+	.interactive:hover.tall .card-image {
+		height: 500px;
+	}
+	.interactive:hover.large .card-image {
+		height: 500px;
+	}
 }

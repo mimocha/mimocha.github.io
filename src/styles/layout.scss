@@ -70,8 +70,11 @@ main {
 		width: $break-md;
 	}
 	// When using large screen, set width to max
-	@media only screen and (min-width: $break-lg) {
+	@media only screen and (min-width: $break-lg) and (max-width: $break-xl-1) {
 		width: $break-lg;
+	}
+	@media only screen and (min-width: $break-xl) {
+		width: $break-xl;
 	}
 
 }

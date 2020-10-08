@@ -26,7 +26,7 @@ function TextSplit (props) {
 	let i;
 	let array = [];
 	// 17 characters, excluding fontawesome icon
-	for (i=0; i<17; i++) {
+	for (i=0; i<props.text.length; i++) {
 		array.push(
 			<Letter key={i.toString()}>
 				{props.text[i]}

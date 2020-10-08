@@ -124,35 +124,18 @@ a:hover .logo {
 	text-align: justify;
 }
 
-// Responsive card column count
-.card-container {
-	// display: grid;
-	justify-content: stretch;
-	@media only screen and (max-width: $break-md-1) {
-		column-count: 1;
-	}
-	@media only screen and 
-		(min-width: $break-md) and (max-width: $break-lg-1) {
-		column-count: 2;
-	}
-	@media only screen and (min-width: $break-lg) {
-		column-count: 3;
-	}
-}
-
-// TODO: Card Deck styling
-// CSS Grid box
-
 .skill-list {
-	// left indent list items
-	padding-left: 0.5em;
+	padding: 0;
+	list-style-type: none;
 }
 .skill-list-entry {
-	color: red;
+	border-bottom: 1px #cecece44 solid;
+	padding: 0.5em 0;
 }
-.subtext {
+
+.skill-subtext {
 	font-style: italic;
-	color: $shadow-primary-2;
+	color: $neutral-4;
 }
 
 
