@@ -1,5 +1,6 @@
 // React
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 
 // HTML / CSS
 import Layout from "../components/layout"
@@ -8,173 +9,108 @@ import Cards from "../components/cards.js"
 import Cardbox from "../components/cardbox.js"
 
 
-/* ==================== Hero Carousel ==================== */
-// TODO: Carousel
-const Carousel = () => (
-<div className="carousel slide" data-ride="carousle" 
-	id="carouselControl">
-	<div className="carousel-inner">
-		<CarouselIndicator target="carouselControl" n={3} />
+/* ==================== Card Showcase ==================== */
+function RenderCards (props) {
+	// Array of card elements to render
+	let CardElements = [];
 
-		<CarouselItem style={styles.one + " active"}>
-			<h1 className="display-1">One</h1>
-		</CarouselItem>
-
-		<CarouselItem style={styles.two}>
-			<h1 className="display-1">Two</h1>
-		</CarouselItem>
-		
-		<CarouselItem style={styles.three}>
-			<h1 className="display-1">Three</h1>
-		</CarouselItem>
-
-		<a className="carousel-control-prev" href="#carouselControl" role="button" data-slide="prev">
-			<span className="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span className="sr-only">Previous</span>
-		</a>
-		<a className="carousel-control-next" href="#carouselControl" role="button" data-slide="next">
-			<span className="carousel-control-next-icon" aria-hidden="true"></span>
-			<span className="sr-only">Next</span>
-		</a>
-	</div>
-</div>
-)
-
-const CarouselItem = (props) => (
-<div className={props.style + " carousel-item"}>
-	{props.children}
-</div>
-)
-
-function CarouselIndicator (props) {
-	let array = [];
+	// Iterate through data objects
 	let i;
-	for (i=0; i<props.n; i++) {
-		if (i===0) {
-			array.push(
-				<li data-target={props.target} data-slide-to={i.toString()} className="active" />
-			)
-		} else {
-			array.push(
-				<li data-target={props.target} data-slide-to={i.toString()} />
-			)
-		}
+	for (i=0; i<props.md.length; i++) {
+		// Parse Markdown frontmatter
+		const fm = props.md[i].node.frontmatter;
+		console.log("Markdown:", props.md[i].node);
+
+		// TODO:
+		// generate new page for main content html
+		// use: dangerouslySetInnerHTML={{ __html: body }}
+		// see: https://www.gatsbyjs.com/docs/adding-markdown-pages/
+		// const body = mdNode.html;
+
+		CardElements.push(
+			<Cards 
+				header={fm.title != null ? fm.title : null}
+				image={fm.image != null ? 
+					require(`../${fm.image.relativePath}`)
+					: null}
+				link={fm.link != null ? fm.link : null}
+				text={fm.excerpt != null ? fm.excerpt : null}
+				footer={fm.date != null ? fm.date : null}
+
+				key={i}
+				interactive={true}
+
+				// set sizes
+				regular={fm.size==="regular" ? true : false}
+				wide={fm.size==="wide" ? true : false}
+				tall={fm.size==="tall" ? true : false}
+				large={fm.size==="large" ? true : false}
+			/>
+		)
 	}
 
-	return (
-		<ul className="carousel-indicators">
-			{array}
-		</ul>
-	)
-}
+	// Render
+	return (CardElements)
+};
 
-
-
-/* ==================== Card Showcase ==================== */
-const Showcase = () => (
+const Showcase = (props) => (
 <div className={styles.showcase}>
-<h1>Work Showcase</h1>
-<hr></hr>
-<Cardbox>
-	<Cards 
-		image="https://picsum.photos/350/500"
-		header="Card 1"
-		subheader="Subheader 1"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		regular={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/350/500"
-		header="Card 2"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		regular={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/350/500"
-		subheader="Card 3"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		regular={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/500"
-		header="Card 4"
-		subheader="Wide Card (1x2)"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		wide={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/350/500"
-		header="Card 5"
-		subheader="Subheader 5"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		regular={true}
-	/>
-	<Cards 
-		header="Card 6"
-		subheader="Subheader 6"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		regular={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/500/350"
-		header="Card 7"
-		subheader="Tall Card (2x1)"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		tall={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/500"
-		header="Card 8"
-		subheader="Large Card (2x2)"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		large={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/350/500"
-		header="Card 9"
-		subheader="Subheader 9"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		regular={true}
-	/>
-	<Cards 
-		image="https://picsum.photos/350/500"
-		header="Card 10"
-		subheader="Subheader 10"
-		text="This is the main card body text. A little bit long, a little bit unnecessary"
-		subtext="This is the subtext"
-		interactive={true}
-		regular={true}
-	/>
-</Cardbox>
+	<h1>Work Showcase</h1>
+	<hr></hr>
+
+	<Cardbox>
+		{/* Programmatically render queried contents */}
+		<RenderCards
+			md={props.data.allMarkdownRemark.edges}
+		/>
+	</Cardbox>
 </div>
 )
 
 
 
 /* ==================== Output ==================== */
-const ShowcasePage = () => (
-	<Layout>
-		{/* <Carousel /> */}
-		<Showcase />
-	</Layout>
-)
+const ShowcasePage = () => {
+	// graphQL query -- pass to: Showcase > RenderCards
+	const data = useStaticQuery(
+		graphql`query ShowcaseQuery {
+			allMarkdownRemark(filter: {frontmatter: {type: {ne: "template"}}}) {
+			  edges {
+				node {
+				  frontmatter {
+					title
+					date
+					image {
+					  id
+					  relativePath
+					}
+					link
+					size
+					type
+					language
+					tag
+					excerpt
+				  }
+				  html
+				  parent {
+					... on File {
+					  id
+					  name
+					  relativePath
+					  relativeDirectory
+					}
+				  }
+				}
+			  }
+			}
+		  }`
+	)
+
+	return (
+		<Layout>
+			<Showcase data={data}/>
+		</Layout>
+	)
+}
 
 export default ShowcasePage

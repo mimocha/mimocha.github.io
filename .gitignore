@@ -1,6 +1,7 @@
 # My ignores
 fonts/
 reference/
+content/
 
 # Logs
 logs

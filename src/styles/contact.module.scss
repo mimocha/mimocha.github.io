@@ -3,6 +3,7 @@
 // NOTE: @import usage is deprecated by SASS
 @import "./colors.scss";
 @import "./fonts.scss";
+@import "./breakpoints.scss";
 
 /* ============== Outer Container Styling ============== */
 .container {
@@ -55,8 +56,17 @@
 		max-width: 80%;
 		text-align: right;
 	}
-	i {
-		font-size: 2em;
+
+	// Responsive icon size
+	@media only screen and (max-width: $break-sm-1) {
+		i {
+			font-size: 1.25em;
+		}
+	}
+	@media only screen and (min-width: $break-sm) {
+		i {
+			font-size: 2em;
+		}
 	}
 }
 
@@ -70,8 +80,6 @@
 		color: $secondary-1-2;
 	}
 }
-
-
 
 
 

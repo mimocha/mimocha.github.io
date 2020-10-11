@@ -1,9 +1,11 @@
 // React
 import React from "react"
+import { Link } from "gatsby"
 
 // HTML / CSS
 import styles from "../styles/cards.module.scss"
 
+/* =========================== Card Components =========================== */
 const CardImage = (props) => (
 	props.image != null ?
 		<div className={styles.cardImage}
@@ -18,7 +20,6 @@ const CardHeader = (props) => (
 			{props.header}
 		</h2>
 		</div>
-		
 		: null
 )
 
@@ -49,23 +50,42 @@ const CardText = (props) => (
 		: null
 )
 
-// Spacer used to stretch subtext to foot of card
-// Don't draw if no subtext used
+// Spacer used to stretch footer to foot of card
+// Don't draw if no footer used
 const Spacer = (props) => (
 	props.draw === true ?
 		<span></span>
 		: null
 )
 
-const CardSubtext = (props) => (
-	props.subtext != null ?
+const CardFooter = (props) => (
+	props.footer != null ?
 		<div>
-		<p className={styles.cardSubtext}>
-			{props.subtext}
+		<p className={styles.cardFooter}>
+			{props.footer}
 		</p>
 		</div>
 		: null
 )
+
+// Wrap inner card contents in link, if one is provided
+const LinkWrap = (props) => {
+	if (props.link != null) {
+		return (
+			<Link to={props.link} className={styles.cardLink}>
+				{props.children}
+			</Link>
+		)
+	} else {
+		return(
+			props.children
+		)
+	}
+}
+
+
+
+/* ============================== Output ============================== */
 
 // Use inline styling + ES6 string literal for conditional classes
 const Cards = (props) => (
@@ -77,22 +97,20 @@ const Cards = (props) => (
 	${props.tall ? styles.tall : ""}
 	${props.large ? styles.large : ""}
 	`}>
-	
-	<CardImage image={props.image} />
 
-	<div className={styles.cardBody}>
-		<CardHeader header={props.header} />
-		<CardSubheader subheader={props.subheader} />
-		<HorzRule draw={props.header != null} />
-
-		<CardText text={props.text} />
-
-		{/* Any other custom props */}
-		{props.children}
-		
-		<Spacer draw={props.subtext != null} />
-		<CardSubtext subtext={props.subtext} />
-	</div>
+	<LinkWrap link={props.link}>
+		<CardImage image={props.image} />
+		<div className={styles.cardBody}>
+			<CardHeader header={props.header} />
+			<CardSubheader subheader={props.subheader} />
+			<HorzRule draw={props.header != null} />
+			<CardText text={props.text} />
+			{/* Any other custom props */}
+			{props.children}
+			<Spacer draw={props.footer != null} />
+			<CardFooter footer={props.footer} />
+		</div>
+	</LinkWrap>
 </div>
 )
 

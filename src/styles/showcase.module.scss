@@ -4,24 +4,16 @@
 @import "./colors.scss";
 @import "./fonts.scss";
 
-/* ============== Carousel Styling ============== */
-.one, .two, .three {
-	height: 500px;
-}
-.one {
-	background-color: lighten(red, 25%);
-}
-.two {
-	background-color: desaturate(green, 25%);
-}
-.three {
-	background-color: lighten(blue, 25%);
-}
-
-
-
 /* ============== Contents Styling ============== */
 .showcase {
 	margin: 1em;
 	padding: 0.5em;
+}
+
+.overlay {
+	z-index: 10 ;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: $shadow-primary-1;
 }

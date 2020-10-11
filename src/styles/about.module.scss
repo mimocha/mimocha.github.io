@@ -27,39 +27,45 @@
 	box-shadow: -2px 2px 3px $shadow-primary-2;
 }
 .summary-box {
-	// text stylings
-	text-shadow: -0.5px 0.5px 3px $shadow-secondary-1-2;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+
+	text-shadow: -1px 1px 4px $shadow-secondary-1-2;
 	p {
 		margin: 0;
-	}
-	.text-lead {
 		color: $neutral-7;
-		font-weight: bold;
 	}
-	.text-sub {
-		color: $neutral-7;
-		font-style: italic;
-	}
-	// FontAwesome External links mark
 	i {
+		// FontAwesome External links mark
 		margin: 0 0.5em;
 		font-size: 14px;
 	}
+}
+.name {
+	font-weight: bold;
+	font-size: 1.25em;
+}
+.text-lead {
+	font-weight: bold;
+}
+.text-sub {
+	font-style: italic;
+}
 
-	// University styling
-	.container {
-		display: flex;
-		justify-content: flex-start;
-	}
-	.logo {
-		width: 3em;
-		height: 3em;
-		border-radius: 50%;
-		box-shadow: -1px 1px 3px $shadow-primary-2;
-	}
-	.uni-text {
-		margin-left: 1em;
-	}
+// University Logo styling
+.container {
+	display: flex;
+	justify-content: flex-start;
+}
+.logo {
+	width: 3em;
+	height: 3em;
+	border-radius: 50%;
+	box-shadow: -1px 1px 3px $shadow-primary-2;
+}
+.uni-text {
+	margin-left: 1em;
 }
 
 // University link hover effect
@@ -68,7 +74,7 @@
 }
 a:hover .text-lead, a:hover .text-sub {
 	color: white;
-	text-shadow: 0px 0px 5px $shadow-primary-0;
+	text-shadow: 0px 0px 8px $shadow-secondary-1-2;
 }
 .logo {
 	transition: all 100ms ease-in-out;
@@ -88,15 +94,6 @@ a:hover .logo {
 	}
 	.logo {
 		display: none;
-	}
-	.summary-box {
-		min-width: 0;
-	}
-}
-@media only screen and (min-width: $break-sm) {
-	.summary-box {
-		// fixed width for stretching effect
-		min-width: 450px;
 	}
 }
 
