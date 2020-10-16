@@ -8,7 +8,7 @@ import "../styles/layout.scss"
 
 const Layout = (props) => (
 <main>
-	<Header />
+	<Header brand={props.brand} />
 	<div className="content">
 		{props.children}
 	</div>

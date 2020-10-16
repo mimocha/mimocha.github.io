@@ -8,7 +8,7 @@ const Footer = () => (
 	<footer className={styles.footer}>
 		<div className={styles.text}>
 			<p className={styles.name}>© Chawit Leosrisook 2020</p>
-			<a href="#">Back to top</a>
+			<a href="#top">Back to top</a>
 		</div>
 	</footer>
 )

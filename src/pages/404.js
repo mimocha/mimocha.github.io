@@ -20,7 +20,7 @@ const Illust = () => (
 	<div className={styles.illustContainer}>
 		<img src={illust} alt="Illustration by Freepik Stories" />
 		<a href="https://stories.freepik.com/online" 
-			target="_blank" rel="noreferrer">
+			target="_blank" rel="noopener noreferrer external">
 		Illustration by Freepik Stories
 		</a>
 	</div>

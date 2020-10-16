@@ -8,9 +8,10 @@
 .card {
 	display: flex;
 	flex-flow: column nowrap;
+	justify-content: safe center;
 	overflow: hidden;
 
-	min-height: 500px;
+	min-height: 400px;
 
 	border-radius: 16px;
 	box-shadow: -2px 2px 6px $shadow-secondary-1-3,
@@ -21,14 +22,16 @@
 	display: inherit;
 	flex-flow: inherit;
 	// fills card
-	width: 100%;
-	height: 100%;
+	min-width: 100%;
+	min-height: 100%;
 }
 
 .card-image {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+
+	flex-grow: 1;
 	flex-shrink: 0;
 }
 
@@ -57,6 +60,8 @@
 	span {
 		flex-grow: 1;
 	}
+	// Shrink required to keep content from overflowing
+	flex-shrink: 1;
 }
 
 .card-text {
@@ -75,9 +80,34 @@
 
 
 /* =================== Card Image Layout =================== */
+// The variable dimensions and their interactive sizes must be set with fixed
+// values (px, em, etc.) Otherwise, the card contents will expand based on 
+// flexbox styling, which only reallocates available space.
+//
+// If no extra space is available for the flexbox, no expansion effect will
+// occur.
+//
+// If you attempt to force it with flex properties (flex-grow/shrink/basis),
+// then dataloss will occur, as flex items expands beyond the available space;
+// where overflow styling kicks in and hides overflowing contents.
+//
+// This has the cool effect of expanding the card itself, but also the
+// the uncomfortable side effect of expanding the card grid on hover.
+// Ideally, we would want the card to hover on-top of other cards, and expand
+// to show additional content, while maintaining the original grid styling.
+// This would require reworking cardbox and cards, most likely requiring fixed
+// card/grid sizes, as well as responsive card/grid sizes.
+//
+// Idea:
+// The grid itself has fixed sizes, and grid items are invisible placeholders.
+// Meanwhile, the cards are overlayed on top of the placeholder, and can move
+// around and expand with positioning properties. This allows for interactive
+// cards, while maintaining a fixed grid. However, this will probably be a
+// responsive design nightmare to figure out. Marked as future TODO.
+
 // Regular card styling
 .regular .card-image {
-	height: 25%; // variable
+	height: 100px; // variable dimension
 	width: 100%;
 }
 
@@ -87,7 +117,7 @@
 	.wide .card-image,
 	.tall .card-image,
 	.large .card-image {
-		height: 150px; // variable
+		height: 100px; // variable dimension
 		width: 100%;
 	}
 }
@@ -97,13 +127,13 @@
 		flex-direction: row;
 		.card-image {
 			height: 100%;
-			width: 35%; // variable
+			width: 200px; // variable dimension
 		}
 	}
 	.tall {
 		grid-row-start: span 2;
 		.card-image {
-			height: 35%; // variable
+			height: 350px; // variable dimension
 			width: 100%;
 		}
 	}
@@ -111,7 +141,7 @@
 		grid-column-start: span 2;
 		grid-row-start: span 2;
 		.card-image {
-			height: 50%; // variable
+			height: 200px; // variable dimension
 			width: 100%;
 		}
 	}
@@ -128,9 +158,12 @@
 	}
 }
 .interactive:hover {
-	// expand and overlay effect
-	transform: scale(1.1, 1.1);
+	// Expand and overlay effect
+	// Transform uniformly rescales the contents, so everything grows by
+	// the same size. Transform provides the overlapping cards effect.
+	transform: scale(1.1);
 	z-index: 1;
+
 	// coloring
 	background-color: lighten($primary-0, 25%);
 	box-shadow: 0px 0px 12px $shadow-secondary-1-2;
@@ -143,7 +176,7 @@
 }
 
 .interactive:hover.regular .card-image {
-	height: 40%;
+	height: 200px;
 }
 
 // Wide and Large layouts break on small screens
@@ -152,17 +185,17 @@
 	.interactive:hover.wide .card-image,
 	.interactive:hover.tall .card-image,
 	.interactive:hover.large .card-image {
-		height: 300px;
+		height: 200px;
 	}
 }
 @media only screen and (min-width: $break-sm) {
 	.interactive:hover.wide .card-image {
-		width: 50%;
+		width: 350px;
 	}
 	.interactive:hover.tall .card-image {
-		height: 50%;
+		height: 500px;
 	}
 	.interactive:hover.large .card-image {
-		height: 60%;
+		height: 500px;
 	}
 }

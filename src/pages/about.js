@@ -7,6 +7,7 @@ import styles from "../styles/about.module.scss"
 import Button from "../components/buttons.js"
 import Cards from "../components/cards.js"
 import Cardbox from "../components/cardbox.js"
+import contents from "../styles/contents.module.scss"
 
 // Resource
 import profileImg from "../images/profile.jpg"
@@ -14,11 +15,14 @@ import sussexLogo from "../images/sussex-mark.png"
 import nitLogo from "../images/nit-mark.png"
 
 
+// TODO: Reformat this file.
+// Use graphQL to query data instead of hard-coded content
+
 
 /* ========================= Hero Section ========================= */
 
 const University = (props) => (
-<a href={props.link} target="_blank" rel="noreferrer">
+<a href={props.link} target="_blank" rel="noopener noreferrer external">
 	<div className={styles.container}>
 		<img src={props.logo} className={styles.logo} alt="University logo"/>
 		<span className={styles.uniText}>
@@ -67,7 +71,7 @@ const Hero = () => (
 /* ========================= About Section ========================= */
 
 const ContentBox = (props) => (
-	<div className={styles.contentContainer}>
+	<div className={styles.cardContainer}>
 		<h1>{props.header}</h1>
 		<hr></hr>
 		{props.children}
@@ -75,30 +79,32 @@ const ContentBox = (props) => (
 )
 
 const Summary = () => (
-<ContentBox header="About Me">
-	<p>
-	I am a Thai graduate student at the University of Sussex, studying artificial intelligence! My background is in robotics engineering from Nippon Institute of Technology in Japan.
-	Because of that, I am a bilingual-native speaker of Thai and English, while also being fluent in Japanese. Utilizing that, I had brief work experience as a freelance technical Thai-Japanese interpreter in Japan.
-	</p>
-	<p>
-	I am taught on various AI topics including machine learning and natural language processing, as well as engineering topics, such as embedded systems, image processing and industrial automations.
-	I enjoy everything coding related, and am a big fan of data visualization! You can find examples of my work on this website, as well as on my Github page.
-	My aspiration is to become an active member in the AI research community.
-	</p>
+	<div className={contents.contents}>
+		<h1>About Me</h1>
+		<hr></hr>
+		<p>
+		I am a Thai graduate student at the University of Sussex, studying artificial intelligence! My background is in robotics engineering from Nippon Institute of Technology in Japan.
+		Because of that, I am a bilingual-native speaker of Thai and English, while also being fluent in Japanese. Utilizing that, I had brief work experience as a freelance technical Thai-Japanese interpreter in Japan.
+		</p>
+		<p>
+		I am taught on various AI topics including machine learning and natural language processing, as well as engineering topics, such as embedded systems, image processing and industrial automations.
+		I enjoy everything coding related, and am a big fan of data visualization! You can find examples of my work on this website, as well as on my Github page.
+		My aspiration is to become an active member in the AI research community.
+		</p>
 
-	<div className={styles.buttonContainer}>
-		<Button 
-			link="https://drive.google.com/uc?export=download&id=15iVuo3b5zq37SHGRLBdYwaasMrzzcPHH"
-			icon="fas fa-file-pdf">
-			Resume
-		</Button>
-		<Button link="/contact" type="internal"
-			icon="fas fa-envelope">
-			Contact
-		</Button>
-		<span className={styles.filler}></span>
+		<div className={styles.buttonContainer}>
+			<Button 
+				link="https://drive.google.com/uc?export=download&id=15iVuo3b5zq37SHGRLBdYwaasMrzzcPHH"
+				icon="fas fa-file-pdf">
+				Resume
+			</Button>
+			<Button link="/contact" type="internal"
+				icon="fas fa-envelope">
+				Contact
+			</Button>
+			<span className={styles.filler}></span>
+		</div>
 	</div>
-</ContentBox>
 )
 
 
@@ -112,7 +118,7 @@ function SkillList (props) {
 	let i;
 	for (i=0; i<count; i++) {
 		items.push(
-			<li className={styles.skillListEntry} key={i}>
+			<li className={styles.cardListEntry} key={i}>
 				{props.children[i]}
 			</li>
 		);
@@ -120,7 +126,7 @@ function SkillList (props) {
 
 	return (
 		<span>
-			<ul className={styles.skillList}>
+			<ul className={styles.cardList}>
 				{items}
 			</ul>
 		</span>
@@ -175,16 +181,16 @@ const Skills = () => (
 		<Cards header="Languages">
 			<SkillList>
 				<span>
-					Thai <span className={styles.skillSubtext}>
+					Thai <span className={styles.cardSubtext}>
 						(native)</span>
 				</span>
 				<span>
-					English <span className={styles.skillSubtext}>
+					English <span className={styles.cardSubtext}>
 						(bilingual-native)
 					</span>
 				</span>
 				<span>
-					Japanese <span className={styles.skillSubtext}>
+					Japanese <span className={styles.cardSubtext}>
 						(fluent)
 					</span>
 				</span>
@@ -236,22 +242,22 @@ const Taught = () => (
 		<Cards header="Qualifications">
 			<SkillList>
 				<span>
-					JLPT <span className={styles.skillSubtext}>
+					JLPT <span className={styles.cardSubtext}>
 						Japanese Language Proficiency Test (N1)
 					</span>
 				</span>
 				<span>
-					Kogyo-Eiken <span className={styles.skillSubtext}>
+					Kogyo-Eiken <span className={styles.cardSubtext}>
 						Technical Japanese-English Translation (Pre-2)
 					</span>
 				</span>
 				<span>
-					IELTS <span className={styles.skillSubtext}>
+					IELTS <span className={styles.cardSubtext}>
 						International English Language Testing System (Band 8.5)
 					</span>
 				</span>
 				<span>
-					TOEIC <span className={styles.skillSubtext}>
+					TOEIC <span className={styles.cardSubtext}>
 						Test of English for International Candidate (990)
 					</span>
 				</span>

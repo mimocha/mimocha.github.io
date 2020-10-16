@@ -16,35 +16,29 @@ function RenderCards (props) {
 
 	// Iterate through data objects
 	let i;
-	for (i=0; i<props.md.length; i++) {
+	for (i=0; i<props.data.length; i++) {
 		// Parse Markdown frontmatter
-		const fm = props.md[i].node.frontmatter;
-		console.log("Markdown:", props.md[i].node);
+		const fm = props.data[i].node.frontmatter;
+		// Get generated page slug
+		const slug = props.data[i].node.fields.slug;
 
-		// TODO:
-		// generate new page for main content html
-		// use: dangerouslySetInnerHTML={{ __html: body }}
-		// see: https://www.gatsbyjs.com/docs/adding-markdown-pages/
-		// const body = mdNode.html;
-
+		// Each page itself is rendered separately in gatsby-node.js
+		// Pages are rendered programatically into the template contents.jsx
+		// This card element will Link to the pages through the provided slug
+		// Slug itself is also generated and set in gatsby-node.js
 		CardElements.push(
-			<Cards 
-				header={fm.title != null ? fm.title : null}
-				image={fm.image != null ? 
-					require(`../${fm.image.relativePath}`)
-					: null}
-				link={fm.link != null ? fm.link : null}
-				text={fm.excerpt != null ? fm.excerpt : null}
-				footer={fm.date != null ? fm.date : null}
-
+			<Cards
 				key={i}
 				interactive={true}
 
-				// set sizes
-				regular={fm.size==="regular" ? true : false}
-				wide={fm.size==="wide" ? true : false}
-				tall={fm.size==="tall" ? true : false}
-				large={fm.size==="large" ? true : false}
+				header={fm.title}
+				image={fm.image != null ? 
+					require(`../${fm.image.relativePath}`)
+					: null}
+				link={slug}
+				text={fm.excerpt}
+				footer={fm.date}
+				size={fm.size}
 			/>
 		)
 	}
@@ -60,9 +54,7 @@ const Showcase = (props) => (
 
 	<Cardbox>
 		{/* Programmatically render queried contents */}
-		<RenderCards
-			md={props.data.allMarkdownRemark.edges}
-		/>
+		<RenderCards data={props.data.allMarkdownRemark.edges} />
 	</Cardbox>
 </div>
 )
@@ -71,46 +63,48 @@ const Showcase = (props) => (
 
 /* ==================== Output ==================== */
 const ShowcasePage = () => {
-	// graphQL query -- pass to: Showcase > RenderCards
-	const data = useStaticQuery(
-		graphql`query ShowcaseQuery {
-			allMarkdownRemark(filter: {frontmatter: {type: {ne: "template"}}}) {
-			  edges {
+// graphQL query -- pass to: Showcase > RenderCards
+const data = useStaticQuery (
+	graphql`query ShowcaseQuery {
+		allMarkdownRemark(filter: {frontmatter: {type: {ne: "template"}}}) {
+			edges {
 				node {
-				  frontmatter {
-					title
-					date
-					image {
-					  id
-					  relativePath
+					frontmatter {
+						title
+						date
+						image {
+							id
+							relativePath
+						}
+						size
+						type
+						language
+						tag
+						excerpt
 					}
-					link
-					size
-					type
-					language
-					tag
-					excerpt
-				  }
-				  html
-				  parent {
-					... on File {
-					  id
-					  name
-					  relativePath
-					  relativeDirectory
+					html
+					parent {
+						... on File {
+							id
+							name
+							relativePath
+							relativeDirectory
+						}
 					}
-				  }
+					fields {
+						slug
+					}
 				}
-			  }
 			}
-		  }`
-	)
+		}
+	}`
+)
 
-	return (
-		<Layout>
-			<Showcase data={data}/>
-		</Layout>
-	)
+return (
+	<Layout>
+		<Showcase data={data}/>
+	</Layout>
+)
 }
 
 export default ShowcasePage

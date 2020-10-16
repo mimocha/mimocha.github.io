@@ -1,6 +1,8 @@
 // React
 import React from "react"
-import { Link } from "gatsby"
+
+// External
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 // HTML / CSS
 import styles from "../styles/cards.module.scss"
@@ -9,7 +11,7 @@ import styles from "../styles/cards.module.scss"
 const CardImage = (props) => (
 	props.image != null ?
 		<div className={styles.cardImage}
-		style={{backgroundImage: `url(${props.image})`}}/>
+			style={{backgroundImage: `url(${props.image})`}}/>
 		: null
 )
 
@@ -72,9 +74,14 @@ const CardFooter = (props) => (
 const LinkWrap = (props) => {
 	if (props.link != null) {
 		return (
-			<Link to={props.link} className={styles.cardLink}>
+			<AniLink 
+				to={props.link} 
+				className={styles.cardLink}
+				paintDrip 
+				duration={0.75}
+				hex="#FFD75E">
 				{props.children}
-			</Link>
+			</AniLink>
 		)
 	} else {
 		return(
@@ -92,10 +99,10 @@ const Cards = (props) => (
 <div className={`
 	${styles.card}
 	${props.interactive ? styles.interactive : ""}
-	${props.regular ? styles.regular : ""}
-	${props.wide ? styles.wide : ""}
-	${props.tall ? styles.tall : ""}
-	${props.large ? styles.large : ""}
+	${props.size==="regular" ? styles.regular : ""}
+	${props.size==="wide" ? styles.wide : ""}
+	${props.size==="tall" ? styles.tall : ""}
+	${props.size==="large" ? styles.large : ""}
 	`}>
 
 	<LinkWrap link={props.link}>

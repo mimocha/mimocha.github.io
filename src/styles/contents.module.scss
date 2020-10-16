@@ -1,0 +1,82 @@
+// TODO: @use method doesn't work?
+// React doesn't recognize variable usage: colors.$variable
+// NOTE: @import usage is deprecated by SASS
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./breakpoints.scss";
+
+/* ================= Main Container Styling ================= */
+.contents {
+	margin: 0 auto;
+	padding: 1.5em 0;
+
+	@media only screen and (max-width: $break-lg-1) {
+		width: 90%;
+	}
+	@media only screen and (min-width: $break-lg) and (max-width: $break-xl-1) {
+		width: 800px;
+	}
+	@media only screen and (min-width: $break-xl) {
+		width: 900px;
+	}
+}
+
+
+
+/* ================= Text Styling ================= */
+.contents p {
+	text-indent: 2em;
+	text-align: left;
+}
+
+.contents figcaption p {
+	text-indent: 0;
+	text-align: center;
+	font-style: italic;
+	color: $neutral-5;
+}
+
+
+
+/* ================= Link Styling ================= */
+.contents {
+	a {
+		color: $secondary-2-1;
+	}
+	a:hover {
+		color: $secondary-2-2;
+		text-decoration: underline $secondary-2-2;
+	}
+	a:visited {
+		color: $secondary-2-4;
+	}
+}
+
+
+
+/* ================= Code Styling ================= */
+// VSCode Styling Options:
+// https://www.gatsbyjs.com/plugins/gatsby-remark-vscode
+// Inline code styling marker: •
+// Code Fence numbered line option: {numberLines}
+.contents code {
+	font-family: 'SourceCodePro', monospace;
+	font-size: 10.5pt;
+}
+
+// Applies to inline code block only
+.contents p>code {
+	padding: 0.25em;
+	border: 1px $neutral-0 solid;
+	border-radius: 4px;
+}
+
+
+
+/* ================= Figure Styling ================= */
+.contents figure {
+	padding: 0.5em;
+	border: 1px $neutral-1 solid;
+	border-radius: 1em;
+	margin: inherit;
+}

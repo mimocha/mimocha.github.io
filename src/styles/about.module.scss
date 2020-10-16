@@ -104,6 +104,7 @@ a:hover .logo {
 		margin-top: 1.5em;
 	}
 }
+
 // Full (Row):
 @media only screen and (min-width: $break-lg) {
 	.name {
@@ -113,24 +114,23 @@ a:hover .logo {
 
 
 
-/* ============== Contents Styling ============== */
-// Using Bootstrap grids for card sizing and positioning
-.content-container {
-	padding: 0.5em;
-	margin: 1em;
-	text-align: justify;
+/* ============== Card Content Styling ============== */
+.card-container {
+	margin: 1.5em;
+	text-align: left;
 }
 
-.skill-list {
+.card-list {
 	padding: 0;
 	list-style-type: none;
 }
-.skill-list-entry {
+
+.card-list-entry {
 	border-bottom: 1px #cecece44 solid;
 	padding: 0.5em 0;
 }
 
-.skill-subtext {
+.card-subtext {
 	font-style: italic;
 	color: $neutral-4;
 }

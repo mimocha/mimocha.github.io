@@ -12,7 +12,7 @@ import illust from "../images/contact/Online-rafiki.svg"
 const ContactLink = (props) => (
 <a href={props.link}
 	className={`${styles.listItem} ${props.class}`}
-	target="_blank" rel="external">
+	target="_blank" rel="noopener noreferrer external">
 		<i className={props.icon}></i>
 		<p>{props.children}</p>
 </a>
@@ -51,7 +51,7 @@ const ContactList = () => (
 const Illust = () => (
 <div className={styles.illustContainer}>
 	<img src={illust} alt="Illustration by Freepik Stories" />
-	<a href="https://stories.freepik.com/online" target="_blank" rel="noreferrer">
+	<a href="https://stories.freepik.com/online" target="_blank" rel="noopener noreferrer external">
 	Illustration by Freepik Stories
 	</a>
 </div>

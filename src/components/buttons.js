@@ -1,44 +1,43 @@
 // React
 import React from "react"
-import { Link } from "gatsby"
+
+//External
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 // HTML / CSS
 import styles from "../styles/buttons.module.scss"
 
-// Check if internal / external ref
-// Gatsby does not like using <Link> for external sites
-// Use normal <a> tags instead
+
+const ButtonBase = (props) => (
+	<button className={styles.button}>
+		{props.icon != null ?
+			<i className={props.icon}></i>
+			: null}
+		{props.children}
+	</button>
+)
+
 function Button (props) {
-	// Check if icon is provided
-	let icon;
-	if (props.icon != null) {
-		icon = <i className={props.icon}></i>
-	} else {
-		icon = null;
-	}
-
 	// Render base button
-	let button = 
-		<button className={styles.button}>
-			{icon}
-			{props.children}
-		</button>;
-
-	// Check if link is internal
-	let element;
+	let button = <ButtonBase icon={props.icon}>{props.children}</ButtonBase>;
+	
+	// Check if internal / external ref
+	// Gatsby does not like using <Link> for external sites
+	// Use normal <a> tags instead
 	if (props.type === "internal") {
-		element = 
-			<Link to={props.link}>
+		return (
+			<AniLink fade duration={0.5}
+				to={props.link}>
 				{button}
-			</Link>;
+			</AniLink>
+		) 
 	} else {
-		element = 
+		return (
 			<a href={props.link} target={props.target} rel={props.rel}>
 				{button}
-			</a>;
+			</a>
+		)
 	}
-
-	return (element);
 } 
 
 export default Button

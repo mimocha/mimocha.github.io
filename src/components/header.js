@@ -1,9 +1,9 @@
 // React
 import React from "react"
-import { Link } from "gatsby"
 
 // External
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 // HTML / CSS
 import headerStyles from "../styles/header.module.scss"
@@ -25,7 +25,7 @@ const Letter = (props, key) => (
 function TextSplit (props) {
 	let i;
 	let array = [];
-	// 17 characters, excluding fontawesome icon
+	// Base has 17 characters, excluding fontawesome icon
 	for (i=0; i<props.text.length; i++) {
 		array.push(
 			<Letter key={i.toString()}>
@@ -37,19 +37,23 @@ function TextSplit (props) {
 }
 
 // Link is parent of div, to provide cursor pointer on hover
-const Brand = () => (
-	<Link to="/">
+const Brand = (props) => (
+	<AniLink fade duration={0.5} to="/">
 		<div className={headerStyles.brandContainer}>
 			<span className={headerStyles.name} title="Chawit Leosrisook">
 				<i className="fas fa-user-circle"></i>
-				<TextSplit text="Chawit Leosrisook" />
+				<TextSplit 
+					text={props.brand != null ?
+							props.brand
+							: "Chawit Leosrisook"} 
+				/>
 			</span>
 			<span className={headerStyles.url} title="mimocha.github.io">
 				<i className="fab fa-github"></i>
 				<TextSplit text="mimocha.github.io" />
 			</span>
 		</div>
-	</Link>
+	</AniLink>
 )
 
 
@@ -57,9 +61,12 @@ const Brand = () => (
 /* ========================= Nav-items ========================= */
 const NavLinks = (props) => (
 	<li>
-		<Link to={props.link} className={headerStyles.navbarLink} activeClassName={headerStyles.activeLink}>
+		<AniLink fade duration={0.5}
+			to={props.link} 
+			className={headerStyles.navbarLink} 
+			activeClassName={headerStyles.activeLink}>
 			{props.children}
-		</Link>
+		</AniLink>
 	</li>
 )
 
@@ -93,9 +100,9 @@ const NavMenu = () => (
 
 
 /* ========================= Output ========================= */
-const Header = () => (
-	<nav className={headerStyles.navbar}>
-		<Brand />
+const Header = (props) => (
+	<nav className={headerStyles.navbar} id="top">
+		<Brand brand={props.brand} />
 		<NavMenu />
 	</nav>
 )
