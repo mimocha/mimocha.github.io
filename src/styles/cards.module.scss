@@ -21,6 +21,8 @@
 .card-link {
 	display: inherit;
 	flex-flow: inherit;
+	// flex-grow required for chrome/new edge to fill card
+	flex-grow: 1;
 	// fills card
 	min-width: 100%;
 	min-height: 100%;

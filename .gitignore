@@ -1,10 +1,5 @@
 # My ignores
-fonts/
 reference/
-# media/
-# Only track content markdown files?
-# src/content/*/*
-# !src/content/*/*.md
 
 # Logs
 logs

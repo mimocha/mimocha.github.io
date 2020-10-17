@@ -1,7 +1,6 @@
 // TODO: @use method doesn't work?
 // React doesn't recognize variable usage: colors.$variable
 // NOTE: @import usage is deprecated by SASS
-@import "./colors.scss";
 @import "./breakpoints.scss";
 
 .cardbox {

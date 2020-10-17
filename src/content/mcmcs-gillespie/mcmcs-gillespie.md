@@ -34,7 +34,7 @@ If the two agree, we should expect to see the dashed lines and solid lines of th
 
 The code for drawing this plot is in MATLAB. The functions for running the Gillespie simulations and meanfield simulations are not included.
 
-```matlab {numberLines}
+```python {numberLines}
 % For Q 2.3, Q 2.4
 % Function to run multiple Gillespie scenarios, then create shaded plots.
 % Uses parallel computing.
