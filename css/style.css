@@ -1,0 +1,107 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
+
+:root {
+    --background: #272822;
+    --foreground: #F8F8F2;
+    --comment: #75715E;
+    --green: #A6E22E;
+    --blue: #66D9EF;
+    --light-blue: #8ce1f3; /* Lighter blue for hover states */
+    --pink: #F92672;
+    --orange: #FD971F;
+    --yellow: #E6DB74;
+    --purple: #AE81FF;
+}
+
+html {
+    background-color: var(--background);
+    box-sizing: border-box;
+    position: relative;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Noto Sans Mono', 'Consolas', monospace;
+    background-color: var(--background);
+    color: var(--foreground);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    min-height: calc(100vh - 40px);
+}
+
+/******************************* Terminal Style *******************************/
+
+#terminal {
+    min-width: calc(100vw - 40px);
+    min-height: calc(100vh - 40px);
+    background-color: var(--background);
+    border: 1px solid var(--comment);
+    border-radius: 5px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#prompt {
+    color: var(--green);
+    margin-right: 5px;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+#command-input {
+    background-color: transparent;
+    font-family: inherit;
+    border: none;
+    color: var(--foreground);
+    font-size: 1em;
+    flex-grow: 1;
+    outline: none;
+}
+
+#command-output {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+#command-output .normal {
+    color: var(--foreground);
+}
+#command-output .error {
+    color: var(--pink);
+}
+
+.echoed-command-line {
+    display: flex;
+    margin-bottom: 5px;
+}
+.echoed-prompt {
+    color: var(--green);
+    margin-right: 5px;
+}
+.echoed-command-text {
+    color: var(--foreground);
+    white-space: pre;
+}
+
+.terminal-link {
+    color: var(--blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.terminal-link:hover,
+.terminal-link:focus {
+    color: var(--light-blue);
+    text-decoration: none;
+}
+.terminal-link:visited {
+    color: var(--purple);
+}
