@@ -16,7 +16,7 @@ const linkedinLink = `<a href="https://linkedin.com/in/chawitleosrisook" target=
 
 function copyEmail() {
     navigator.clipboard.writeText(emailAddress);
-    displayCommandEcho(`Email address copied to clipboard!`)
+    displayOutput(`Email address copied to clipboard!`)
 }
 
 function getCommandPalette(outputDiv) {
