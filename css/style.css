@@ -1,17 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
 
-:root {
-    --background: #2E2E2E;
+/************************************ Colors **********************************/
+
+:root .dark {
+    --background: #2B2F3A;
     --foreground: #D6D6D6;
     --comment: #797979;
-    --green: #b4d273;
-    --blue: #6c99bb;
-    --light-blue: #71bef8;
-    --pink: #b05279;
-    --orange: #e87d3e;
-    --yellow: #e5b567;
-    --purple: #9e86c8;
+    --green: #BBE958;
+    --blue: #3F9FE8;
+    --light-blue: #8FCFFF;
+    --pink: #ED4D90;
+    --orange: #E87D3E;
+    --yellow: #E5B567;
+    --purple: #9E86C8;
 }
+:root .light {
+    --background: #FBF9ED;
+    --foreground: #565869;
+    --comment: #9194A2;
+    --green: #2DAE58;
+    --blue: #0977EC;
+    --light-blue: #13BBB7;
+    --pink: #FF42B0;
+    --orange: #FF8920;
+    --yellow: #CF9C00;
+    --purple: #7E3DEF;
+}
+
+.background {color: var(--background);}
+.foreground {color: var(--foreground);}
+.comment {color: var(--comment);}
+.green {color: var(--green);}
+.blue {color: var(--blue);}
+.light-blue {color: var(--light-blue);}
+.pink {color: var(--pink);}
+.orange {color: var(--orange);}
+.yellow {color: var(--yellow);}
+.purple {color: var(--purple);}
 
 /********************************* Media Query ********************************/
 
@@ -26,7 +51,7 @@
         min-width: calc(100vw - 40px);
     }
 }
-@media (max-width: 799px) {
+@media (max-width: 800px) {
     body {
         padding: 10px;
         min-height: calc(100vh - 20px);
@@ -37,7 +62,7 @@
         min-width: calc(100vw - 20px);
     }
 }
-@media (max-width: 649px) {
+@media (max-width: 650px) {
     body {
         padding: 5px;
         min-height: calc(100vh - 10px);
@@ -49,7 +74,7 @@
     }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
     body {
         text-wrap-mode: normal;
     }
@@ -58,7 +83,7 @@
         word-wrap: break-word;
     }
 }
-@media (max-width: 599px) {
+@media (max-width: 800px) {
     body {
         text-wrap-mode: nowrap;
     }
@@ -66,20 +91,6 @@
         white-space: pre;
         word-wrap: normal;
     }
-}
-
-a {
-    color: var(--blue);
-    text-decoration: underline;
-    cursor: pointer;
-}
-a:hover,
-a:focus {
-    color: var(--light-blue);
-    text-decoration: none;
-}
-a:visited {
-    color: var(--purple);
 }
 
 /********************************* Base Style *********************************/
@@ -101,7 +112,24 @@ body {
     justify-content: center;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: 'Noto Sans Mono', 'Consolas', monospace;
+    font-family: 'Noto Sans Mono', Consolas, monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a {
+    color: var(--blue);
+    text-decoration: underline;
+    cursor: pointer;
+}
+a:hover,
+a:focus {
+    color: var(--light-blue);
+    text-decoration: none;
+}
+a:visited {
+    color: var(--purple);
 }
 
 /******************************* Terminal Style *******************************/
@@ -151,9 +179,11 @@ body {
 }
 
 #command-output {
-    /* placeholder */
     .normal {color: var(--foreground);}
-    .error {color: var(--pink);}
+    .error {
+        color: var(--pink);
+        font-style: italic;
+    }
 }
 
 .echo {
