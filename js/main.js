@@ -49,12 +49,11 @@ function processCommand(commandLine) {
 
     // Store command in history
     if (command.length !== '') {
-        _ = commandHistory.unshift(commandLine);
+        commandHistory.unshift(commandLine);
         // Remove the oldest command if over the max history size
         if (commandHistory.length > MAX_HISTORY_SIZE) {
-            _ = commandHistory.pop();
+            commandHistory.pop();
         }
-        console.log(commandHistory);
         localStorage.setItem('commandHistory', JSON.stringify(commandHistory));
     }
 

@@ -114,5 +114,6 @@ Also hobbyist programmer and AI researcher.
 
 function copyEmail() {
     navigator.clipboard.writeText(emailAddress);
-    displayOutput(`Email address copied to clipboard!`)
+    displayOutput(`Email address copied to clipboard!`);
+    commandInput.focus();
 }
