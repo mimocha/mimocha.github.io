@@ -4,19 +4,19 @@
 
 :root .dark {
     --background: #2B2F3A;
-    --foreground: #D6D6D6;
-    --comment: #797979;
+    --foreground: #FFEADB;
+    --comment: #A18877;
     --green: #BBE958;
-    --blue: #3F9FE8;
-    --light-blue: #8FCFFF;
+    --blue: #0D84D4;
+    --light-blue: #6DBAED;
     --pink: #ED4D90;
-    --orange: #E87D3E;
+    --orange: #EDA26D;
     --yellow: #E5B567;
     --purple: #9E86C8;
 }
 :root .light {
     --background: #FBF9ED;
-    --foreground: #565869;
+    --foreground: #04253B;
     --comment: #9194A2;
     --green: #2DAE58;
     --blue: #0977EC;
@@ -127,9 +127,6 @@ a:hover,
 a:focus {
     color: var(--light-blue);
     text-decoration: none;
-}
-a:visited {
-    color: var(--purple);
 }
 
 /******************************* Terminal Style *******************************/
